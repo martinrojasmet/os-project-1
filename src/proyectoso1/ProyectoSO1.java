@@ -4,6 +4,8 @@
  */
 package proyectoso1;
 
+import Classes.AccessoryEmployee;
+
 /**
  *
  * @author samer
@@ -14,7 +16,11 @@ public class ProyectoSO1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println("prueba");
+        
+        AccessoryEmployee acc = new AccessoryEmployee(true);
+        double text = acc.getSalary();
+        System.out.println(text);
     }
     
 }
