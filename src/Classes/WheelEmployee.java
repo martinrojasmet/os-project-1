@@ -5,6 +5,8 @@
  */
 package Classes;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  *
  * @author marti
@@ -14,9 +16,12 @@ public class WheelEmployee extends Thread{
     private int salary;
     private double daysToDo;
     
+    private PartsWarehouse warehouse;
+    
     private boolean isType1;
     
-    public WheelEmployee(boolean isType1) {
+    public WheelEmployee(boolean isType1, PartsWarehouse warehouse) {
+        this.warehouse = warehouse;
         this.salary = 8;
         if (isType1) {
             this.daysToDo = 0.2;
@@ -36,5 +41,20 @@ public class WheelEmployee extends Thread{
 
     public double getDaysToDo() {
         return daysToDo;
+    }
+    
+    private void takePartToWarehouse() {
+        try {
+            warehouse.getSemaphore().acquire();
+            TimeUnit.SECONDS.sleep(1);
+            
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            
+        } finally {
+            warehouse.getSemaphore().release();
+            
+        }
+    
     }
 }

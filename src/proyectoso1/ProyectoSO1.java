@@ -5,6 +5,8 @@
 package proyectoso1;
 
 import Classes.AccessoryEmployee;
+import Classes.BodyworkEmployee;
+import Classes.PartsWarehouse;
 
 /**
  *
@@ -16,11 +18,14 @@ public class ProyectoSO1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("prueba");
+
+        PartsWarehouse ware = new PartsWarehouse();
+        AccessoryEmployee acc = new AccessoryEmployee(true, ware);
+        BodyworkEmployee bod = new BodyworkEmployee(true, ware);
         
-        AccessoryEmployee acc = new AccessoryEmployee(true);
-        double text = acc.getSalary();
-        System.out.println(text);
+        acc.start();
+        bod.start();
+        
     }
     
 }

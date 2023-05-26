@@ -26,6 +26,8 @@ public class PartsWarehouse {
     private int limitWheels;
     
     private Semaphore semaphore;
+    
+    private int partsForACarTaken;
 
     public PartsWarehouse() {
         this.accessoriesDone = 0;
@@ -39,14 +41,16 @@ public class PartsWarehouse {
         this.limitMotors = 55;
         this.limitWheels = 35;
         this.semaphore = new Semaphore(1);
+        this.partsForACarTaken = 0;
     }
 
     public int getAccessoriesDone() {
         return accessoriesDone;
     }
 
-    public void setAccessoriesDone(int accessoriesDone) {
-        this.accessoriesDone = accessoriesDone;
+    public void addAccessoriesDone(int number) {
+        this.accessoriesDone = getAccessoriesDone() + number;
+        System.out.println(getAccessoriesDone());
     }
 
     public int getBodyworksDone() {
@@ -127,6 +131,14 @@ public class PartsWarehouse {
 
     public void setSemaphore(Semaphore semaphore) {
         this.semaphore = semaphore;
+    }
+
+    public int getPartsForACarTaken() {
+        return partsForACarTaken;
+    }
+
+    public void setPartsForACarTaken(int partsForACarTaken) {
+        this.partsForACarTaken = partsForACarTaken;
     }
     
 }

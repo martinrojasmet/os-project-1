@@ -5,6 +5,8 @@
  */
 package Classes;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  *
  * @author marti
@@ -13,10 +15,13 @@ public class BodyworkEmployee extends Thread{
     
     private int salary;
     private double daysToDo;
+        
+    private PartsWarehouse warehouse;
     
     private boolean isType1;
 
-    public BodyworkEmployee(boolean isType1) {
+    public BodyworkEmployee(boolean isType1, PartsWarehouse warehouse) {
+        this.warehouse = warehouse;
         this.salary = 13;
         if (isType1) {
             this.daysToDo = 4;
@@ -27,7 +32,7 @@ public class BodyworkEmployee extends Thread{
 
     @Override
     public void run() {
-        super.run(); //To change body of generated methods, choose Tools | Templates.
+        takePartToWarehouse();
     }
     
     public int getSalary() {
@@ -38,6 +43,18 @@ public class BodyworkEmployee extends Thread{
         return daysToDo;
     }
     
-    }
-
+    private void takePartToWarehouse() {
+        try {
+            warehouse.getSemaphore().acquire();
+            sleep(500);
+            
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            
+        } finally {
+            warehouse.getSemaphore().release();
+            
+        }
     
+    }
+} 

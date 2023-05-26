@@ -5,6 +5,8 @@
  */
 package Classes;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
  * @author marti
@@ -13,8 +15,11 @@ public class AssemblerEmployee extends Thread {
     
     private int salary;
     private double daysToDo;
+        
+    private Semaphore semaphore;
 
     public AssemblerEmployee() {
+        this.semaphore = semaphore;
         this.salary = 25;
         this.daysToDo = 2;
     }
