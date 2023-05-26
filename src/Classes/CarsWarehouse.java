@@ -20,5 +20,17 @@ public class CarsWarehouse {
         this.carDones = 0;
         this.semaphore = new Semaphore(1);
     }
+
+    public int getCarDones() {
+        return carDones;
+    }
+
+    public void addCarDones(int number) {
+        this.carDones = getCarDones() + number;
+    }
+
+    public Semaphore getSemaphore() {
+        return semaphore;
+    }
     
 }

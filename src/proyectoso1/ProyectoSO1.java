@@ -4,9 +4,8 @@
  */
 package proyectoso1;
 
-import Classes.AccessoryEmployee;
-import Classes.BodyworkEmployee;
 import Classes.PartsWarehouse;
+
 
 /**
  *
@@ -20,11 +19,6 @@ public class ProyectoSO1 {
     public static void main(String[] args) {
 
         PartsWarehouse ware = new PartsWarehouse();
-        AccessoryEmployee acc = new AccessoryEmployee(true, ware);
-        BodyworkEmployee bod = new BodyworkEmployee(true, ware);
-        
-        acc.start();
-        bod.start();
         
     }
     

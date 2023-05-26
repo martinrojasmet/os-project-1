@@ -17,11 +17,7 @@ public class Plant {
     private int costs;
     private int netIncome;
     
-    private AccessoryEmployee[] accEmpList;
-    private AssemblerEmployee[] assEmpList;
-    private BodyworkEmployee[] bodEmpList;
-    private ChasisEmployee[] chaEmpList;
-    private MotorEmployee[] motEmpList;
+    private Employee[] EmpList;
     
     private int maxEmployees;
 
@@ -31,20 +27,12 @@ public class Plant {
         this.costs = 0;
         this.netIncome = 0;
         this.maxEmployees = maxEmployees;
-        this.accEmpList = new AccessoryEmployee[maxEmployees];
-        this.assEmpList = new AssemblerEmployee[maxEmployees];
-        this.bodEmpList = new BodyworkEmployee[maxEmployees];
-        this.chaEmpList = new ChasisEmployee[maxEmployees];
-        this.motEmpList = new MotorEmployee[maxEmployees];
+        this.EmpList = new Employee[maxEmployees];
     }
     
     
     public void start() {
         PartsWarehouse ware = new PartsWarehouse();
-        AccessoryEmployee acc = new AccessoryEmployee(true, ware);
-        BodyworkEmployee bod = new BodyworkEmployee(true, ware);
         
-        acc.start();
-        bod.start();
     }
 }

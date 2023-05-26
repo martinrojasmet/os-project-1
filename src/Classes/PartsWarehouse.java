@@ -50,79 +50,58 @@ public class PartsWarehouse {
 
     public void addAccessoriesDone(int number) {
         this.accessoriesDone = getAccessoriesDone() + number;
-        System.out.println(getAccessoriesDone());
     }
 
     public int getBodyworksDone() {
         return bodyworksDone;
     }
 
-    public void setBodyworksDone(int bodyworksDone) {
-        this.bodyworksDone = bodyworksDone;
+    public void addBodyworksDone(int number) {
+        this.accessoriesDone = getAccessoriesDone() + number;
     }
 
     public int getChasisDone() {
         return chasisDone;
     }
 
-    public void setChasisDone(int chasisDone) {
-        this.chasisDone = chasisDone;
+    public void addChasisDone(int number) {
+        this.accessoriesDone = getAccessoriesDone() + number;
     }
 
     public int getMotorsDone() {
         return motorsDone;
     }
 
-    public void setMotorsDone(int motorsDone) {
-        this.motorsDone = motorsDone;
+    public void addMotorsDone(int number) {
+        this.accessoriesDone = getAccessoriesDone() + number;
     }
 
     public int getWheelsDone() {
         return wheelsDone;
     }
 
-    public void setWheelsDone(int wheelsDone) {
-        this.wheelsDone = wheelsDone;
+    public void addWheelsDone(int number) {
+        this.accessoriesDone = getAccessoriesDone() + number;
     }
 
     public int getLimitAccessories() {
         return limitAccessories;
     }
 
-    public void setLimitAccessories(int limitAccessories) {
-        this.limitAccessories = limitAccessories;
-    }
-
     public int getLimitBodyworks() {
         return limitBodyworks;
-    }
-
-    public void setLimitBodyworks(int limitBodyworks) {
-        this.limitBodyworks = limitBodyworks;
     }
 
     public int getLimitChasis() {
         return limitChasis;
     }
 
-    public void setLimitChasis(int limitChasis) {
-        this.limitChasis = limitChasis;
-    }
-
     public int getLimitMotors() {
         return limitMotors;
     }
 
-    public void setLimitMotors(int limitMotors) {
-        this.limitMotors = limitMotors;
-    }
-
     public int getLimitWheels() {
         return limitWheels;
-    }
-
-    public void setLimitWheels(int limitWheels) {
-        this.limitWheels = limitWheels;
     }
 
     public Semaphore getSemaphore() {
