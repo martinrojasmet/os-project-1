@@ -12,14 +12,13 @@ package Classes;
 public class CarsPlant {
     
     private int dayDuration;
-    
+    private int daysToDeliver;
+    private int totalDays;    
     private int grossIncome;
     private int costs;
     private int netIncome;
-    private int dayCounter;
-    
-    private Employee[] EmpList;
-    
+    private int dayCounter;    
+    private Employee[] EmpList;    
     private int maxEmployees;
 
     public CarsPlant(int dayDuration, int maxEmployees, int dayCounter) {
@@ -30,12 +29,19 @@ public class CarsPlant {
         this.maxEmployees = maxEmployees;
         this.EmpList = new Employee[maxEmployees];
         this.dayCounter = dayCounter;
+        this.daysToDeliver = dayCounter;
+        this.totalDays = 0;
     }
     
     
     public void start() {
         PartsWarehouse ware = new PartsWarehouse();
         
+    }
+    
+    public float getDayDurationInMs() {
+        float dayDurationInMs = this.dayDuration * 1000;
+        return dayDurationInMs;
     }
 
     // Getters and setters
@@ -94,6 +100,14 @@ public class CarsPlant {
 
     public void setDayCounter(int dayCounter) {
         this.dayCounter = dayCounter;
+    }
+
+    public int getDaysToDeliver() {
+        return daysToDeliver;
+    }
+
+    public void setDaysToDeliver(int daysToDeliver) {
+        this.daysToDeliver = daysToDeliver;
     }
       
 }

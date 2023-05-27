@@ -25,17 +25,19 @@ public class OperationsManager extends Thread {
     @Override
     public void run() {
         long sixteenHours = this.getSixteenHoursInMs();
-        long eightHours = this.plant.getDayDuration() - sixteenHours;
+        long eightHours = (long) (this.plant.getDayDurationInMs() - sixteenHours);
+        try {
+            sleep(500);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(OperationsManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
         while(true) {
             try {
-                
-                if (this.plant.getDayCounter() == 0) {
-                    break;
-                } else {
-                    workForSixteenHours();
-                    sleep(eightHours);
-                    changeCounter();
-                }
+              
+                workForSixteenHours();
+                sleep(eightHours);
+                changeCounter();
+                getPayment();
             
             } catch (InterruptedException ex) {
                 Logger.getLogger(OperationsManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -45,13 +47,13 @@ public class OperationsManager extends Thread {
     
     public long getSixteenHoursInMs() {
         int dayInHours = 24;
-        long sixteenHours = (16 * this.plant.getDayDuration())/dayInHours;
+        long sixteenHours = (long) ((16 * this.plant.getDayDurationInMs())/dayInHours);
         return sixteenHours;
     }
     
     public long getThirtyMinutesInMs() {
         int dayInHours = 24;
-        long thirtyMinutes = (long) ((0.5 * this.plant.getDayDuration())/dayInHours);
+        long thirtyMinutes = (long) ((0.5 * this.plant.getDayDurationInMs())/dayInHours);
         return thirtyMinutes;
     }
     
@@ -62,12 +64,6 @@ public class OperationsManager extends Thread {
         
         while(accTime <= sixteenHours) {
             try {
-                if (this.isWorking) {
-                    System.out.println("Trabajando");
-                } else {
-                    System.out.println("Viendo carreras");
-                }
-                
                 sleep(thirtyMinutes);
                 this.setIsWorking(!isWorking);
                 accTime += thirtyMinutes;
@@ -79,8 +75,11 @@ public class OperationsManager extends Thread {
     }
     
     public void changeCounter() {
-        this.plant.setDayCounter(this.plant.getDayCounter() - 1);
-        System.out.println("Cambiando contador - Dias restantes: " + this.plant.getDayCounter());
+        this.plant.setDaysToDeliver(this.plant.getDaysToDeliver()- 1);
+    }
+    
+    public void getPayment() {
+        this.accSalary += this.salary * 24;
     }
 
     // Getters and setters
