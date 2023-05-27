@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Classes;
 
 import java.util.logging.Level;
@@ -15,25 +11,25 @@ public class OperationsManager extends Thread {
     private float salary;
     private float accSalary;
     private boolean isWorking;
-    private long dayDuration;
-    private int dayCounter;
+    private int faults;
+    private CarsPlant plant;
     
-    public OperationsManager(float salary, long dayDuration, int dayCounter) {
+    public OperationsManager(float salary, CarsPlant plant) {
         this.salary = salary;
         this.accSalary = 0;
+        this.faults = 0;
         this.isWorking = true;
-        this.dayDuration = dayDuration;
-        this.dayCounter = dayCounter;
+        this.plant = plant;
     }
     
     @Override
     public void run() {
         long sixteenHours = this.getSixteenHoursInMs();
-        long eightHours = this.dayDuration - sixteenHours;
+        long eightHours = this.plant.getDayDuration() - sixteenHours;
         while(true) {
             try {
                 
-                if (this.dayCounter == 0) {
+                if (this.plant.getDayCounter() == 0) {
                     break;
                 } else {
                     workForSixteenHours();
@@ -49,13 +45,13 @@ public class OperationsManager extends Thread {
     
     public long getSixteenHoursInMs() {
         int dayInHours = 24;
-        long sixteenHours = (16 * this.dayDuration)/dayInHours;
+        long sixteenHours = (16 * this.plant.getDayDuration())/dayInHours;
         return sixteenHours;
     }
     
     public long getThirtyMinutesInMs() {
         int dayInHours = 24;
-        long thirtyMinutes = (long) ((0.5 * this.dayDuration)/dayInHours);
+        long thirtyMinutes = (long) ((0.5 * this.plant.getDayDuration())/dayInHours);
         return thirtyMinutes;
     }
     
@@ -66,15 +62,15 @@ public class OperationsManager extends Thread {
         
         while(accTime <= sixteenHours) {
             try {
-                
-                sleep(thirtyMinutes);
-                this.setIsWorking(!isWorking);
-                accTime += thirtyMinutes;
                 if (this.isWorking) {
                     System.out.println("Trabajando");
                 } else {
                     System.out.println("Viendo carreras");
                 }
+                
+                sleep(thirtyMinutes);
+                this.setIsWorking(!isWorking);
+                accTime += thirtyMinutes;
                 
             } catch (InterruptedException ex) {
                 Logger.getLogger(OperationsManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,8 +79,8 @@ public class OperationsManager extends Thread {
     }
     
     public void changeCounter() {
-        this.setDayCounter(dayCounter - 1);
-        System.out.println("Cambiando contador - Dias restantes: " + this.dayCounter);
+        this.plant.setDayCounter(this.plant.getDayCounter() - 1);
+        System.out.println("Cambiando contador - Dias restantes: " + this.plant.getDayCounter());
     }
 
     // Getters and setters
@@ -105,6 +101,14 @@ public class OperationsManager extends Thread {
         this.accSalary = accSalary;
     }
 
+    public int getFaults() {
+        return faults;
+    }
+
+    public void setFaults(int faults) {
+        this.faults = faults;
+    }
+
     public boolean isIsWorking() {
         return isWorking;
     }
@@ -113,20 +117,12 @@ public class OperationsManager extends Thread {
         this.isWorking = isWorking;
     }
 
-    public long getDayDuration() {
-        return dayDuration;
+    public CarsPlant getPlant() {
+        return plant;
     }
 
-    public void setDayDuration(long dayDuration) {
-        this.dayDuration = dayDuration;
+    public void setPlant(CarsPlant plant) {
+        this.plant = plant;
     }
-
-    public int getDayCounter() {
-        return dayCounter;
-    }
-
-    public void setDayCounter(int dayCounter) {
-        this.dayCounter = dayCounter;
-    }
-    
+   
 }

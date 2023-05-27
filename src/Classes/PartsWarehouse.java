@@ -43,67 +43,109 @@ public class PartsWarehouse {
         this.semaphore = new Semaphore(1);
         this.partsForACarTaken = 0;
     }
+    
+    public void addAccessoriesDone(int number) {
+        this.accessoriesDone = getAccessoriesDone() + number;
+    }
+    
+    public void addBodyworksDone(int number) {
+        this.accessoriesDone = getAccessoriesDone() + number;
+    }
+    
+    public void addChasisDone(int number) {
+        this.accessoriesDone = getAccessoriesDone() + number;
+    }
+    
+    public void addMotorsDone(int number) {
+        this.accessoriesDone = getAccessoriesDone() + number;
+    }
+    
+    public void addWheelsDone(int number) {
+        this.accessoriesDone = getAccessoriesDone() + number;
+    }
+    
+    // Getters and setters
 
     public int getAccessoriesDone() {
         return accessoriesDone;
     }
 
-    public void addAccessoriesDone(int number) {
-        this.accessoriesDone = getAccessoriesDone() + number;
+    public void setAccessoriesDone(int accessoriesDone) {
+        this.accessoriesDone = accessoriesDone;
     }
 
     public int getBodyworksDone() {
         return bodyworksDone;
     }
 
-    public void addBodyworksDone(int number) {
-        this.accessoriesDone = getAccessoriesDone() + number;
+    public void setBodyworksDone(int bodyworksDone) {
+        this.bodyworksDone = bodyworksDone;
     }
 
     public int getChasisDone() {
         return chasisDone;
     }
 
-    public void addChasisDone(int number) {
-        this.accessoriesDone = getAccessoriesDone() + number;
+    public void setChasisDone(int chasisDone) {
+        this.chasisDone = chasisDone;
     }
 
     public int getMotorsDone() {
         return motorsDone;
     }
 
-    public void addMotorsDone(int number) {
-        this.accessoriesDone = getAccessoriesDone() + number;
+    public void setMotorsDone(int motorsDone) {
+        this.motorsDone = motorsDone;
     }
 
     public int getWheelsDone() {
         return wheelsDone;
     }
 
-    public void addWheelsDone(int number) {
-        this.accessoriesDone = getAccessoriesDone() + number;
+    public void setWheelsDone(int wheelsDone) {
+        this.wheelsDone = wheelsDone;
     }
 
     public int getLimitAccessories() {
         return limitAccessories;
     }
 
+    public void setLimitAccessories(int limitAccessories) {
+        this.limitAccessories = limitAccessories;
+    }
+
     public int getLimitBodyworks() {
         return limitBodyworks;
+    }
+
+    public void setLimitBodyworks(int limitBodyworks) {
+        this.limitBodyworks = limitBodyworks;
     }
 
     public int getLimitChasis() {
         return limitChasis;
     }
 
+    public void setLimitChasis(int limitChasis) {
+        this.limitChasis = limitChasis;
+    }
+
     public int getLimitMotors() {
         return limitMotors;
+    }
+
+    public void setLimitMotors(int limitMotors) {
+        this.limitMotors = limitMotors;
     }
 
     public int getLimitWheels() {
         return limitWheels;
     }
 
+    public void setLimitWheels(int limitWheels) {
+        this.limitWheels = limitWheels;
+    }
+    
     public Semaphore getSemaphore() {
         return semaphore;
     }
