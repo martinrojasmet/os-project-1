@@ -5,6 +5,7 @@
 package proyectoso1;
 
 import Classes.PartsWarehouse;
+import Classes.OperationsManager;
 
 
 /**
@@ -19,6 +20,8 @@ public class ProyectoSO1 {
     public static void main(String[] args) {
 
         PartsWarehouse ware = new PartsWarehouse();
+        OperationsManager manager = new OperationsManager(10, 2000, 10);
+        manager.start();
         
     }
     
