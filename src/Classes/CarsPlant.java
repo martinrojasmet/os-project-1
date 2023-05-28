@@ -109,5 +109,13 @@ public class CarsPlant {
     public void setDaysToDeliver(int daysToDeliver) {
         this.daysToDeliver = daysToDeliver;
     }
+
+    public int getTotalDays() {
+        return totalDays;
+    }
+
+    public void setTotalDays(int totalDays) {
+        this.totalDays = totalDays;
+    }
       
 }

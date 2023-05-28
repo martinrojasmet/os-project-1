@@ -25,8 +25,7 @@ public class PartsWarehouse {
     private int limitMotors;
     private int limitWheels;
     
-    private Semaphore semaphore;
-    
+    private Semaphore mutex;
     private int partsForACarTaken;
 
     public PartsWarehouse() {
@@ -40,28 +39,54 @@ public class PartsWarehouse {
         this.limitChasis = 25;
         this.limitMotors = 55;
         this.limitWheels = 35;
-        this.semaphore = new Semaphore(1);
+        this.mutex = new Semaphore(1);
         this.partsForACarTaken = 0;
     }
     
+    public void updateStorage(String type, int qtyParts) {
+        if (type.equals(EmployeeTypes.chasisEmployee)) {
+            this.addAccessoriesDone(qtyParts);
+        } else if (type.equals(EmployeeTypes.bodyworkEmployee)) {
+            this.addBodyworksDone(qtyParts);
+        } else if (type.equals(EmployeeTypes.motorEmployee)) {
+            this.addMotorsDone(qtyParts);
+        } else if (type.equals(EmployeeTypes.wheelEmployee)) {
+            this.addWheelsDone(qtyParts);
+        } else if (type.equals(EmployeeTypes.accesoryEmployee)) {
+            this.addAccessoriesDone(qtyParts);
+        }
+    }
+    
+    // Functions to add parts to the warehouse
+    
     public void addAccessoriesDone(int number) {
-        this.accessoriesDone = getAccessoriesDone() + number;
+        if (this.accessoriesDone <= this.limitAccessories) {
+            this.accessoriesDone += number;
+        }
     }
     
     public void addBodyworksDone(int number) {
-        this.accessoriesDone = getAccessoriesDone() + number;
+        if (this.bodyworksDone <= this.limitBodyworks) {  
+            this.bodyworksDone += number;
+        }
     }
     
     public void addChasisDone(int number) {
-        this.accessoriesDone = getAccessoriesDone() + number;
+        if (this.chasisDone <= this.limitChasis) {
+            this.chasisDone += number;
+        }
     }
     
     public void addMotorsDone(int number) {
-        this.accessoriesDone = getAccessoriesDone() + number;
+        if (this.motorsDone <= this.limitMotors) {  
+            this.motorsDone += number;
+        }
     }
     
     public void addWheelsDone(int number) {
-        this.accessoriesDone = getAccessoriesDone() + number;
+        if (this.wheelsDone <= this.limitWheels) {  
+            this.wheelsDone += number;
+        }
     }
     
     // Getters and setters
@@ -147,11 +172,11 @@ public class PartsWarehouse {
     }
     
     public Semaphore getSemaphore() {
-        return semaphore;
+        return mutex;
     }
 
-    public void setSemaphore(Semaphore semaphore) {
-        this.semaphore = semaphore;
+    public void setSemaphore(Semaphore mutex) {
+        this.mutex = mutex;
     }
 
     public int getPartsForACarTaken() {

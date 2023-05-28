@@ -14,122 +14,86 @@ import java.util.logging.Logger;
  */
 public class Employee extends Thread {
     
-    private int salary;
-    private float daysToDo;
-    private int durationDay;
-    private int production;
+    private float salary;
+    private long durationDay;
+    private float productionPerDay;
     private PartsWarehouse partsWarehouse;
-    private CarsWarehouse carsWarehouse;
     private String type;
+    private float accSalary;
+    private float productionCounter;
 
-    public Employee(String type, PartsWarehouse partsWarehouse, CarsWarehouse carsWarehouse, int secondsForDay) {
+    public Employee(float salary, String type, long durationDay, float production, PartsWarehouse partsWarehouse) {
         this.partsWarehouse = partsWarehouse;
-        this.carsWarehouse = carsWarehouse;
-        this.durationDay = secondsForDay;
-        this.production = 0;
+        this.durationDay = durationDay;
+        this.productionPerDay = production;
         this.type = type;
-        if (this.type.equals(EmployeeTypes.accesoryEmployee)) {
-            this.salary = 17;
-            this.daysToDo = 2;
-        } else if (this.type.equals(EmployeeTypes.assemblerEmployee)) {
-            this.salary = 25;
-            this.daysToDo = 2;
-        } else if (this.type.equals(EmployeeTypes.bodyworkEmployee)) {
-            this.salary = 13;
-            this.daysToDo = 4;
-        } else if (this.type.equals(EmployeeTypes.chasisEmployee)) {
-            this.salary = 10;
-            this.daysToDo = 4;
-        } else if (this.type.equals(EmployeeTypes.motorEmployee)) {
-            this.salary = 20;
-            this.daysToDo = 1;
-        } else if (this.type.equals(EmployeeTypes.wheelEmployee)) {
-            this.salary = 8;
-            this.daysToDo = 0.2f;
-        }
+        this.accSalary = 0;
+        this.productionCounter = 0;
+        this.salary = salary;
     }
 
     @Override
     public void run() {
-        try {
-            long sleepDuration = (long) (getDurationDay() * getDaysToDo());
-            sleep(sleepDuration); //trabajo
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if (getProduction() >= 1) {
-            takePartToWarehouse();
+        while(true) {
+            try {
+
+                productionOfDay();
+                getPayment();
+                sleep(this.durationDay);
+                
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }    
+    }
+    
+    public void productionOfDay() {
+        this.productionCounter += this.productionPerDay;
+        
+        if (this.productionCounter >= 1) {
+            try {
+                
+                this.partsWarehouse.getSemaphore().acquire();
+                this.partsWarehouse.updateStorage(this.type, (int) this.productionCounter);
+                this.partsWarehouse.getSemaphore().release();
+                this.productionCounter = 0;
+                
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     
-    private void goToWarehouse() {
-        if (getType().equals(EmployeeTypes.accesoryEmployee)) {
-            getPartsWarehouse().addAccessoriesDone(1);
-        } else if (getType().equals(EmployeeTypes.assemblerEmployee)) {
-            getCarsWarehouse().addCarDones(1);
-        } else if (getType().equals(EmployeeTypes.bodyworkEmployee)) {
-            getPartsWarehouse().addBodyworksDone(1);
-        } else if (getType().equals(EmployeeTypes.chasisEmployee)) {
-            getPartsWarehouse().addChasisDone(1);
-        } else if (getType().equals(EmployeeTypes.motorEmployee)) {
-            getPartsWarehouse().addMotorsDone(1);
-        } else if (getType().equals(EmployeeTypes.wheelEmployee)) {
-            getPartsWarehouse().addWheelsDone(1);
-        }
-    }
-    
-    
-    private void takePartToWarehouse() {
-        try {
-            getPartsWarehouse().getSemaphore().acquire();
-            goToWarehouse();
-            
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            
-        } finally {
-            getPartsWarehouse().getSemaphore().release();
-        }
-    }
-    
-    public void addProduction(int number) {
-        this.production = getProduction() + number;
+    public void getPayment() {
+        this.accSalary += this.salary * 24;
     }
     
     // Getters and setters
-    
-    public int getSalary() {
+
+    public float getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(float salary) {
         this.salary = salary;
     }
 
-    public float getDaysToDo() {
-        return daysToDo;
-    }
-
-    public void setDaysToDo(float daysToDo) {
-        this.daysToDo = daysToDo;
-    }
-
-    public int getDurationDay() {
+    public long getDurationDay() {
         return durationDay;
     }
 
-    public void setDurationDay(int durationDay) {
+    public void setDurationDay(long durationDay) {
         this.durationDay = durationDay;
     }
 
-    public int getProduction() {
-        return production;
+    public float getProductionPerDay() {
+        return productionPerDay;
     }
 
-    public void setProduction(int production) {
-        this.production = production;
+    public void setProductionPerDay(float productionPerDay) {
+        this.productionPerDay = productionPerDay;
     }
-
+    
     public PartsWarehouse getPartsWarehouse() {
         return partsWarehouse;
     }
@@ -138,20 +102,28 @@ public class Employee extends Thread {
         this.partsWarehouse = partsWarehouse;
     }
 
-    public CarsWarehouse getCarsWarehouse() {
-        return carsWarehouse;
-    }
-
-    public void setCarsWarehouse(CarsWarehouse carsWarehouse) {
-        this.carsWarehouse = carsWarehouse;
-    }
-
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public float getAccSalary() {
+        return accSalary;
+    }
+
+    public void setAccSalary(float accSalary) {
+        this.accSalary = accSalary;
+    }
+
+    public float getProductionCounter() {
+        return productionCounter;
+    }
+
+    public void setProductionCounter(float productionCounter) {
+        this.productionCounter = productionCounter;
     }
     
 }
