@@ -21,8 +21,8 @@ public class CarsWarehouse {
         this.semaphore = new Semaphore(1);
     }
     
-    public void addCarDones(int number) {
-        this.carDones = getCarDones() + number;
+    public void updateStorage(int number) {
+        this.carDones += number;
     }
     
     // Getters and setters

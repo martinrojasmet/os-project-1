@@ -26,9 +26,11 @@ public class PartsWarehouse {
     private int limitWheels;
     
     private Semaphore mutex;
-    private int partsForACarTaken;
+    private int carsUntilAccessories;
+    private int originalCarsUntilAccessories;
+    private boolean isBugatti;
 
-    public PartsWarehouse() {
+    public PartsWarehouse(boolean isBugatti) {
         this.accessoriesDone = 0;
         this.bodyworksDone = 0;
         this.chasisDone = 0;
@@ -40,12 +42,18 @@ public class PartsWarehouse {
         this.limitMotors = 55;
         this.limitWheels = 35;
         this.mutex = new Semaphore(1);
-        this.partsForACarTaken = 0;
+        if (isBugatti) {
+            this.originalCarsUntilAccessories = 5;
+            this.carsUntilAccessories = 5;
+        } else {
+            this.originalCarsUntilAccessories = 2;
+            this.carsUntilAccessories = 2;
+        }
     }
     
     public void updateStorage(String type, int qtyParts) {
         if (type.equals(EmployeeTypes.chasisEmployee)) {
-            this.addAccessoriesDone(qtyParts);
+            this.addChasisDone(qtyParts);
         } else if (type.equals(EmployeeTypes.bodyworkEmployee)) {
             this.addBodyworksDone(qtyParts);
         } else if (type.equals(EmployeeTypes.motorEmployee)) {
@@ -61,31 +69,51 @@ public class PartsWarehouse {
     
     public void addAccessoriesDone(int number) {
         if (this.accessoriesDone <= this.limitAccessories) {
-            this.accessoriesDone += number;
+            if (this.accessoriesDone + number <= this.limitAccessories) {
+                this.accessoriesDone += number;
+            } else {
+                this.accessoriesDone = limitAccessories;
+            }
         }
     }
     
     public void addBodyworksDone(int number) {
         if (this.bodyworksDone <= this.limitBodyworks) {  
-            this.bodyworksDone += number;
+            if (this.bodyworksDone + number <= this.limitBodyworks) {
+                this.bodyworksDone += number;
+            } else {
+                this.bodyworksDone = limitBodyworks;
+            }
         }
     }
     
     public void addChasisDone(int number) {
         if (this.chasisDone <= this.limitChasis) {
-            this.chasisDone += number;
+            if (this.chasisDone + number <= this.limitChasis) {
+                this.chasisDone += number;
+            } else {
+                this.chasisDone = limitChasis;
+            }
         }
     }
     
     public void addMotorsDone(int number) {
         if (this.motorsDone <= this.limitMotors) {  
-            this.motorsDone += number;
+            if (this.motorsDone + number <= this.limitMotors) {
+                this.motorsDone += number;
+            } else {
+                this.motorsDone = limitMotors;
+            }
         }
     }
     
     public void addWheelsDone(int number) {
         if (this.wheelsDone <= this.limitWheels) {  
-            this.wheelsDone += number;
+            if (this.wheelsDone + number <= this.limitWheels) {
+                this.wheelsDone += number;
+            } else {
+                this.wheelsDone = limitWheels;
+            }
         }
     }
     
@@ -180,11 +208,27 @@ public class PartsWarehouse {
     }
 
     public int getPartsForACarTaken() {
-        return partsForACarTaken;
+        return carsUntilAccessories;
     }
 
     public void setPartsForACarTaken(int partsForACarTaken) {
-        this.partsForACarTaken = partsForACarTaken;
+        this.carsUntilAccessories = partsForACarTaken;
+    }
+
+    public int getCarsUntilAccessories() {
+        return carsUntilAccessories;
+    }
+
+    public void setCarsUntilAccessories(int carsUntilAccessories) {
+        this.carsUntilAccessories = carsUntilAccessories;
+    }
+
+    public int getOriginalCarsUntilAccessories() {
+        return originalCarsUntilAccessories;
+    }
+
+    public void setOriginalCarsUntilAccessories(int originalCarsUntilAccessories) {
+        this.originalCarsUntilAccessories = originalCarsUntilAccessories;
     }
     
 }

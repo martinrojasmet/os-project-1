@@ -14,6 +14,7 @@ public class PlantDirector extends Thread {
     private CarsPlant plant;
     private OperationsManager manager;
     private boolean checkingManager;
+    private boolean keepGoing;
     
     public PlantDirector(float salary, OperationsManager manager, CarsPlant plant) {
         this.salary = salary;
@@ -21,18 +22,14 @@ public class PlantDirector extends Thread {
         this.plant = plant;
         this.manager = manager;
         this.checkingManager = false;
+        this.keepGoing = true;
     }
     
     @Override
     public void run() {
         long randomHour;
         long twentyFiveMinutes = this.getTwentyFiveMinutesInMs();
-        try {
-            sleep(500);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(OperationsManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        while(true) {
+        while(this.keepGoing) {
             try {
                 
                 if (this.plant.getDaysToDeliver() == 0) {
@@ -41,9 +38,16 @@ public class PlantDirector extends Thread {
                 } else {
                     randomHour = this.getRandomHourInMs();
                     sleep(randomHour);
-                    checkManager();
-                    sleep(twentyFiveMinutes);
-                    this.setCheckingManager(!this.checkingManager);
+                    
+                    //Aqui se corre el checkManager() cada min de los 25min para (No se si al ponerlo en la funcion checkManager falle asiq ue lo deje aca)
+                    this.setCheckingManager(true);
+                    long startTime = System.currentTimeMillis();
+                    while (System.currentTimeMillis() - startTime < twentyFiveMinutes) {
+                        checkManager();
+                        sleep(twentyFiveMinutes/25);
+                    }
+                    this.setCheckingManager(false);
+                    
                     long remainingDay = (long) (this.plant.getDayDurationInMs() - (randomHour + twentyFiveMinutes));
                     sleep(remainingDay);
                 }
@@ -57,14 +61,17 @@ public class PlantDirector extends Thread {
     }
     
     public void getPayment() {
-        this.accSalary += this.salary;
+        this.accSalary += this.salary * 24;
+        this.plant.setCosts(this.plant.getCosts() + (this.salary * 24)); //Hay que revisar
     }
     
     public void checkManager() {
-        this.setCheckingManager(!this.checkingManager);
-        if (!this.manager.isIsWorking()) {
-            this.manager.setAccSalary(this.manager.getAccSalary() - 50);
-            this.manager.setFaults(this.manager.getFaults() + 1);
+        if (checkingManager) {
+            if (!this.manager.isIsWorking()) {
+                this.setCheckingManager(false);
+                this.manager.setAccSalary(this.manager.getAccSalary() - 50);
+                this.manager.setFaults(this.manager.getFaults() + 1);
+            }
         }
     }
     
@@ -83,6 +90,10 @@ public class PlantDirector extends Thread {
         int dayInMinutes = 1440;
         long twentyFiveMinutes = (long) ((25 * this.plant.getDayDurationInMs())/dayInMinutes);
         return twentyFiveMinutes;
+    }
+    
+    public void stopRunning() {
+        this.keepGoing = false;
     }
     
     // Getters and setters

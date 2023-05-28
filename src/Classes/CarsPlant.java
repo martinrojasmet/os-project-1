@@ -15,27 +15,44 @@ public class CarsPlant {
     private int daysToDeliver;
     private int totalDays;    
     private int grossIncome;
-    private int costs;
+    private float costs;
     private int netIncome;
     private int dayCounter;    
     private Employee[] EmpList;    
     private int maxEmployees;
+    private CarsWarehouse carsWarehouse;
+    private PartsWarehouse partsWarehouse;
+    private boolean isBugatti;
+    private int carPrice;
+    private int carAccessoriesPrice;
 
-    public CarsPlant(int dayDuration, int maxEmployees, int dayCounter) {
+    public CarsPlant(int dayDuration, int maxEmployees, int dayCounter, boolean isBugatti) {
         this.dayDuration = dayDuration;
         this.grossIncome = 0;
         this.costs = 0;
         this.netIncome = 0;
         this.maxEmployees = maxEmployees;
         this.EmpList = new Employee[maxEmployees];
+        
         this.dayCounter = dayCounter;
         this.daysToDeliver = dayCounter;
         this.totalDays = 0;
+        this.carsWarehouse = new CarsWarehouse();
+        this.partsWarehouse = new PartsWarehouse(isBugatti);
+        this.isBugatti = isBugatti;
+        
+        if (isBugatti) {
+            this.carPrice = 550000;
+            this.carAccessoriesPrice = 600000;
+            
+        } else {
+            this.carPrice = 350000;
+            this.carAccessoriesPrice = 700000;
+        }
     }
     
     
     public void start() {
-        PartsWarehouse ware = new PartsWarehouse();
         
     }
     
@@ -62,11 +79,11 @@ public class CarsPlant {
         this.grossIncome = grossIncome;
     }
 
-    public int getCosts() {
+    public float getCosts() {
         return costs;
     }
 
-    public void setCosts(int costs) {
+    public void setCosts(float costs) {
         this.costs = costs;
     }
 
@@ -117,5 +134,24 @@ public class CarsPlant {
     public void setTotalDays(int totalDays) {
         this.totalDays = totalDays;
     }
-      
+
+    public boolean isIsBugatti() {
+        return isBugatti;
+    }
+
+    public int getCarPrice() {
+        return carPrice;
+    }
+
+    public void setCarPrice(int carPrice) {
+        this.carPrice = carPrice;
+    }
+
+    public int getCarAccessoriesPrice() {
+        return carAccessoriesPrice;
+    }
+
+    public void setCarAccessoriesPrice(int carAccessoriesPrice) {
+        this.carAccessoriesPrice = carAccessoriesPrice;
+    }
 }

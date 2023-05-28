@@ -13,6 +13,7 @@ public class OperationsManager extends Thread {
     private boolean isWorking;
     private int faults;
     private CarsPlant plant;
+    private boolean keepGoing;
     
     public OperationsManager(float salary, CarsPlant plant) {
         this.salary = salary;
@@ -20,18 +21,14 @@ public class OperationsManager extends Thread {
         this.faults = 0;
         this.isWorking = true;
         this.plant = plant;
+        this.keepGoing = true;
     }
     
     @Override
     public void run() {
         long sixteenHours = this.getSixteenHoursInMs();
         long eightHours = (long) (this.plant.getDayDurationInMs() - sixteenHours);
-        try {
-            sleep(500);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(OperationsManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        while(true) {
+        while(this.keepGoing) {
             try {
               
                 workForSixteenHours();
@@ -65,7 +62,7 @@ public class OperationsManager extends Thread {
         while(accTime <= sixteenHours) {
             try {
                 sleep(thirtyMinutes);
-                this.setIsWorking(!isWorking);
+                this.setIsWorking(!this.isWorking);
                 accTime += thirtyMinutes;
                 
             } catch (InterruptedException ex) {
@@ -80,6 +77,11 @@ public class OperationsManager extends Thread {
     
     public void getPayment() {
         this.accSalary += this.salary * 24;
+        this.plant.setCosts(this.plant.getCosts() + (this.salary * 24)); //Hay que revisar
+    }
+ 
+    public void stopRunning() {
+        this.keepGoing = false;
     }
 
     // Getters and setters
@@ -123,5 +125,13 @@ public class OperationsManager extends Thread {
     public void setPlant(CarsPlant plant) {
         this.plant = plant;
     }
-   
+
+    public boolean isKeepGoing() {
+        return keepGoing;
+    }
+
+    public void setKeepGoing(boolean keepGoing) {
+        this.keepGoing = keepGoing;
+    }
+    
 }
