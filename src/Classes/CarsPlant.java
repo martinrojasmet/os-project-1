@@ -22,37 +22,28 @@ public class CarsPlant {
     private int maxEmployees;
     private CarsWarehouse carsWarehouse;
     private PartsWarehouse partsWarehouse;
-    private boolean isBugatti;
-    private int carPrice;
-    private int carAccessoriesPrice;
+    private StandardVehicle standardVehicle;
+    private AccessoryVehicle accessoryVehicle;
+    private int carsUntilAccessories;
 
-    public CarsPlant(int dayDuration, int maxEmployees, int dayCounter, boolean isBugatti) {
-        this.dayDuration = dayDuration;
+    public CarsPlant(int dayDuration, int maxEmployees, int dayCounter, int carsUntilAccessories, StandardVehicle standardVehicle, AccessoryVehicle accessoryVehicle) {
         this.grossIncome = 0;
         this.costs = 0;
         this.netIncome = 0;
-        this.maxEmployees = maxEmployees;
-        this.EmpList = new Employee[maxEmployees];
+        this.totalDays = 0;
         
+        this.dayDuration = dayDuration;
+        this.maxEmployees = maxEmployees;       
         this.dayCounter = dayCounter;
         this.daysToDeliver = dayCounter;
-        this.totalDays = 0;
-        this.carsWarehouse = new CarsWarehouse();
-        this.partsWarehouse = new PartsWarehouse(isBugatti);
-        this.isBugatti = isBugatti;
+        this.carsUntilAccessories = carsUntilAccessories;
         
-        if (isBugatti) {
-            this.carPrice = 550000;
-            this.carAccessoriesPrice = 600000;
-            
-        } else {
-            this.carPrice = 350000;
-            this.carAccessoriesPrice = 700000;
-        }
+        this.EmpList = new Employee[maxEmployees];
+        this.carsWarehouse = new CarsWarehouse();
+        this.partsWarehouse = new PartsWarehouse(this.carsUntilAccessories);       
     }
     
-    
-    public void start() {
+    public void initializeWorkers() {
         
     }
     
@@ -135,23 +126,36 @@ public class CarsPlant {
         this.totalDays = totalDays;
     }
 
-    public boolean isIsBugatti() {
-        return isBugatti;
+    public CarsWarehouse getCarsWarehouse() {
+        return carsWarehouse;
     }
 
-    public int getCarPrice() {
-        return carPrice;
+    public void setCarsWarehouse(CarsWarehouse carsWarehouse) {
+        this.carsWarehouse = carsWarehouse;
     }
 
-    public void setCarPrice(int carPrice) {
-        this.carPrice = carPrice;
+    public PartsWarehouse getPartsWarehouse() {
+        return partsWarehouse;
     }
 
-    public int getCarAccessoriesPrice() {
-        return carAccessoriesPrice;
+    public void setPartsWarehouse(PartsWarehouse partsWarehouse) {
+        this.partsWarehouse = partsWarehouse;
     }
 
-    public void setCarAccessoriesPrice(int carAccessoriesPrice) {
-        this.carAccessoriesPrice = carAccessoriesPrice;
+    public StandardVehicle getStandardVehicle() {
+        return standardVehicle;
     }
+
+    public void setStandardVehicle(StandardVehicle standardVehicle) {
+        this.standardVehicle = standardVehicle;
+    }
+
+    public AccessoryVehicle getAccessoryVehicle() {
+        return accessoryVehicle;
+    }
+
+    public void setAccessoryVehicle(AccessoryVehicle accessoryVehicle) {
+        this.accessoryVehicle = accessoryVehicle;
+    }
+    
 }

@@ -24,16 +24,10 @@ public class Employee extends Thread {
     private float productionCounter;
     private boolean keepGoing;
     private CarsPlant plant;
-    
-    private int qttyAccessories;
-    private int qttyChasis;
-    private int qttyMotors;
-    private int qttyWheels;
-    private int qttyBodyworks;
 
-    public Employee(float salary, String type, float production, PartsWarehouse partsWarehouse, CarsWarehouse carsWarehouse, CarsPlant plant) {
-        this.partsWarehouse = partsWarehouse;
-        this.carsWarehouse = carsWarehouse;
+    public Employee(float salary, String type, float production, CarsPlant plant) {
+        this.partsWarehouse = plant.getPartsWarehouse();
+        this.carsWarehouse = plant.getCarsWarehouse();
         this.productionPerDay = production;
         this.type = type;
         this.accSalary = 0;
@@ -42,30 +36,21 @@ public class Employee extends Thread {
         this.keepGoing = true;
         this.plant = plant;
         this.durationDay = plant.getDayDuration();
-        
-        if (plant.isIsBugatti()) {
-            this.qttyAccessories = 2;
-            this.qttyBodyworks = 2;
-            this.qttyChasis = 1;
-            this.qttyMotors = 4;
-            this.qttyWheels = 4;
-        } else {
-            this.qttyAccessories = 3;
-            this.qttyBodyworks = 1;
-            this.qttyChasis = 1;
-            this.qttyMotors = 2;
-            this.qttyWheels = 4;
-        }
     }
 
     @Override
     public void run() {
         while(this.keepGoing) {
             try {
-                sleep(this.durationDay);
-                productionOfDay();
-                getPayment();
                 
+                if (this.type.equals(EmployeeTypes.accesoryEmployee)) {
+                    assembleCar();
+                } else {
+                    sleep(this.durationDay);
+                    productionOfDay();
+                    getPayment();
+                }
+                             
             } catch (InterruptedException ex) {
                 Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -75,78 +60,63 @@ public class Employee extends Thread {
     public void productionOfDay() {
         this.productionCounter += this.productionPerDay;
         
-        if (this.type.equals(EmployeeTypes.assemblerEmployee)) {
-            this.assembleCar();
-        } else {
-            if (this.productionCounter >= 1) {
-                try {
-                    this.partsWarehouse.getSemaphore().acquire();
-                    this.partsWarehouse.updateStorage(this.type, (int) this.productionCounter);
-                    this.partsWarehouse.getSemaphore().release();
-                    this.productionCounter = 0;
+        if (this.productionCounter >= 1) {
+            try {
+                this.partsWarehouse.getSemaphore().acquire();
+                this.partsWarehouse.updateStorage(this.type, (int) this.productionCounter);
+                this.partsWarehouse.getSemaphore().release();
+                this.productionCounter = 0;
 
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }  
-        }
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }     
     }
     
     public void assembleCar() {
         boolean carWithAccessories = false;
         boolean hasAccessoriesAvailable = true;
+        
         if (this.partsWarehouse.getCarsUntilAccessories() == 0) {
             carWithAccessories = true;
         }
         
-        if ((this.partsWarehouse.getBodyworksDone() >= this.qttyBodyworks)
-             && (this.partsWarehouse.getChasisDone() >= this.qttyChasis)
-             && (this.partsWarehouse.getMotorsDone() >= this.qttyMotors)
-             && (this.partsWarehouse.getWheelsDone() >= this.qttyWheels)) {
+        if ((this.partsWarehouse.getBodyworksDone() >= this.plant.getStandardVehicle().getQtyBodyworkToProduce())
+             && (this.partsWarehouse.getChasisDone() >= this.plant.getStandardVehicle().getQtyChasisToProduce())
+             && (this.partsWarehouse.getMotorsDone() >= this.plant.getStandardVehicle().getQtyMotorToProduce())
+             && (this.partsWarehouse.getWheelsDone() >= this.plant.getStandardVehicle().getQtyWheelToProduce())) {
             
-            if (this.partsWarehouse.getAccessoriesDone() < this.qttyAccessories) {
+            if (this.partsWarehouse.getAccessoriesDone() < this.plant.getAccessoryVehicle().getQtyAccessoryToProduce()) {
                 hasAccessoriesAvailable = false;
             }
             
-            if (!carWithAccessories) {
-                try {
-                    this.partsWarehouse.getSemaphore().acquire();
-                    this.partsWarehouse.setBodyworksDone((this.partsWarehouse.getBodyworksDone() - this.qttyBodyworks));
-                    this.partsWarehouse.setChasisDone((this.partsWarehouse.getChasisDone() - this.qttyChasis));
-                    this.partsWarehouse.setMotorsDone((this.partsWarehouse.getMotorsDone() - this.qttyMotors));
-                    this.partsWarehouse.setWheelsDone((this.partsWarehouse.getWheelsDone() - this.qttyWheels));
-                    this.partsWarehouse.setCarsUntilAccessories(this.partsWarehouse.getCarsUntilAccessories()- 1);
-                    this.partsWarehouse.getSemaphore().release();
-                    
-                    sleep(this.durationDay * 2);
-                    
-                    this.carsWarehouse.getSemaphore().acquire();
-                    this.carsWarehouse.updateStorage((int) this.productionCounter);
-                    this.carsWarehouse.getSemaphore().release();
-
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
-                } 
-            } else if (hasAccessoriesAvailable) {
-                try {
-                    this.partsWarehouse.getSemaphore().acquire();
-                    this.partsWarehouse.setAccessoriesDone((this.partsWarehouse.getAccessoriesDone() - this.qttyAccessories));
-                    this.partsWarehouse.setBodyworksDone((this.partsWarehouse.getBodyworksDone() - this.qttyBodyworks));
-                    this.partsWarehouse.setChasisDone((this.partsWarehouse.getChasisDone() - this.qttyChasis));
-                    this.partsWarehouse.setMotorsDone((this.partsWarehouse.getMotorsDone() - this.qttyMotors));
-                    this.partsWarehouse.setWheelsDone((this.partsWarehouse.getWheelsDone() - this.qttyWheels));
+            try {
+                // Se accede al almacen para tomar las partes necesarias para ensamblar un carro
+                this.partsWarehouse.getSemaphore().acquire();
+                this.partsWarehouse.setBodyworksDone((this.partsWarehouse.getBodyworksDone() - this.plant.getStandardVehicle().getQtyBodyworkToProduce()));
+                this.partsWarehouse.setChasisDone((this.partsWarehouse.getChasisDone() - this.plant.getStandardVehicle().getQtyChasisToProduce()));
+                this.partsWarehouse.setMotorsDone((this.partsWarehouse.getMotorsDone() - this.plant.getStandardVehicle().getQtyMotorToProduce()));
+                this.partsWarehouse.setWheelsDone((this.partsWarehouse.getWheelsDone() - this.plant.getStandardVehicle().getQtyWheelToProduce()));
+                if (!carWithAccessories) {
+                    this.partsWarehouse.setCarsUntilAccessories(this.partsWarehouse.getCarsUntilAccessories() - 1);
+                } else if (carWithAccessories && hasAccessoriesAvailable) {
+                    this.partsWarehouse.setAccessoriesDone((this.partsWarehouse.getAccessoriesDone() - this.plant.getAccessoryVehicle().getQtyAccessoryToProduce()));
                     this.partsWarehouse.setCarsUntilAccessories(this.partsWarehouse.getOriginalCarsUntilAccessories());
-                    this.partsWarehouse.getSemaphore().release();
-                    
-                    sleep(this.durationDay * 2);
-                    
-                    this.carsWarehouse.getSemaphore().acquire();
-                    this.carsWarehouse.updateStorage((int) this.productionCounter);
-                    this.carsWarehouse.getSemaphore().release();
+                }
+                this.partsWarehouse.getSemaphore().release();
 
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
-                } 
+                sleep(this.durationDay * 2);
+                // Se pagan 2 días
+                getPayment();
+                getPayment();
+                
+                // Se accede al almacen de carros para almacenar el vehículo ya terminado
+                this.carsWarehouse.getSemaphore().acquire();
+                this.carsWarehouse.updateStorage((int) this.productionCounter);
+                this.carsWarehouse.getSemaphore().release();
+
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

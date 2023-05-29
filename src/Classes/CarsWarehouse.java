@@ -13,26 +13,38 @@ import java.util.concurrent.Semaphore;
  */
 public class CarsWarehouse {
     
-    private int carDones;
+    private int standardCarsDone;
+    private int accessoryCarsDone;
     private Semaphore semaphore;
 
     public CarsWarehouse() {
-        this.carDones = 0;
+        this.standardCarsDone = 0;
+        this.accessoryCarsDone = 0;
         this.semaphore = new Semaphore(1);
     }
+
+    
     
     public void updateStorage(int number) {
-        this.carDones += number;
+        this.standardCarsDone += number;
     }
     
     // Getters and setters
 
-    public int getCarDones() {
-        return carDones;
+    public int getStandardCarsDone() {
+        return standardCarsDone;
     }
 
-    public void setCarDones(int carDones) {
-        this.carDones = carDones;
+    public void setStandardCarsDone(int standardCarsDone) {
+        this.standardCarsDone = standardCarsDone;
+    }
+
+    public int getAccessoryCarsDone() {
+        return accessoryCarsDone;
+    }
+
+    public void setAccessoryCarsDone(int accessoryCarsDone) {
+        this.accessoryCarsDone = accessoryCarsDone;
     }
 
     public Semaphore getSemaphore() {

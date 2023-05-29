@@ -28,9 +28,8 @@ public class PartsWarehouse {
     private Semaphore mutex;
     private int carsUntilAccessories;
     private int originalCarsUntilAccessories;
-    private boolean isBugatti;
 
-    public PartsWarehouse(boolean isBugatti) {
+    public PartsWarehouse(int carsUntilAccessories) {
         this.accessoriesDone = 0;
         this.bodyworksDone = 0;
         this.chasisDone = 0;
@@ -42,13 +41,8 @@ public class PartsWarehouse {
         this.limitMotors = 55;
         this.limitWheels = 35;
         this.mutex = new Semaphore(1);
-        if (isBugatti) {
-            this.originalCarsUntilAccessories = 5;
-            this.carsUntilAccessories = 5;
-        } else {
-            this.originalCarsUntilAccessories = 2;
-            this.carsUntilAccessories = 2;
-        }
+        this.carsUntilAccessories = carsUntilAccessories;
+        this.originalCarsUntilAccessories = carsUntilAccessories;
     }
     
     public void updateStorage(String type, int qtyParts) {
