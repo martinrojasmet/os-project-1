@@ -25,6 +25,8 @@ public class CarsPlant {
     private StandardVehicle standardVehicle;
     private AccessoryVehicle accessoryVehicle;
     private int carsUntilAccessories;
+    private OperationsManager manager;
+    private PlantDirector director;
 
     public CarsPlant(int dayDuration, int maxEmployees, int dayCounter, int carsUntilAccessories, StandardVehicle standardVehicle, AccessoryVehicle accessoryVehicle) {
         this.grossIncome = 0;
@@ -40,7 +42,9 @@ public class CarsPlant {
         
         this.EmpList = new Employee[maxEmployees];
         this.carsWarehouse = new CarsWarehouse();
-        this.partsWarehouse = new PartsWarehouse(this.carsUntilAccessories);       
+        this.partsWarehouse = new PartsWarehouse(this.carsUntilAccessories);
+        this.manager = new OperationsManager(20f, this);
+        this.director = new PlantDirector(30f, this.manager, this);
     }
     
     public void initializeWorkers() {
@@ -156,6 +160,30 @@ public class CarsPlant {
 
     public void setAccessoryVehicle(AccessoryVehicle accessoryVehicle) {
         this.accessoryVehicle = accessoryVehicle;
+    }
+
+    public int getCarsUntilAccessories() {
+        return carsUntilAccessories;
+    }
+
+    public void setCarsUntilAccessories(int carsUntilAccessories) {
+        this.carsUntilAccessories = carsUntilAccessories;
+    }
+
+    public OperationsManager getManager() {
+        return manager;
+    }
+
+    public void setManager(OperationsManager manager) {
+        this.manager = manager;
+    }
+
+    public PlantDirector getDirector() {
+        return director;
+    }
+
+    public void setDirector(PlantDirector director) {
+        this.director = director;
     }
     
 }

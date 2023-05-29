@@ -1178,11 +1178,6 @@
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="Maserati">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="ff" red="66" type="rgb"/>
-                </Property>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="tab3">
@@ -1194,15 +1189,925 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="1025" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="1030" max="32767" attributes="0"/>
+                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="PlantTitle1" min="-2" pref="280" max="-2" attributes="0"/>
+                                      <EmptySpace min="450" pref="450" max="-2" attributes="0"/>
+                                      <Component id="DaysLeftTitle1" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="DaysLeft1" min="-2" pref="60" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="WarehouseTitle2" min="-2" pref="280" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="PlantDirectorTitle1" min="-2" pref="350" max="-2" attributes="0"/>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="EmployeeTitle1" min="-2" pref="350" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="ChasisQttyTitle1" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="ChasisQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="MaxChasisQttyTitle1" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="MaxChasisQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                                      <Component id="PlantDirectorJobTitle1" min="-2" pref="240" max="-2" attributes="0"/>
+                                      <EmptySpace min="150" pref="150" max="-2" attributes="0"/>
+                                      <Component id="EmployeeQttyTitle1" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="EmployeeQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="BodyworksQttyTitle1" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="BodyworksQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="MaxBodyworksQttyTitle1" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="MaxBodyworksQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                                      <Component id="PlantDirectorJob1" min="-2" pref="240" max="-2" attributes="0"/>
+                                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                                      <Component id="ChasisEmployeeQttyTitle1" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="ChasisEmployeeQttyLess1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="ChasisEmployeeQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="ChasisEmployeeQttyPlus1" min="-2" pref="50" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="MotorsQttyTitles1" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="MotorsQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="MaxMotorsQttyTitles1" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="MaxMotorsQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="OpManagerTitle1" min="-2" pref="350" max="-2" attributes="0"/>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="BodyworksEmployeeQttyTitle1" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="BodyworksEmployeeQttyLess1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="BodyworksEmployeeQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="BodyworksEmployeeQttyPlus1" min="-2" pref="50" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="WheelsQttyTitle1" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="WheelsQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="MaxWheelsQttyTitle1" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="MaxWheelsQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                                      <Component id="OpManagerJobTitle1" min="-2" pref="240" max="-2" attributes="0"/>
+                                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                                      <Component id="MotorsEmployeeQttyTitle1" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="MotorsEmployeeQttyLess1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="MotorsEmployeeQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="MotorsEmployeeQttyPlus1" min="-2" pref="50" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="AccessoriesQttyTitle1" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="AccessoriesQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="MaxAccessoriesQttyTitle1" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="MaxAccessoriesQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                                      <Component id="OpManagerJob1" min="-2" pref="240" max="-2" attributes="0"/>
+                                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                                      <Component id="WheelsEmployeeQttyTitle1" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="WheelsEmployeeQttyLess1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="WheelsEmployeeQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                      <Component id="WheelsEmployeeQttyPlus1" min="-2" pref="50" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="AccessoriesCarsQttyTitle1" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                              <Component id="AccessoriesCarsQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+                                              <Component id="OpManagerMoneyTakenTitle1" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                              <Component id="OpManagerMoneyTaken1" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="StandardCarsQttyTitle1" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                              <Component id="StandardCarsQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+                                              <Component id="OpManagerFaultsTitle1" min="-2" pref="150" max="-2" attributes="0"/>
+                                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                              <Component id="OpManagerFaults1" min="-2" pref="40" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="140" pref="140" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="AccessoriesEmployeeQttyTitle1" min="-2" pref="160" max="-2" attributes="0"/>
+                                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                              <Component id="AccessoriesEmployeeQttyLess1" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="AccessoriesEmployeeQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="AccessoriesEmployeeQttyPlus1" min="-2" pref="50" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="AssemblerEmployeeQttyTitle1" min="-2" pref="160" max="-2" attributes="0"/>
+                                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                              <Component id="AssemblerEmployeeQttyLess1" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="AssemblerEmployeeQtty1" min="-2" pref="50" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                              <Component id="AssemblerEmployeeQttyPlus1" min="-2" pref="50" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="542" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="520" max="32767" attributes="0"/>
+                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="PlantTitle1" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="DaysLeftTitle1" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="DaysLeft1" min="-2" pref="50" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="WarehouseTitle2" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="PlantDirectorTitle1" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="EmployeeTitle1" min="-2" pref="50" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ChasisQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="ChasisQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="MaxChasisQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="MaxChasisQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="PlantDirectorJobTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="EmployeeQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="EmployeeQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="BodyworksQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="BodyworksQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="MaxBodyworksQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="MaxBodyworksQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="PlantDirectorJob1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="ChasisEmployeeQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="ChasisEmployeeQttyLess1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="ChasisEmployeeQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="ChasisEmployeeQttyPlus1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="MotorsQttyTitles1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="MotorsQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="MaxMotorsQttyTitles1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="MaxMotorsQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="OpManagerTitle1" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="BodyworksEmployeeQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="BodyworksEmployeeQttyLess1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="BodyworksEmployeeQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="BodyworksEmployeeQttyPlus1" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="WheelsQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="WheelsQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="MaxWheelsQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="MaxWheelsQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="OpManagerJobTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="MotorsEmployeeQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="MotorsEmployeeQttyLess1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="MotorsEmployeeQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="MotorsEmployeeQttyPlus1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="AccessoriesQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="AccessoriesQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="MaxAccessoriesQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="MaxAccessoriesQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="OpManagerJob1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="WheelsEmployeeQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="WheelsEmployeeQttyLess1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="WheelsEmployeeQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="WheelsEmployeeQttyPlus1" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="OpManagerFaultsTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="OpManagerFaults1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="StandardCarsQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="StandardCarsQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="AccessoriesEmployeeQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="AccessoriesEmployeeQttyLess1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="AccessoriesEmployeeQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="AccessoriesEmployeeQttyPlus1" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="OpManagerMoneyTakenTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="OpManagerMoneyTaken1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="AccessoriesCarsQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="AccessoriesCarsQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="AssemblerEmployeeQttyTitle1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="AssemblerEmployeeQttyLess1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="AssemblerEmployeeQtty1" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="AssemblerEmployeeQttyPlus1" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="ChasisEmployeeQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="AssemblerEmployeeQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Empleados en ens."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="EmployeeQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="ChasisEmployeeQttyLess1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChasisEmployeeQttyLess1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="ChasisEmployeeQttyPlus1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="+"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChasisEmployeeQttyPlus1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="BodyworksEmployeeQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="BodyworksEmployeeQttyLess1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BodyworksEmployeeQttyLess1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="BodyworksEmployeeQttyPlus1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="+"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BodyworksEmployeeQttyPlus1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MotorsEmployeeQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="MotorsEmployeeQttyLess1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MotorsEmployeeQttyLess1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="MotorsEmployeeQttyPlus1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="+"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MotorsEmployeeQttyPlus1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="WheelsEmployeeQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="WheelsEmployeeQttyLess1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WheelsEmployeeQttyLess1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="WheelsEmployeeQttyPlus1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="+"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WheelsEmployeeQttyPlus1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="AccessoriesEmployeeQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="AccessoriesEmployeeQttyLess1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AccessoriesEmployeeQttyLess1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="AccessoriesEmployeeQttyPlus1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="+"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AccessoriesEmployeeQttyPlus1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="AssemblerEmployeeQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="AssemblerEmployeeQttyLess1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="-"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AssemblerEmployeeQttyLess1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="AssemblerEmployeeQttyPlus1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="+"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AssemblerEmployeeQttyPlus1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="EmployeeQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="Cantidad de empleados:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="BodyworksEmployeeQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Empleados en carrocer&#xed;a"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MotorsEmployeeQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Empleados en motor"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="WheelsEmployeeQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Empleados en ruedas"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="AccessoriesEmployeeQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Empleados en accesorios"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="PlantDirectorJob1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Trabajando"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ChasisQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getChasisDone())" type="code"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="StandardCarsQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="Carros est&#xe1;ndar:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="BodyworksQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getBodyworksDone())" type="code"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MotorsQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getMotorsDone())" type="code"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="WheelsQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getWheelsDone())" type="code"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="AccessoriesQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getAccessoriesDone())" type="code"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="StandardCarsQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="BodyworksQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="Carrocer&#xed;as:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MotorsQttyTitles1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="Motores:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="WheelsQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="Ruedas:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="AccessoriesQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="Accesorios:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MaxAccessoriesQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="M&#xe1;x."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="AccessoriesCarsQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="Carros con accesorios:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="AccessoriesCarsQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="1"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ChasisQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="Chasis:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MaxChasisQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="M&#xe1;x."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MaxBodyworksQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="M&#xe1;x."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MaxMotorsQttyTitles1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="M&#xe1;x."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MaxWheelsQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="M&#xe1;x."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MaxChasisQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getLimitChasis())" type="code"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MaxBodyworksQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getLimitBodyworks())" type="code"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MaxMotorsQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getLimitMotors())" type="code"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MaxWheelsQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getLimitWheels())" type="code"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="MaxAccessoriesQtty1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getLimitAccessories())" type="code"/>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="DaysLeft1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="PlantTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="48" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="2"/>
+                    <Property name="text" type="java.lang.String" value="Maserati"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="DaysLeftTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="D&#xed;as para la entrega:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="OpManagerTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="24" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Gerente de operaciones"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="EmployeeTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="24" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Empleados"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="PlantDirectorTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="24" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Director de la planta"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ChasisEmployeeQttyTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Empleados en chasis"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="PlantDirectorJobTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="&#xbf;Qu&#xe9; est&#xe1; haciendo?"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="OpManagerJob1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Trabajando"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="OpManagerJobTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="&#xbf;Qu&#xe9; est&#xe1; haciendo?"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="OpManagerFaults1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="OpManagerFaultsTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="Faltas:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="OpManagerMoneyTaken1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="OpManagerMoneyTakenTitle1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="11"/>
+                    <Property name="text" type="java.lang.String" value="Dinero descontado:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="WarehouseTitle2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="24" style="1"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Almac&#xe9;n"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
             </Container>
           </SubComponents>
         </Container>
