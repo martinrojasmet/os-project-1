@@ -5,6 +5,11 @@
  */
 package Classes;
 
+import Interfaces.GUI;
+import static java.lang.Thread.sleep;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author marti
@@ -27,8 +32,11 @@ public class CarsPlant {
     private int carsUntilAccessories;
     private OperationsManager manager;
     private PlantDirector director;
+    private boolean keepGoing;
+    private GUI gui;
+    private boolean isFirst;
 
-    public CarsPlant(int dayDuration, int maxEmployees, int dayCounter, int carsUntilAccessories, StandardVehicle standardVehicle, AccessoryVehicle accessoryVehicle) {
+    public CarsPlant(int dayDuration, int maxEmployees, int dayCounter, int carsUntilAccessories, StandardVehicle standardVehicle, AccessoryVehicle accessoryVehicle, GUI gui, boolean isFirst) {
         this.grossIncome = 0;
         this.costs = 0;
         this.netIncome = 0;
@@ -45,10 +53,125 @@ public class CarsPlant {
         this.partsWarehouse = new PartsWarehouse(this.carsUntilAccessories);
         this.manager = new OperationsManager(20f, this);
         this.director = new PlantDirector(30f, this.manager, this);
+        this.keepGoing = true;
+        this.isFirst = isFirst;
+    }
+    
+    public void run() {
+        this.initializeWorkers();
+    }
+    
+    public void stop() {
+        this.keepGoing = false;
+        for (int i = 0; i < this.EmpList.length; i++) {
+            if (this.EmpList[i] instanceof Employee) {
+                this.EmpList[i].stopRunning(); //No se si esto sea concurrente
+            }
+        }
     }
     
     public void initializeWorkers() {
+        int counter = 0;
+        if (this.isFirst) {
+            for (int i = 0; i < Integer.parseInt(gui.getAccessoriesEmployeeQtty().getText()); i++) {
+                Employee emp = new Employee(EmployeeInformation.accesoryEmployeeSalary,
+                        EmployeeInformation.accesoryEmployee, EmployeeInformation.accesoryProduction, this);
+                this.EmpList[counter] = emp;
+                counter++;
+            }
+
+            for (int i = 0; i < Integer.parseInt(gui.getBodyworksEmployeeQtty().getText()); i++) {
+                Employee emp = new Employee(EmployeeInformation.bodyworkEmployeeSalary,
+                        EmployeeInformation.bodyworkEmployee, EmployeeInformation.accesoryProduction, this);
+                this.EmpList[counter] = emp;
+                counter++;
+            }
+
+            for (int i = 0; i < Integer.parseInt(gui.getChasisEmployeeQtty().getText()); i++) {
+                Employee emp = new Employee(EmployeeInformation.chasisEmployeeSalary,
+                        EmployeeInformation.chasisEmployee, EmployeeInformation.chasisEmployeeProduction, this);
+                this.EmpList[counter] = emp;
+                counter++;
+            }
+
+            for (int i = 0; i < Integer.parseInt(gui.getMotorsEmployeeQtty().getText()); i++) {
+                Employee emp = new Employee(EmployeeInformation.motorEmployeeSalary,
+                        EmployeeInformation.motorEmployee, EmployeeInformation.motorEmployeeProduction, this);
+                this.EmpList[counter] = emp;
+                counter++;
+            }
+
+            for (int i = 0; i < Integer.parseInt(gui.getWheelsEmployeeQtty().getText()); i++) {
+                Employee emp = new Employee(EmployeeInformation.wheelEmployeeSalary,
+                        EmployeeInformation.wheelEmployee, EmployeeInformation.wheelEmployeeProduction, this);
+                this.EmpList[counter] = emp;
+                counter++;
+            }
+
+            for (int i = 0; i < Integer.parseInt(gui.getAssemblerEmployeeQtty().getText()); i++) {
+                Employee emp = new Employee(EmployeeInformation.assemblerEmployeeSalary,
+                        EmployeeInformation.assemblerEmployee, EmployeeInformation.assemblerProduction, this);
+                this.EmpList[counter] = emp;
+                counter++;
+            }
+        } else {
+            for (int i = 0; i < Integer.parseInt(gui.getAccessoriesEmployeeQtty1().getText()); i++) {
+                Employee emp = new Employee(EmployeeInformation.accesoryEmployeeSalary,
+                        EmployeeInformation.accesoryEmployee, EmployeeInformation.accesoryProduction, this);
+                this.EmpList[counter] = emp;
+                counter++;
+            }
+
+            for (int i = 0; i < Integer.parseInt(gui.getBodyworksEmployeeQtty1().getText()); i++) {
+                Employee emp = new Employee(EmployeeInformation.bodyworkEmployeeSalary,
+                        EmployeeInformation.bodyworkEmployee, EmployeeInformation.accesoryProduction, this);
+                this.EmpList[counter] = emp;
+                counter++;
+            }
+
+            for (int i = 0; i < Integer.parseInt(gui.getChasisEmployeeQtty1().getText()); i++) {
+                Employee emp = new Employee(EmployeeInformation.chasisEmployeeSalary,
+                        EmployeeInformation.chasisEmployee, EmployeeInformation.chasisEmployeeProduction, this);
+                this.EmpList[counter] = emp;
+                counter++;
+            }
+
+            for (int i = 0; i < Integer.parseInt(gui.getMotorsEmployeeQtty1().getText()); i++) {
+                Employee emp = new Employee(EmployeeInformation.motorEmployeeSalary,
+                        EmployeeInformation.motorEmployee, EmployeeInformation.motorEmployeeProduction, this);
+                this.EmpList[counter] = emp;
+                counter++;
+            }
+
+            for (int i = 0; i < Integer.parseInt(gui.getWheelsEmployeeQtty1().getText()); i++) {
+                Employee emp = new Employee(EmployeeInformation.wheelEmployeeSalary,
+                        EmployeeInformation.wheelEmployee, EmployeeInformation.wheelEmployeeProduction, this);
+                this.EmpList[counter] = emp;
+                counter++;
+            }
+
+            for (int i = 0; i < Integer.parseInt(gui.getAssemblerEmployeeQtty1().getText()); i++) {
+                Employee emp = new Employee(EmployeeInformation.assemblerEmployeeSalary,
+                        EmployeeInformation.assemblerEmployee, EmployeeInformation.assemblerProduction, this);
+                this.EmpList[counter] = emp;
+                counter++;
+            }
+        }
         
+        //espera para que no haya un null pointer exception
+        try {
+
+            sleep(3000);
+
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        for (int i = 0; i < this.EmpList.length; i++) {
+            if (this.EmpList[i] instanceof Employee) {
+                this.EmpList[i].start(); //No se si esto sea concurrente
+            }
+        }
     }
     
     public float getDayDurationInMs() {

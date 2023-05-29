@@ -6,7 +6,13 @@ package Interfaces;
  * and open the template in the editor.
  */
 
+import Classes.AccessoryVehicle;
 import Classes.CarsPlant;
+import Classes.StandardVehicle;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 /**
  *
  * @author marti
@@ -14,13 +20,1193 @@ import Classes.CarsPlant;
 public class GUI extends javax.swing.JFrame {
     
     private CarsPlant maserati;
+    private CarsPlant bugatti;
     /**
      * Creates new form GUI
      */
-    public GUI(CarsPlant maserati) {
-        this.maserati = maserati;
+    public GUI() {
+        StandardVehicle standard = new StandardVehicle(3, 4, 2, 3, 500000);
+        AccessoryVehicle accessory = new AccessoryVehicle(3, 4, 2, 3, 2, 500000);
+        
+        this.bugatti = new CarsPlant(2000, 19, 10, 5, standard, accessory, this, true);
+        this.maserati = new CarsPlant(2000, 19, 10, 5, standard, accessory, this, false);
         initComponents();
     }
+
+    public CarsPlant getMaserati() {
+        return maserati;
+    }
+
+    public void setMaserati(CarsPlant maserati) {
+        this.maserati = maserati;
+    }
+
+    public CarsPlant getBugatti() {
+        return bugatti;
+    }
+
+    public void setBugatti(CarsPlant bugatti) {
+        this.bugatti = bugatti;
+    }
+
+    public JLabel getAccessoriesCarsQtty() {
+        return AccessoriesCarsQtty;
+    }
+
+    public void setAccessoriesCarsQtty(JLabel AccessoriesCarsQtty) {
+        this.AccessoriesCarsQtty = AccessoriesCarsQtty;
+    }
+
+    public JLabel getAccessoriesCarsQtty1() {
+        return AccessoriesCarsQtty1;
+    }
+
+    public void setAccessoriesCarsQtty1(JLabel AccessoriesCarsQtty1) {
+        this.AccessoriesCarsQtty1 = AccessoriesCarsQtty1;
+    }
+
+    public JLabel getAccessoriesCarsQttyTitle() {
+        return AccessoriesCarsQttyTitle;
+    }
+
+    public void setAccessoriesCarsQttyTitle(JLabel AccessoriesCarsQttyTitle) {
+        this.AccessoriesCarsQttyTitle = AccessoriesCarsQttyTitle;
+    }
+
+    public JLabel getAccessoriesCarsQttyTitle1() {
+        return AccessoriesCarsQttyTitle1;
+    }
+
+    public void setAccessoriesCarsQttyTitle1(JLabel AccessoriesCarsQttyTitle1) {
+        this.AccessoriesCarsQttyTitle1 = AccessoriesCarsQttyTitle1;
+    }
+
+    public JLabel getAccessoriesEmployeeQtty() {
+        return AccessoriesEmployeeQtty;
+    }
+
+    public void setAccessoriesEmployeeQtty(JLabel AccessoriesEmployeeQtty) {
+        this.AccessoriesEmployeeQtty = AccessoriesEmployeeQtty;
+    }
+
+    public JLabel getAccessoriesEmployeeQtty1() {
+        return AccessoriesEmployeeQtty1;
+    }
+
+    public void setAccessoriesEmployeeQtty1(JLabel AccessoriesEmployeeQtty1) {
+        this.AccessoriesEmployeeQtty1 = AccessoriesEmployeeQtty1;
+    }
+
+    public JButton getAccessoriesEmployeeQttyLess() {
+        return AccessoriesEmployeeQttyLess;
+    }
+
+    public void setAccessoriesEmployeeQttyLess(JButton AccessoriesEmployeeQttyLess) {
+        this.AccessoriesEmployeeQttyLess = AccessoriesEmployeeQttyLess;
+    }
+
+    public JButton getAccessoriesEmployeeQttyLess1() {
+        return AccessoriesEmployeeQttyLess1;
+    }
+
+    public void setAccessoriesEmployeeQttyLess1(JButton AccessoriesEmployeeQttyLess1) {
+        this.AccessoriesEmployeeQttyLess1 = AccessoriesEmployeeQttyLess1;
+    }
+
+    public JButton getAccessoriesEmployeeQttyPlus() {
+        return AccessoriesEmployeeQttyPlus;
+    }
+
+    public void setAccessoriesEmployeeQttyPlus(JButton AccessoriesEmployeeQttyPlus) {
+        this.AccessoriesEmployeeQttyPlus = AccessoriesEmployeeQttyPlus;
+    }
+
+    public JButton getAccessoriesEmployeeQttyPlus1() {
+        return AccessoriesEmployeeQttyPlus1;
+    }
+
+    public void setAccessoriesEmployeeQttyPlus1(JButton AccessoriesEmployeeQttyPlus1) {
+        this.AccessoriesEmployeeQttyPlus1 = AccessoriesEmployeeQttyPlus1;
+    }
+
+    public JLabel getAccessoriesEmployeeQttyTitle() {
+        return AccessoriesEmployeeQttyTitle;
+    }
+
+    public void setAccessoriesEmployeeQttyTitle(JLabel AccessoriesEmployeeQttyTitle) {
+        this.AccessoriesEmployeeQttyTitle = AccessoriesEmployeeQttyTitle;
+    }
+
+    public JLabel getAccessoriesEmployeeQttyTitle1() {
+        return AccessoriesEmployeeQttyTitle1;
+    }
+
+    public void setAccessoriesEmployeeQttyTitle1(JLabel AccessoriesEmployeeQttyTitle1) {
+        this.AccessoriesEmployeeQttyTitle1 = AccessoriesEmployeeQttyTitle1;
+    }
+
+    public JLabel getAccessoriesQtty() {
+        return AccessoriesQtty;
+    }
+
+    public void setAccessoriesQtty(JLabel AccessoriesQtty) {
+        this.AccessoriesQtty = AccessoriesQtty;
+    }
+
+    public JLabel getAccessoriesQtty1() {
+        return AccessoriesQtty1;
+    }
+
+    public void setAccessoriesQtty1(JLabel AccessoriesQtty1) {
+        this.AccessoriesQtty1 = AccessoriesQtty1;
+    }
+
+    public JLabel getAccessoriesQttyTitle() {
+        return AccessoriesQttyTitle;
+    }
+
+    public void setAccessoriesQttyTitle(JLabel AccessoriesQttyTitle) {
+        this.AccessoriesQttyTitle = AccessoriesQttyTitle;
+    }
+
+    public JLabel getAccessoriesQttyTitle1() {
+        return AccessoriesQttyTitle1;
+    }
+
+    public void setAccessoriesQttyTitle1(JLabel AccessoriesQttyTitle1) {
+        this.AccessoriesQttyTitle1 = AccessoriesQttyTitle1;
+    }
+
+    public JLabel getAssemblerEmployeeQtty() {
+        return AssemblerEmployeeQtty;
+    }
+
+    public void setAssemblerEmployeeQtty(JLabel AssemblerEmployeeQtty) {
+        this.AssemblerEmployeeQtty = AssemblerEmployeeQtty;
+    }
+
+    public JLabel getAssemblerEmployeeQtty1() {
+        return AssemblerEmployeeQtty1;
+    }
+
+    public void setAssemblerEmployeeQtty1(JLabel AssemblerEmployeeQtty1) {
+        this.AssemblerEmployeeQtty1 = AssemblerEmployeeQtty1;
+    }
+
+    public JButton getAssemblerEmployeeQttyLess() {
+        return AssemblerEmployeeQttyLess;
+    }
+
+    public void setAssemblerEmployeeQttyLess(JButton AssemblerEmployeeQttyLess) {
+        this.AssemblerEmployeeQttyLess = AssemblerEmployeeQttyLess;
+    }
+
+    public JButton getAssemblerEmployeeQttyLess1() {
+        return AssemblerEmployeeQttyLess1;
+    }
+
+    public void setAssemblerEmployeeQttyLess1(JButton AssemblerEmployeeQttyLess1) {
+        this.AssemblerEmployeeQttyLess1 = AssemblerEmployeeQttyLess1;
+    }
+
+    public JButton getAssemblerEmployeeQttyPlus() {
+        return AssemblerEmployeeQttyPlus;
+    }
+
+    public void setAssemblerEmployeeQttyPlus(JButton AssemblerEmployeeQttyPlus) {
+        this.AssemblerEmployeeQttyPlus = AssemblerEmployeeQttyPlus;
+    }
+
+    public JButton getAssemblerEmployeeQttyPlus1() {
+        return AssemblerEmployeeQttyPlus1;
+    }
+
+    public void setAssemblerEmployeeQttyPlus1(JButton AssemblerEmployeeQttyPlus1) {
+        this.AssemblerEmployeeQttyPlus1 = AssemblerEmployeeQttyPlus1;
+    }
+
+    public JLabel getAssemblerEmployeeQttyTitle() {
+        return AssemblerEmployeeQttyTitle;
+    }
+
+    public void setAssemblerEmployeeQttyTitle(JLabel AssemblerEmployeeQttyTitle) {
+        this.AssemblerEmployeeQttyTitle = AssemblerEmployeeQttyTitle;
+    }
+
+    public JLabel getAssemblerEmployeeQttyTitle1() {
+        return AssemblerEmployeeQttyTitle1;
+    }
+
+    public void setAssemblerEmployeeQttyTitle1(JLabel AssemblerEmployeeQttyTitle1) {
+        this.AssemblerEmployeeQttyTitle1 = AssemblerEmployeeQttyTitle1;
+    }
+
+    public JLabel getBodyworksEmployeeQtty() {
+        return BodyworksEmployeeQtty;
+    }
+
+    public void setBodyworksEmployeeQtty(JLabel BodyworksEmployeeQtty) {
+        this.BodyworksEmployeeQtty = BodyworksEmployeeQtty;
+    }
+
+    public JLabel getBodyworksEmployeeQtty1() {
+        return BodyworksEmployeeQtty1;
+    }
+
+    public void setBodyworksEmployeeQtty1(JLabel BodyworksEmployeeQtty1) {
+        this.BodyworksEmployeeQtty1 = BodyworksEmployeeQtty1;
+    }
+
+    public JButton getBodyworksEmployeeQttyLess() {
+        return BodyworksEmployeeQttyLess;
+    }
+
+    public void setBodyworksEmployeeQttyLess(JButton BodyworksEmployeeQttyLess) {
+        this.BodyworksEmployeeQttyLess = BodyworksEmployeeQttyLess;
+    }
+
+    public JButton getBodyworksEmployeeQttyLess1() {
+        return BodyworksEmployeeQttyLess1;
+    }
+
+    public void setBodyworksEmployeeQttyLess1(JButton BodyworksEmployeeQttyLess1) {
+        this.BodyworksEmployeeQttyLess1 = BodyworksEmployeeQttyLess1;
+    }
+
+    public JButton getBodyworksEmployeeQttyPlus() {
+        return BodyworksEmployeeQttyPlus;
+    }
+
+    public void setBodyworksEmployeeQttyPlus(JButton BodyworksEmployeeQttyPlus) {
+        this.BodyworksEmployeeQttyPlus = BodyworksEmployeeQttyPlus;
+    }
+
+    public JButton getBodyworksEmployeeQttyPlus1() {
+        return BodyworksEmployeeQttyPlus1;
+    }
+
+    public void setBodyworksEmployeeQttyPlus1(JButton BodyworksEmployeeQttyPlus1) {
+        this.BodyworksEmployeeQttyPlus1 = BodyworksEmployeeQttyPlus1;
+    }
+
+    public JLabel getBodyworksEmployeeQttyTitle() {
+        return BodyworksEmployeeQttyTitle;
+    }
+
+    public void setBodyworksEmployeeQttyTitle(JLabel BodyworksEmployeeQttyTitle) {
+        this.BodyworksEmployeeQttyTitle = BodyworksEmployeeQttyTitle;
+    }
+
+    public JLabel getBodyworksEmployeeQttyTitle1() {
+        return BodyworksEmployeeQttyTitle1;
+    }
+
+    public void setBodyworksEmployeeQttyTitle1(JLabel BodyworksEmployeeQttyTitle1) {
+        this.BodyworksEmployeeQttyTitle1 = BodyworksEmployeeQttyTitle1;
+    }
+
+    public JLabel getBodyworksQtty() {
+        return BodyworksQtty;
+    }
+
+    public void setBodyworksQtty(JLabel BodyworksQtty) {
+        this.BodyworksQtty = BodyworksQtty;
+    }
+
+    public JLabel getBodyworksQtty1() {
+        return BodyworksQtty1;
+    }
+
+    public void setBodyworksQtty1(JLabel BodyworksQtty1) {
+        this.BodyworksQtty1 = BodyworksQtty1;
+    }
+
+    public JLabel getBodyworksQttyTitle() {
+        return BodyworksQttyTitle;
+    }
+
+    public void setBodyworksQttyTitle(JLabel BodyworksQttyTitle) {
+        this.BodyworksQttyTitle = BodyworksQttyTitle;
+    }
+
+    public JLabel getBodyworksQttyTitle1() {
+        return BodyworksQttyTitle1;
+    }
+
+    public void setBodyworksQttyTitle1(JLabel BodyworksQttyTitle1) {
+        this.BodyworksQttyTitle1 = BodyworksQttyTitle1;
+    }
+
+    public void setBugatti(JPanel Bugatti) {
+        this.Bugatti = Bugatti;
+    }
+
+    public JLabel getChasisEmployeeQtty() {
+        return ChasisEmployeeQtty;
+    }
+
+    public void setChasisEmployeeQtty(JLabel ChasisEmployeeQtty) {
+        this.ChasisEmployeeQtty = ChasisEmployeeQtty;
+    }
+
+    public JLabel getChasisEmployeeQtty1() {
+        return ChasisEmployeeQtty1;
+    }
+
+    public void setChasisEmployeeQtty1(JLabel ChasisEmployeeQtty1) {
+        this.ChasisEmployeeQtty1 = ChasisEmployeeQtty1;
+    }
+
+    public JButton getChasisEmployeeQttyLess() {
+        return ChasisEmployeeQttyLess;
+    }
+
+    public void setChasisEmployeeQttyLess(JButton ChasisEmployeeQttyLess) {
+        this.ChasisEmployeeQttyLess = ChasisEmployeeQttyLess;
+    }
+
+    public JButton getChasisEmployeeQttyLess1() {
+        return ChasisEmployeeQttyLess1;
+    }
+
+    public void setChasisEmployeeQttyLess1(JButton ChasisEmployeeQttyLess1) {
+        this.ChasisEmployeeQttyLess1 = ChasisEmployeeQttyLess1;
+    }
+
+    public JButton getChasisEmployeeQttyPlus() {
+        return ChasisEmployeeQttyPlus;
+    }
+
+    public void setChasisEmployeeQttyPlus(JButton ChasisEmployeeQttyPlus) {
+        this.ChasisEmployeeQttyPlus = ChasisEmployeeQttyPlus;
+    }
+
+    public JButton getChasisEmployeeQttyPlus1() {
+        return ChasisEmployeeQttyPlus1;
+    }
+
+    public void setChasisEmployeeQttyPlus1(JButton ChasisEmployeeQttyPlus1) {
+        this.ChasisEmployeeQttyPlus1 = ChasisEmployeeQttyPlus1;
+    }
+
+    public JLabel getChasisEmployeeQttyTitle() {
+        return ChasisEmployeeQttyTitle;
+    }
+
+    public void setChasisEmployeeQttyTitle(JLabel ChasisEmployeeQttyTitle) {
+        this.ChasisEmployeeQttyTitle = ChasisEmployeeQttyTitle;
+    }
+
+    public JLabel getChasisEmployeeQttyTitle1() {
+        return ChasisEmployeeQttyTitle1;
+    }
+
+    public void setChasisEmployeeQttyTitle1(JLabel ChasisEmployeeQttyTitle1) {
+        this.ChasisEmployeeQttyTitle1 = ChasisEmployeeQttyTitle1;
+    }
+
+    public JLabel getChasisQtty() {
+        return ChasisQtty;
+    }
+
+    public void setChasisQtty(JLabel ChasisQtty) {
+        this.ChasisQtty = ChasisQtty;
+    }
+
+    public JLabel getChasisQtty1() {
+        return ChasisQtty1;
+    }
+
+    public void setChasisQtty1(JLabel ChasisQtty1) {
+        this.ChasisQtty1 = ChasisQtty1;
+    }
+
+    public JLabel getChasisQttyTitle() {
+        return ChasisQttyTitle;
+    }
+
+    public void setChasisQttyTitle(JLabel ChasisQttyTitle) {
+        this.ChasisQttyTitle = ChasisQttyTitle;
+    }
+
+    public JLabel getChasisQttyTitle1() {
+        return ChasisQttyTitle1;
+    }
+
+    public void setChasisQttyTitle1(JLabel ChasisQttyTitle1) {
+        this.ChasisQttyTitle1 = ChasisQttyTitle1;
+    }
+
+    public JLabel getDaysLeft() {
+        return DaysLeft;
+    }
+
+    public void setDaysLeft(JLabel DaysLeft) {
+        this.DaysLeft = DaysLeft;
+    }
+
+    public JLabel getDaysLeft1() {
+        return DaysLeft1;
+    }
+
+    public void setDaysLeft1(JLabel DaysLeft1) {
+        this.DaysLeft1 = DaysLeft1;
+    }
+
+    public JLabel getDaysLeftTitle() {
+        return DaysLeftTitle;
+    }
+
+    public void setDaysLeftTitle(JLabel DaysLeftTitle) {
+        this.DaysLeftTitle = DaysLeftTitle;
+    }
+
+    public JLabel getDaysLeftTitle1() {
+        return DaysLeftTitle1;
+    }
+
+    public void setDaysLeftTitle1(JLabel DaysLeftTitle1) {
+        this.DaysLeftTitle1 = DaysLeftTitle1;
+    }
+
+    public JLabel getEmployeeQtty() {
+        return EmployeeQtty;
+    }
+
+    public void setEmployeeQtty(JLabel EmployeeQtty) {
+        this.EmployeeQtty = EmployeeQtty;
+    }
+
+    public JLabel getEmployeeQtty1() {
+        return EmployeeQtty1;
+    }
+
+    public void setEmployeeQtty1(JLabel EmployeeQtty1) {
+        this.EmployeeQtty1 = EmployeeQtty1;
+    }
+
+    public JLabel getEmployeeQttyTitle() {
+        return EmployeeQttyTitle;
+    }
+
+    public void setEmployeeQttyTitle(JLabel EmployeeQttyTitle) {
+        this.EmployeeQttyTitle = EmployeeQttyTitle;
+    }
+
+    public JLabel getEmployeeQttyTitle1() {
+        return EmployeeQttyTitle1;
+    }
+
+    public void setEmployeeQttyTitle1(JLabel EmployeeQttyTitle1) {
+        this.EmployeeQttyTitle1 = EmployeeQttyTitle1;
+    }
+
+    public JLabel getEmployeeTitle() {
+        return EmployeeTitle;
+    }
+
+    public void setEmployeeTitle(JLabel EmployeeTitle) {
+        this.EmployeeTitle = EmployeeTitle;
+    }
+
+    public JLabel getEmployeeTitle1() {
+        return EmployeeTitle1;
+    }
+
+    public void setEmployeeTitle1(JLabel EmployeeTitle1) {
+        this.EmployeeTitle1 = EmployeeTitle1;
+    }
+
+    public void setMaserati(JPanel Maserati) {
+        this.Maserati = Maserati;
+    }
+
+    public JLabel getMaxAccessoriesQtty() {
+        return MaxAccessoriesQtty;
+    }
+
+    public void setMaxAccessoriesQtty(JLabel MaxAccessoriesQtty) {
+        this.MaxAccessoriesQtty = MaxAccessoriesQtty;
+    }
+
+    public JLabel getMaxAccessoriesQtty1() {
+        return MaxAccessoriesQtty1;
+    }
+
+    public void setMaxAccessoriesQtty1(JLabel MaxAccessoriesQtty1) {
+        this.MaxAccessoriesQtty1 = MaxAccessoriesQtty1;
+    }
+
+    public JLabel getMaxAccessoriesQttyTitle() {
+        return MaxAccessoriesQttyTitle;
+    }
+
+    public void setMaxAccessoriesQttyTitle(JLabel MaxAccessoriesQttyTitle) {
+        this.MaxAccessoriesQttyTitle = MaxAccessoriesQttyTitle;
+    }
+
+    public JLabel getMaxAccessoriesQttyTitle1() {
+        return MaxAccessoriesQttyTitle1;
+    }
+
+    public void setMaxAccessoriesQttyTitle1(JLabel MaxAccessoriesQttyTitle1) {
+        this.MaxAccessoriesQttyTitle1 = MaxAccessoriesQttyTitle1;
+    }
+
+    public JLabel getMaxBodyworksQtty() {
+        return MaxBodyworksQtty;
+    }
+
+    public void setMaxBodyworksQtty(JLabel MaxBodyworksQtty) {
+        this.MaxBodyworksQtty = MaxBodyworksQtty;
+    }
+
+    public JLabel getMaxBodyworksQtty1() {
+        return MaxBodyworksQtty1;
+    }
+
+    public void setMaxBodyworksQtty1(JLabel MaxBodyworksQtty1) {
+        this.MaxBodyworksQtty1 = MaxBodyworksQtty1;
+    }
+
+    public JLabel getMaxBodyworksQttyTitle() {
+        return MaxBodyworksQttyTitle;
+    }
+
+    public void setMaxBodyworksQttyTitle(JLabel MaxBodyworksQttyTitle) {
+        this.MaxBodyworksQttyTitle = MaxBodyworksQttyTitle;
+    }
+
+    public JLabel getMaxBodyworksQttyTitle1() {
+        return MaxBodyworksQttyTitle1;
+    }
+
+    public void setMaxBodyworksQttyTitle1(JLabel MaxBodyworksQttyTitle1) {
+        this.MaxBodyworksQttyTitle1 = MaxBodyworksQttyTitle1;
+    }
+
+    public JLabel getMaxChasisQtty() {
+        return MaxChasisQtty;
+    }
+
+    public void setMaxChasisQtty(JLabel MaxChasisQtty) {
+        this.MaxChasisQtty = MaxChasisQtty;
+    }
+
+    public JLabel getMaxChasisQtty1() {
+        return MaxChasisQtty1;
+    }
+
+    public void setMaxChasisQtty1(JLabel MaxChasisQtty1) {
+        this.MaxChasisQtty1 = MaxChasisQtty1;
+    }
+
+    public JLabel getMaxChasisQttyTitle() {
+        return MaxChasisQttyTitle;
+    }
+
+    public void setMaxChasisQttyTitle(JLabel MaxChasisQttyTitle) {
+        this.MaxChasisQttyTitle = MaxChasisQttyTitle;
+    }
+
+    public JLabel getMaxChasisQttyTitle1() {
+        return MaxChasisQttyTitle1;
+    }
+
+    public void setMaxChasisQttyTitle1(JLabel MaxChasisQttyTitle1) {
+        this.MaxChasisQttyTitle1 = MaxChasisQttyTitle1;
+    }
+
+    public JLabel getMaxMotorsQtty() {
+        return MaxMotorsQtty;
+    }
+
+    public void setMaxMotorsQtty(JLabel MaxMotorsQtty) {
+        this.MaxMotorsQtty = MaxMotorsQtty;
+    }
+
+    public JLabel getMaxMotorsQtty1() {
+        return MaxMotorsQtty1;
+    }
+
+    public void setMaxMotorsQtty1(JLabel MaxMotorsQtty1) {
+        this.MaxMotorsQtty1 = MaxMotorsQtty1;
+    }
+
+    public JLabel getMaxMotorsQttyTitles() {
+        return MaxMotorsQttyTitles;
+    }
+
+    public void setMaxMotorsQttyTitles(JLabel MaxMotorsQttyTitles) {
+        this.MaxMotorsQttyTitles = MaxMotorsQttyTitles;
+    }
+
+    public JLabel getMaxMotorsQttyTitles1() {
+        return MaxMotorsQttyTitles1;
+    }
+
+    public void setMaxMotorsQttyTitles1(JLabel MaxMotorsQttyTitles1) {
+        this.MaxMotorsQttyTitles1 = MaxMotorsQttyTitles1;
+    }
+
+    public JLabel getMaxWheelsQtty() {
+        return MaxWheelsQtty;
+    }
+
+    public void setMaxWheelsQtty(JLabel MaxWheelsQtty) {
+        this.MaxWheelsQtty = MaxWheelsQtty;
+    }
+
+    public JLabel getMaxWheelsQtty1() {
+        return MaxWheelsQtty1;
+    }
+
+    public void setMaxWheelsQtty1(JLabel MaxWheelsQtty1) {
+        this.MaxWheelsQtty1 = MaxWheelsQtty1;
+    }
+
+    public JLabel getMaxWheelsQttyTitle() {
+        return MaxWheelsQttyTitle;
+    }
+
+    public void setMaxWheelsQttyTitle(JLabel MaxWheelsQttyTitle) {
+        this.MaxWheelsQttyTitle = MaxWheelsQttyTitle;
+    }
+
+    public JLabel getMaxWheelsQttyTitle1() {
+        return MaxWheelsQttyTitle1;
+    }
+
+    public void setMaxWheelsQttyTitle1(JLabel MaxWheelsQttyTitle1) {
+        this.MaxWheelsQttyTitle1 = MaxWheelsQttyTitle1;
+    }
+
+    public JPanel getMenu() {
+        return Menu;
+    }
+
+    public void setMenu(JPanel Menu) {
+        this.Menu = Menu;
+    }
+
+    public void setMenuBar(JPanel MenuBar) {
+        this.MenuBar = MenuBar;
+    }
+
+    public JLabel getMotorsEmployeeQtty() {
+        return MotorsEmployeeQtty;
+    }
+
+    public void setMotorsEmployeeQtty(JLabel MotorsEmployeeQtty) {
+        this.MotorsEmployeeQtty = MotorsEmployeeQtty;
+    }
+
+    public JLabel getMotorsEmployeeQtty1() {
+        return MotorsEmployeeQtty1;
+    }
+
+    public void setMotorsEmployeeQtty1(JLabel MotorsEmployeeQtty1) {
+        this.MotorsEmployeeQtty1 = MotorsEmployeeQtty1;
+    }
+
+    public JButton getMotorsEmployeeQttyLess() {
+        return MotorsEmployeeQttyLess;
+    }
+
+    public void setMotorsEmployeeQttyLess(JButton MotorsEmployeeQttyLess) {
+        this.MotorsEmployeeQttyLess = MotorsEmployeeQttyLess;
+    }
+
+    public JButton getMotorsEmployeeQttyLess1() {
+        return MotorsEmployeeQttyLess1;
+    }
+
+    public void setMotorsEmployeeQttyLess1(JButton MotorsEmployeeQttyLess1) {
+        this.MotorsEmployeeQttyLess1 = MotorsEmployeeQttyLess1;
+    }
+
+    public JButton getMotorsEmployeeQttyPlus() {
+        return MotorsEmployeeQttyPlus;
+    }
+
+    public void setMotorsEmployeeQttyPlus(JButton MotorsEmployeeQttyPlus) {
+        this.MotorsEmployeeQttyPlus = MotorsEmployeeQttyPlus;
+    }
+
+    public JButton getMotorsEmployeeQttyPlus1() {
+        return MotorsEmployeeQttyPlus1;
+    }
+
+    public void setMotorsEmployeeQttyPlus1(JButton MotorsEmployeeQttyPlus1) {
+        this.MotorsEmployeeQttyPlus1 = MotorsEmployeeQttyPlus1;
+    }
+
+    public JLabel getMotorsEmployeeQttyTitle() {
+        return MotorsEmployeeQttyTitle;
+    }
+
+    public void setMotorsEmployeeQttyTitle(JLabel MotorsEmployeeQttyTitle) {
+        this.MotorsEmployeeQttyTitle = MotorsEmployeeQttyTitle;
+    }
+
+    public JLabel getMotorsEmployeeQttyTitle1() {
+        return MotorsEmployeeQttyTitle1;
+    }
+
+    public void setMotorsEmployeeQttyTitle1(JLabel MotorsEmployeeQttyTitle1) {
+        this.MotorsEmployeeQttyTitle1 = MotorsEmployeeQttyTitle1;
+    }
+
+    public JLabel getMotorsQtty() {
+        return MotorsQtty;
+    }
+
+    public void setMotorsQtty(JLabel MotorsQtty) {
+        this.MotorsQtty = MotorsQtty;
+    }
+
+    public JLabel getMotorsQtty1() {
+        return MotorsQtty1;
+    }
+
+    public void setMotorsQtty1(JLabel MotorsQtty1) {
+        this.MotorsQtty1 = MotorsQtty1;
+    }
+
+    public JLabel getMotorsQttyTitles() {
+        return MotorsQttyTitles;
+    }
+
+    public void setMotorsQttyTitles(JLabel MotorsQttyTitles) {
+        this.MotorsQttyTitles = MotorsQttyTitles;
+    }
+
+    public JLabel getMotorsQttyTitles1() {
+        return MotorsQttyTitles1;
+    }
+
+    public void setMotorsQttyTitles1(JLabel MotorsQttyTitles1) {
+        this.MotorsQttyTitles1 = MotorsQttyTitles1;
+    }
+
+    public JLabel getOpManagerFaults() {
+        return OpManagerFaults;
+    }
+
+    public void setOpManagerFaults(JLabel OpManagerFaults) {
+        this.OpManagerFaults = OpManagerFaults;
+    }
+
+    public JLabel getOpManagerFaults1() {
+        return OpManagerFaults1;
+    }
+
+    public void setOpManagerFaults1(JLabel OpManagerFaults1) {
+        this.OpManagerFaults1 = OpManagerFaults1;
+    }
+
+    public JLabel getOpManagerFaultsTitle() {
+        return OpManagerFaultsTitle;
+    }
+
+    public void setOpManagerFaultsTitle(JLabel OpManagerFaultsTitle) {
+        this.OpManagerFaultsTitle = OpManagerFaultsTitle;
+    }
+
+    public JLabel getOpManagerFaultsTitle1() {
+        return OpManagerFaultsTitle1;
+    }
+
+    public void setOpManagerFaultsTitle1(JLabel OpManagerFaultsTitle1) {
+        this.OpManagerFaultsTitle1 = OpManagerFaultsTitle1;
+    }
+
+    public JLabel getOpManagerJob() {
+        return OpManagerJob;
+    }
+
+    public void setOpManagerJob(JLabel OpManagerJob) {
+        this.OpManagerJob = OpManagerJob;
+    }
+
+    public JLabel getOpManagerJob1() {
+        return OpManagerJob1;
+    }
+
+    public void setOpManagerJob1(JLabel OpManagerJob1) {
+        this.OpManagerJob1 = OpManagerJob1;
+    }
+
+    public JLabel getOpManagerJobTitle() {
+        return OpManagerJobTitle;
+    }
+
+    public void setOpManagerJobTitle(JLabel OpManagerJobTitle) {
+        this.OpManagerJobTitle = OpManagerJobTitle;
+    }
+
+    public JLabel getOpManagerJobTitle1() {
+        return OpManagerJobTitle1;
+    }
+
+    public void setOpManagerJobTitle1(JLabel OpManagerJobTitle1) {
+        this.OpManagerJobTitle1 = OpManagerJobTitle1;
+    }
+
+    public JLabel getOpManagerMoneyTaken() {
+        return OpManagerMoneyTaken;
+    }
+
+    public void setOpManagerMoneyTaken(JLabel OpManagerMoneyTaken) {
+        this.OpManagerMoneyTaken = OpManagerMoneyTaken;
+    }
+
+    public JLabel getOpManagerMoneyTaken1() {
+        return OpManagerMoneyTaken1;
+    }
+
+    public void setOpManagerMoneyTaken1(JLabel OpManagerMoneyTaken1) {
+        this.OpManagerMoneyTaken1 = OpManagerMoneyTaken1;
+    }
+
+    public JLabel getOpManagerMoneyTakenTitle() {
+        return OpManagerMoneyTakenTitle;
+    }
+
+    public void setOpManagerMoneyTakenTitle(JLabel OpManagerMoneyTakenTitle) {
+        this.OpManagerMoneyTakenTitle = OpManagerMoneyTakenTitle;
+    }
+
+    public JLabel getOpManagerMoneyTakenTitle1() {
+        return OpManagerMoneyTakenTitle1;
+    }
+
+    public void setOpManagerMoneyTakenTitle1(JLabel OpManagerMoneyTakenTitle1) {
+        this.OpManagerMoneyTakenTitle1 = OpManagerMoneyTakenTitle1;
+    }
+
+    public JLabel getOpManagerTitle() {
+        return OpManagerTitle;
+    }
+
+    public void setOpManagerTitle(JLabel OpManagerTitle) {
+        this.OpManagerTitle = OpManagerTitle;
+    }
+
+    public JLabel getOpManagerTitle1() {
+        return OpManagerTitle1;
+    }
+
+    public void setOpManagerTitle1(JLabel OpManagerTitle1) {
+        this.OpManagerTitle1 = OpManagerTitle1;
+    }
+
+    public JPanel getPanel() {
+        return Panel;
+    }
+
+    public void setPanel(JPanel Panel) {
+        this.Panel = Panel;
+    }
+
+    public JLabel getPlantDirectorJob() {
+        return PlantDirectorJob;
+    }
+
+    public void setPlantDirectorJob(JLabel PlantDirectorJob) {
+        this.PlantDirectorJob = PlantDirectorJob;
+    }
+
+    public JLabel getPlantDirectorJob1() {
+        return PlantDirectorJob1;
+    }
+
+    public void setPlantDirectorJob1(JLabel PlantDirectorJob1) {
+        this.PlantDirectorJob1 = PlantDirectorJob1;
+    }
+
+    public JLabel getPlantDirectorJobTitle() {
+        return PlantDirectorJobTitle;
+    }
+
+    public void setPlantDirectorJobTitle(JLabel PlantDirectorJobTitle) {
+        this.PlantDirectorJobTitle = PlantDirectorJobTitle;
+    }
+
+    public JLabel getPlantDirectorJobTitle1() {
+        return PlantDirectorJobTitle1;
+    }
+
+    public void setPlantDirectorJobTitle1(JLabel PlantDirectorJobTitle1) {
+        this.PlantDirectorJobTitle1 = PlantDirectorJobTitle1;
+    }
+
+    public JLabel getPlantDirectorTitle() {
+        return PlantDirectorTitle;
+    }
+
+    public void setPlantDirectorTitle(JLabel PlantDirectorTitle) {
+        this.PlantDirectorTitle = PlantDirectorTitle;
+    }
+
+    public JLabel getPlantDirectorTitle1() {
+        return PlantDirectorTitle1;
+    }
+
+    public void setPlantDirectorTitle1(JLabel PlantDirectorTitle1) {
+        this.PlantDirectorTitle1 = PlantDirectorTitle1;
+    }
+
+    public JLabel getPlantTitle() {
+        return PlantTitle;
+    }
+
+    public void setPlantTitle(JLabel PlantTitle) {
+        this.PlantTitle = PlantTitle;
+    }
+
+    public JLabel getPlantTitle1() {
+        return PlantTitle1;
+    }
+
+    public void setPlantTitle1(JLabel PlantTitle1) {
+        this.PlantTitle1 = PlantTitle1;
+    }
+
+    public JButton getRunSim1() {
+        return RunSim1;
+    }
+
+    public void setRunSim1(JButton RunSim1) {
+        this.RunSim1 = RunSim1;
+    }
+
+    public JLabel getStandardCarsQtty() {
+        return StandardCarsQtty;
+    }
+
+    public void setStandardCarsQtty(JLabel StandardCarsQtty) {
+        this.StandardCarsQtty = StandardCarsQtty;
+    }
+
+    public JLabel getStandardCarsQtty1() {
+        return StandardCarsQtty1;
+    }
+
+    public void setStandardCarsQtty1(JLabel StandardCarsQtty1) {
+        this.StandardCarsQtty1 = StandardCarsQtty1;
+    }
+
+    public JLabel getStandardCarsQttyTitle() {
+        return StandardCarsQttyTitle;
+    }
+
+    public void setStandardCarsQttyTitle(JLabel StandardCarsQttyTitle) {
+        this.StandardCarsQttyTitle = StandardCarsQttyTitle;
+    }
+
+    public JLabel getStandardCarsQttyTitle1() {
+        return StandardCarsQttyTitle1;
+    }
+
+    public void setStandardCarsQttyTitle1(JLabel StandardCarsQttyTitle1) {
+        this.StandardCarsQttyTitle1 = StandardCarsQttyTitle1;
+    }
+
+    public JButton getStopSim1() {
+        return StopSim1;
+    }
+
+    public void setStopSim1(JButton StopSim1) {
+        this.StopSim1 = StopSim1;
+    }
+
+    public JTabbedPane getTabbedPane() {
+        return TabbedPane;
+    }
+
+    public void setTabbedPane(JTabbedPane TabbedPane) {
+        this.TabbedPane = TabbedPane;
+    }
+
+    public JPanel getTitleProject() {
+        return TitleProject;
+    }
+
+    public void setTitleProject(JPanel TitleProject) {
+        this.TitleProject = TitleProject;
+    }
+
+    public JLabel getWarehouseTitle1() {
+        return WarehouseTitle1;
+    }
+
+    public void setWarehouseTitle1(JLabel WarehouseTitle1) {
+        this.WarehouseTitle1 = WarehouseTitle1;
+    }
+
+    public JLabel getWarehouseTitle2() {
+        return WarehouseTitle2;
+    }
+
+    public void setWarehouseTitle2(JLabel WarehouseTitle2) {
+        this.WarehouseTitle2 = WarehouseTitle2;
+    }
+
+    public JLabel getWheelsEmployeeQtty() {
+        return WheelsEmployeeQtty;
+    }
+
+    public void setWheelsEmployeeQtty(JLabel WheelsEmployeeQtty) {
+        this.WheelsEmployeeQtty = WheelsEmployeeQtty;
+    }
+
+    public JLabel getWheelsEmployeeQtty1() {
+        return WheelsEmployeeQtty1;
+    }
+
+    public void setWheelsEmployeeQtty1(JLabel WheelsEmployeeQtty1) {
+        this.WheelsEmployeeQtty1 = WheelsEmployeeQtty1;
+    }
+
+    public JButton getWheelsEmployeeQttyLess() {
+        return WheelsEmployeeQttyLess;
+    }
+
+    public void setWheelsEmployeeQttyLess(JButton WheelsEmployeeQttyLess) {
+        this.WheelsEmployeeQttyLess = WheelsEmployeeQttyLess;
+    }
+
+    public JButton getWheelsEmployeeQttyLess1() {
+        return WheelsEmployeeQttyLess1;
+    }
+
+    public void setWheelsEmployeeQttyLess1(JButton WheelsEmployeeQttyLess1) {
+        this.WheelsEmployeeQttyLess1 = WheelsEmployeeQttyLess1;
+    }
+
+    public JButton getWheelsEmployeeQttyPlus() {
+        return WheelsEmployeeQttyPlus;
+    }
+
+    public void setWheelsEmployeeQttyPlus(JButton WheelsEmployeeQttyPlus) {
+        this.WheelsEmployeeQttyPlus = WheelsEmployeeQttyPlus;
+    }
+
+    public JButton getWheelsEmployeeQttyPlus1() {
+        return WheelsEmployeeQttyPlus1;
+    }
+
+    public void setWheelsEmployeeQttyPlus1(JButton WheelsEmployeeQttyPlus1) {
+        this.WheelsEmployeeQttyPlus1 = WheelsEmployeeQttyPlus1;
+    }
+
+    public JLabel getWheelsEmployeeQttyTitle() {
+        return WheelsEmployeeQttyTitle;
+    }
+
+    public void setWheelsEmployeeQttyTitle(JLabel WheelsEmployeeQttyTitle) {
+        this.WheelsEmployeeQttyTitle = WheelsEmployeeQttyTitle;
+    }
+
+    public JLabel getWheelsEmployeeQttyTitle1() {
+        return WheelsEmployeeQttyTitle1;
+    }
+
+    public void setWheelsEmployeeQttyTitle1(JLabel WheelsEmployeeQttyTitle1) {
+        this.WheelsEmployeeQttyTitle1 = WheelsEmployeeQttyTitle1;
+    }
+
+    public JLabel getWheelsQtty() {
+        return WheelsQtty;
+    }
+
+    public void setWheelsQtty(JLabel WheelsQtty) {
+        this.WheelsQtty = WheelsQtty;
+    }
+
+    public JLabel getWheelsQtty1() {
+        return WheelsQtty1;
+    }
+
+    public void setWheelsQtty1(JLabel WheelsQtty1) {
+        this.WheelsQtty1 = WheelsQtty1;
+    }
+
+    public JLabel getWheelsQttyTitle() {
+        return WheelsQttyTitle;
+    }
+
+    public void setWheelsQttyTitle(JLabel WheelsQttyTitle) {
+        this.WheelsQttyTitle = WheelsQttyTitle;
+    }
+
+    public JLabel getWheelsQttyTitle1() {
+        return WheelsQttyTitle1;
+    }
+
+    public void setWheelsQttyTitle1(JLabel WheelsQttyTitle1) {
+        this.WheelsQttyTitle1 = WheelsQttyTitle1;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public void setjPanel2(JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    public JPanel getjPanel3() {
+        return jPanel3;
+    }
+
+    public void setjPanel3(JPanel jPanel3) {
+        this.jPanel3 = jPanel3;
+    }
+
+    public JPanel getjPanel7() {
+        return jPanel7;
+    }
+
+    public void setjPanel7(JPanel jPanel7) {
+        this.jPanel7 = jPanel7;
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,17 +1217,17 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        Panel = new javax.swing.JPanel();
+        TitleProject = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        MenuBar = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        TabbedPane = new javax.swing.JTabbedPane();
         Menu = new javax.swing.JPanel();
         Bugatti = new javax.swing.JPanel();
         ChasisEmployeeQtty = new javax.swing.JLabel();
@@ -175,24 +1361,26 @@ public class GUI extends javax.swing.JFrame {
         OpManagerMoneyTaken1 = new javax.swing.JLabel();
         OpManagerMoneyTakenTitle1 = new javax.swing.JLabel();
         WarehouseTitle2 = new javax.swing.JLabel();
+        RunSim1 = new javax.swing.JButton();
+        StopSim1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        TitleProject.setBackground(new java.awt.Color(51, 51, 51));
+        TitleProject.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Proyecto 1 Sistemas Operativos");
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 280, 40));
+        TitleProject.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 280, 40));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 40));
+        Panel.add(TitleProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 40));
 
-        jPanel5.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        MenuBar.setBackground(new java.awt.Color(153, 153, 153));
+        MenuBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -226,7 +1414,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+        MenuBar.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -255,7 +1443,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 110, -1));
+        MenuBar.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 110, -1));
 
         jPanel7.setBackground(new java.awt.Color(204, 204, 204));
         jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -282,9 +1470,9 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, -1, -1));
+        MenuBar.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, -1, -1));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 110, 540));
+        Panel.add(MenuBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 110, 540));
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
@@ -297,7 +1485,7 @@ public class GUI extends javax.swing.JFrame {
             .addGap(0, 542, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab1", Menu);
+        TabbedPane.addTab("tab1", Menu);
 
         Bugatti.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -662,7 +1850,7 @@ public class GUI extends javax.swing.JFrame {
         WarehouseTitle1.setText("Almacén");
         Bugatti.add(WarehouseTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 280, 50));
 
-        jTabbedPane1.addTab("tab2", Bugatti);
+        TabbedPane.addTab("tab2", Bugatti);
 
         ChasisEmployeeQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ChasisEmployeeQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -674,7 +1862,7 @@ public class GUI extends javax.swing.JFrame {
 
         EmployeeQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EmployeeQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EmployeeQtty1.setText("0");
+        EmployeeQtty1.setText(String.valueOf(this.maserati.getMaxEmployees()-6));
 
         ChasisEmployeeQttyLess1.setText("-");
         ChasisEmployeeQttyLess1.addActionListener(new java.awt.event.ActionListener() {
@@ -802,7 +1990,7 @@ public class GUI extends javax.swing.JFrame {
 
         PlantDirectorJob1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         PlantDirectorJob1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PlantDirectorJob1.setText("Trabajando");
+        PlantDirectorJob1.setText("Nada");
 
         ChasisQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ChasisQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -830,7 +2018,7 @@ public class GUI extends javax.swing.JFrame {
 
         StandardCarsQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         StandardCarsQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        StandardCarsQtty1.setText("1");
+        StandardCarsQtty1.setText(Integer.toString(this.maserati.getCarsWarehouse().getStandardCarsDone()));
 
         BodyworksQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BodyworksQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -858,7 +2046,7 @@ public class GUI extends javax.swing.JFrame {
 
         AccessoriesCarsQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AccessoriesCarsQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        AccessoriesCarsQtty1.setText("1");
+        AccessoriesCarsQtty1.setText(Integer.toString(this.maserati.getCarsWarehouse().getAccessoryCarsDone()));
 
         ChasisQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ChasisQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -902,7 +2090,7 @@ public class GUI extends javax.swing.JFrame {
 
         DaysLeft1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DaysLeft1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DaysLeft1.setText("0");
+        DaysLeft1.setText(String.valueOf(this.maserati.getDayCounter()));
 
         PlantTitle1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         PlantTitle1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -934,7 +2122,7 @@ public class GUI extends javax.swing.JFrame {
 
         OpManagerJob1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerJob1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        OpManagerJob1.setText("Trabajando");
+        OpManagerJob1.setText("Nada");
 
         OpManagerJobTitle1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         OpManagerJobTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -942,7 +2130,7 @@ public class GUI extends javax.swing.JFrame {
 
         OpManagerFaults1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerFaults1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        OpManagerFaults1.setText("0");
+        OpManagerFaults1.setText(String.valueOf(this.maserati.getManager().getFaults()));
 
         OpManagerFaultsTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerFaultsTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -950,7 +2138,7 @@ public class GUI extends javax.swing.JFrame {
 
         OpManagerMoneyTaken1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerMoneyTaken1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        OpManagerMoneyTaken1.setText("0");
+        OpManagerMoneyTaken1.setText(String.valueOf(this.maserati.getManager().getFaults()*50));
 
         OpManagerMoneyTakenTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerMoneyTakenTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -960,11 +2148,32 @@ public class GUI extends javax.swing.JFrame {
         WarehouseTitle2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         WarehouseTitle2.setText("Almacén");
 
+        RunSim1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        RunSim1.setText("Correr simulación");
+        RunSim1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RunSim1ActionPerformed(evt);
+            }
+        });
+
+        StopSim1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        StopSim1.setText("Parar simulación");
+        StopSim1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StopSim1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MaseratiLayout = new javax.swing.GroupLayout(Maserati);
         Maserati.setLayout(MaseratiLayout);
         MaseratiLayout.setHorizontalGroup(
             MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1030, Short.MAX_VALUE)
+            .addGroup(MaseratiLayout.createSequentialGroup()
+                .addGap(325, 325, 325)
+                .addComponent(RunSim1)
+                .addGap(37, 37, 37)
+                .addComponent(StopSim1)
+                .addContainerGap(423, Short.MAX_VALUE))
             .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MaseratiLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -993,9 +2202,9 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(MaxChasisQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(80, 80, 80)
                             .addComponent(PlantDirectorJobTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(150, 150, 150)
-                            .addComponent(EmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
+                            .addGap(130, 130, 130)
+                            .addComponent(EmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(EmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(MaseratiLayout.createSequentialGroup()
                             .addGap(30, 30, 30)
@@ -1075,15 +2284,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(WheelsEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(MaseratiLayout.createSequentialGroup()
                             .addGap(30, 30, 30)
-                            .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(MaseratiLayout.createSequentialGroup()
-                                    .addComponent(AccessoriesCarsQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(AccessoriesCarsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(90, 90, 90)
-                                    .addComponent(OpManagerMoneyTakenTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(OpManagerMoneyTaken1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(MaseratiLayout.createSequentialGroup()
                                     .addComponent(StandardCarsQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(10, 10, 10)
@@ -1091,8 +2292,17 @@ public class GUI extends javax.swing.JFrame {
                                     .addGap(90, 90, 90)
                                     .addComponent(OpManagerFaultsTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(10, 10, 10)
-                                    .addComponent(OpManagerFaults1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(140, 140, 140)
+                                    .addComponent(OpManagerFaults1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(140, 140, 140))
+                                .addGroup(MaseratiLayout.createSequentialGroup()
+                                    .addComponent(AccessoriesCarsQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(AccessoriesCarsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(90, 90, 90)
+                                    .addComponent(OpManagerMoneyTakenTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(OpManagerMoneyTaken1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(80, 80, 80)))
                             .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(MaseratiLayout.createSequentialGroup()
                                     .addComponent(AccessoriesEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1114,7 +2324,12 @@ public class GUI extends javax.swing.JFrame {
         );
         MaseratiLayout.setVerticalGroup(
             MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGroup(MaseratiLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RunSim1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(StopSim1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(460, Short.MAX_VALUE))
             .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MaseratiLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1237,20 +2452,20 @@ public class GUI extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("tab3", Maserati);
+        TabbedPane.addTab("tab3", Maserati);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 1030, 570));
+        Panel.add(TabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 1030, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -1258,23 +2473,23 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        jTabbedPane1.setSelectedIndex(0);
+        TabbedPane.setSelectedIndex(0);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-        jTabbedPane1.setSelectedIndex(1);
+        TabbedPane.setSelectedIndex(1);
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
-        jTabbedPane1.setSelectedIndex(0);
+        TabbedPane.setSelectedIndex(0);
     }//GEN-LAST:event_jPanel2MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-        jTabbedPane1.setSelectedIndex(2);
+        TabbedPane.setSelectedIndex(2);
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void ChasisEmployeeQttyLessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChasisEmployeeQttyLessActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ChasisEmployeeQttyLessActionPerformed
 
     private void ChasisEmployeeQttyPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChasisEmployeeQttyPlusActionPerformed
@@ -1322,52 +2537,156 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_AssemblerEmployeeQttyPlusActionPerformed
 
     private void ChasisEmployeeQttyLess1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChasisEmployeeQttyLess1ActionPerformed
-        // TODO add your handling code here:
+        String originalString = ChasisEmployeeQtty1.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty1.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (newNumber > 1) {
+            newNumber--;
+            employeeQtty++;
+        }
+        EmployeeQtty1.setText(String.valueOf(employeeQtty));
+        ChasisEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_ChasisEmployeeQttyLess1ActionPerformed
 
     private void ChasisEmployeeQttyPlus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChasisEmployeeQttyPlus1ActionPerformed
-        // TODO add your handling code here:
+        String originalString = ChasisEmployeeQtty1.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty1.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (employeeQtty > 0) {
+            newNumber++;
+            employeeQtty--;
+        }
+        EmployeeQtty1.setText(String.valueOf(employeeQtty));
+        ChasisEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_ChasisEmployeeQttyPlus1ActionPerformed
 
     private void BodyworksEmployeeQttyLess1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BodyworksEmployeeQttyLess1ActionPerformed
-        // TODO add your handling code here:
+        String originalString = BodyworksEmployeeQtty1.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty1.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (newNumber > 1) {
+            newNumber--;
+            employeeQtty++;
+        }
+        EmployeeQtty1.setText(String.valueOf(employeeQtty));
+        BodyworksEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_BodyworksEmployeeQttyLess1ActionPerformed
 
     private void BodyworksEmployeeQttyPlus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BodyworksEmployeeQttyPlus1ActionPerformed
-        // TODO add your handling code here:
+        String originalString = BodyworksEmployeeQtty1.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty1.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (employeeQtty > 0) {
+            newNumber++;
+            employeeQtty--;
+        }
+        EmployeeQtty1.setText(String.valueOf(employeeQtty));
+        BodyworksEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_BodyworksEmployeeQttyPlus1ActionPerformed
 
     private void MotorsEmployeeQttyLess1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MotorsEmployeeQttyLess1ActionPerformed
-        // TODO add your handling code here:
+        String originalString = MotorsEmployeeQtty1.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty1.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (newNumber > 1) {
+            newNumber--;
+            employeeQtty++;
+        }
+        EmployeeQtty1.setText(String.valueOf(employeeQtty));
+        MotorsEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_MotorsEmployeeQttyLess1ActionPerformed
 
     private void MotorsEmployeeQttyPlus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MotorsEmployeeQttyPlus1ActionPerformed
-        // TODO add your handling code here:
+        String originalString = MotorsEmployeeQtty1.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty1.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (employeeQtty > 0) {
+            newNumber++;
+            employeeQtty--;
+        }
+        EmployeeQtty1.setText(String.valueOf(employeeQtty));
+        MotorsEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_MotorsEmployeeQttyPlus1ActionPerformed
 
     private void WheelsEmployeeQttyLess1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WheelsEmployeeQttyLess1ActionPerformed
-        // TODO add your handling code here:
+        String originalString = WheelsEmployeeQtty1.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty1.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (newNumber > 1) {
+            newNumber--;
+            employeeQtty++;
+        }
+        EmployeeQtty1.setText(String.valueOf(employeeQtty));
+        WheelsEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_WheelsEmployeeQttyLess1ActionPerformed
 
     private void WheelsEmployeeQttyPlus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WheelsEmployeeQttyPlus1ActionPerformed
-        // TODO add your handling code here:
+        String originalString = WheelsEmployeeQtty1.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty1.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (employeeQtty > 0) {
+            newNumber++;
+            employeeQtty--;
+        }
+        EmployeeQtty1.setText(String.valueOf(employeeQtty));
+        WheelsEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_WheelsEmployeeQttyPlus1ActionPerformed
 
     private void AccessoriesEmployeeQttyLess1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccessoriesEmployeeQttyLess1ActionPerformed
-        // TODO add your handling code here:
+        String originalString = AccessoriesEmployeeQtty1.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty1.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (newNumber > 1) {
+            newNumber--;
+            employeeQtty++;
+        }
+        EmployeeQtty1.setText(String.valueOf(employeeQtty));
+        AccessoriesEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_AccessoriesEmployeeQttyLess1ActionPerformed
 
     private void AccessoriesEmployeeQttyPlus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccessoriesEmployeeQttyPlus1ActionPerformed
-        // TODO add your handling code here:
+        String originalString = AccessoriesEmployeeQtty1.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty1.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (employeeQtty > 0) {
+            newNumber++;
+            employeeQtty--;
+        }
+        EmployeeQtty1.setText(String.valueOf(employeeQtty));
+        AccessoriesEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_AccessoriesEmployeeQttyPlus1ActionPerformed
 
     private void AssemblerEmployeeQttyLess1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssemblerEmployeeQttyLess1ActionPerformed
-        // TODO add your handling code here:
+        String originalString = AssemblerEmployeeQtty1.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty1.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (newNumber > 1) {
+            newNumber--;
+            employeeQtty++;
+        }
+        EmployeeQtty1.setText(String.valueOf(employeeQtty));
+        AssemblerEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_AssemblerEmployeeQttyLess1ActionPerformed
 
     private void AssemblerEmployeeQttyPlus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssemblerEmployeeQttyPlus1ActionPerformed
-        // TODO add your handling code here:
+        String originalString = AssemblerEmployeeQtty1.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty1.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (employeeQtty > 0) {
+            newNumber++;
+            employeeQtty--;
+        }
+        EmployeeQtty1.setText(String.valueOf(employeeQtty));
+        AssemblerEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_AssemblerEmployeeQttyPlus1ActionPerformed
+
+    private void RunSim1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunSim1ActionPerformed
+        this.maserati.run();
+    }//GEN-LAST:event_RunSim1ActionPerformed
+
+    private void StopSim1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopSim1ActionPerformed
+        this.maserati.stop();
+    }//GEN-LAST:event_StopSim1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1486,6 +2805,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel MaxWheelsQttyTitle;
     private javax.swing.JLabel MaxWheelsQttyTitle1;
     private javax.swing.JPanel Menu;
+    private javax.swing.JPanel MenuBar;
     private javax.swing.JLabel MotorsEmployeeQtty;
     private javax.swing.JLabel MotorsEmployeeQtty1;
     private javax.swing.JButton MotorsEmployeeQttyLess;
@@ -1512,6 +2832,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel OpManagerMoneyTakenTitle1;
     private javax.swing.JLabel OpManagerTitle;
     private javax.swing.JLabel OpManagerTitle1;
+    private javax.swing.JPanel Panel;
     private javax.swing.JLabel PlantDirectorJob;
     private javax.swing.JLabel PlantDirectorJob1;
     private javax.swing.JLabel PlantDirectorJobTitle;
@@ -1520,10 +2841,14 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel PlantDirectorTitle1;
     private javax.swing.JLabel PlantTitle;
     private javax.swing.JLabel PlantTitle1;
+    private javax.swing.JButton RunSim1;
     private javax.swing.JLabel StandardCarsQtty;
     private javax.swing.JLabel StandardCarsQtty1;
     private javax.swing.JLabel StandardCarsQttyTitle;
     private javax.swing.JLabel StandardCarsQttyTitle1;
+    private javax.swing.JButton StopSim1;
+    private javax.swing.JTabbedPane TabbedPane;
+    private javax.swing.JPanel TitleProject;
     private javax.swing.JLabel WarehouseTitle1;
     private javax.swing.JLabel WarehouseTitle2;
     private javax.swing.JLabel WheelsEmployeeQtty;
@@ -1542,12 +2867,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }

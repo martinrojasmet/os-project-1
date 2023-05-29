@@ -25,7 +25,11 @@ public class CarsWarehouse {
 
     
     
-    public void updateStorage(int number) {
+    public void updateStandardStorage(int number) {
+        this.standardCarsDone += number;
+    }
+    
+    public void updateAccessoryStorage(int number) {
         this.standardCarsDone += number;
     }
     

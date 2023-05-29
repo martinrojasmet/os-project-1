@@ -46,15 +46,15 @@ public class PartsWarehouse {
     }
     
     public void updateStorage(String type, int qtyParts) {
-        if (type.equals(EmployeeTypes.chasisEmployee)) {
+        if (type.equals(EmployeeInformation.chasisEmployee)) {
             this.addChasisDone(qtyParts);
-        } else if (type.equals(EmployeeTypes.bodyworkEmployee)) {
+        } else if (type.equals(EmployeeInformation.bodyworkEmployee)) {
             this.addBodyworksDone(qtyParts);
-        } else if (type.equals(EmployeeTypes.motorEmployee)) {
+        } else if (type.equals(EmployeeInformation.motorEmployee)) {
             this.addMotorsDone(qtyParts);
-        } else if (type.equals(EmployeeTypes.wheelEmployee)) {
+        } else if (type.equals(EmployeeInformation.wheelEmployee)) {
             this.addWheelsDone(qtyParts);
-        } else if (type.equals(EmployeeTypes.accesoryEmployee)) {
+        } else if (type.equals(EmployeeInformation.accesoryEmployee)) {
             this.addAccessoriesDone(qtyParts);
         }
     }
