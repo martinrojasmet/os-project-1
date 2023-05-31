@@ -13,6 +13,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import java.io.FileReader;
+import java.io.IOException;
 /**
  *
  * @author marti
@@ -21,16 +26,91 @@ public class GUI extends javax.swing.JFrame {
     
     private CarsPlant maserati;
     private CarsPlant bugatti;
+    private int dayDuration;
+    private int dayCounter;
     /**
      * Creates new form GUI
      */
     public GUI() {
+        this.dayDuration = 3000;
+        this.dayCounter = 3;
+        this.loadSetDaysJson();
+        
         StandardVehicle standard = new StandardVehicle(3, 4, 2, 3, 500000);
         AccessoryVehicle accessory = new AccessoryVehicle(3, 4, 2, 3, 2, 500000);
         
         this.bugatti = new CarsPlant(2000, 19, 10, 5, standard, accessory, this, true);
         this.maserati = new CarsPlant(2000, 19, 10, 5, standard, accessory, this, false);
         initComponents();
+        this.loadSetEmployeesJson();
+    }
+    
+    public void loadSetDaysJson() {
+        JSONParser parser = new JSONParser();
+        
+        try (FileReader reader = new FileReader("src/Assets/Data.json")) {
+
+            Object obj = parser.parse(reader);
+            JSONObject jsonObject = (JSONObject) obj;
+
+            int dayDuration = ((Long) jsonObject.get("simulationDurationInSeconds")).intValue();
+            int dayCounter = ((Long) jsonObject.get("vehicleDeliveryIntervalInDays")).intValue();
+            
+            this.dayDuration = dayDuration;
+            this.dayCounter = dayCounter;
+
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void loadSetEmployeesJson() {
+        JSONParser parser = new JSONParser();
+        
+        try (FileReader reader = new FileReader("src/Assets/Data.json")) {
+
+            Object obj = parser.parse(reader);
+            JSONObject jsonObject = (JSONObject) obj;
+
+            JSONObject initialEmployeeCount = (JSONObject) jsonObject.get("initialEmployeeCount");
+            int chasisInitial = ((Long) initialEmployeeCount.get("chasis")).intValue();
+            int assemblerInitial = ((Long) initialEmployeeCount.get("assembler")).intValue();
+            int bodyworkInitial = ((Long) initialEmployeeCount.get("bodywork")).intValue();
+            int wheelsInitial = ((Long) initialEmployeeCount.get("wheels")).intValue();
+            int accessoryInitial = ((Long) initialEmployeeCount.get("accessory")).intValue();
+            int motorInitial = ((Long) initialEmployeeCount.get("motor")).intValue();
+            
+            this.setValuesFromJson(dayDuration, dayCounter, chasisInitial, 
+            assemblerInitial, bodyworkInitial,wheelsInitial, 
+            accessoryInitial, motorInitial);
+
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void setValuesFromJson(int dayDuration, int dayCounter, int chasisInitial, 
+            int assemblerInitial, int bodyworkInitial, int wheelsInitial, 
+            int accessoryInitial, int motorInitial) {
+        
+        this.getAccessoriesEmployeeQtty().setText(String.valueOf(accessoryInitial));
+        this.getAccessoriesEmployeeQtty1().setText(String.valueOf(accessoryInitial));
+        
+        this.getBodyworksEmployeeQtty().setText(String.valueOf(bodyworkInitial));
+        this.getBodyworksEmployeeQtty1().setText(String.valueOf(bodyworkInitial));
+        
+        this.getChasisEmployeeQtty().setText(String.valueOf(chasisInitial));
+        this.getChasisEmployeeQtty1().setText(String.valueOf(chasisInitial));
+        
+        this.getMotorsEmployeeQtty().setText(String.valueOf(motorInitial));
+        this.getMotorsEmployeeQtty1().setText(String.valueOf(motorInitial));
+        
+        this.getWheelsEmployeeQtty().setText(String.valueOf(wheelsInitial));
+        this.getWheelsEmployeeQtty1().setText(String.valueOf(wheelsInitial));
+        
+        this.getAssemblerEmployeeQtty().setText(String.valueOf(assemblerInitial));
+        this.getAssemblerEmployeeQtty1().setText(String.valueOf(assemblerInitial));
+        
     }
 
     public CarsPlant getMaserati() {

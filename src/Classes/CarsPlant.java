@@ -55,6 +55,7 @@ public class CarsPlant {
         this.director = new PlantDirector(30f, this.manager, this);
         this.keepGoing = true;
         this.isFirst = isFirst;
+        this.gui = gui;
     }
     
     public void run() {
@@ -161,7 +162,7 @@ public class CarsPlant {
         //espera para que no haya un null pointer exception
         try {
 
-            sleep(3000);
+            sleep(7000);
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
