@@ -43,8 +43,8 @@ public class GUI extends javax.swing.JFrame {
         StandardVehicle standard = new StandardVehicle(3, 4, 2, 3, 500000);
         AccessoryVehicle accessory = new AccessoryVehicle(3, 4, 2, 3, 2, 600000);
         
-        this.bugatti = new CarsPlant("bugatti", 10, 19, 6, 3, standard, accessory, this, true);
-        this.maserati = new CarsPlant("maserati", 10, 19, 10, 5, standard, accessory, this, false);
+        this.bugatti = new CarsPlant("bugatti", this.dayDuration, 17, this.dayCounter, 3, standard, accessory, this, true);
+        this.maserati = new CarsPlant("maserati", this.dayDuration, 19, this.dayCounter, 5, standard, accessory, this, false);
         
         this.maseratiFunctions = new FunctionsGUI(this.maserati, this);
         this.bugattiFunctions = new FunctionsGUI(this.bugatti, this);
@@ -103,23 +103,31 @@ public class GUI extends javax.swing.JFrame {
             int assemblerInitial, int bodyworkInitial, int wheelsInitial, 
             int accessoryInitial, int motorInitial) {
         
-//        this.getAccessoriesEmployeeQtty().setText(String.valueOf(accessoryInitial));
-//        this.getAccessoriesEmployeeQtty1().setText(String.valueOf(accessoryInitial));
-//        
-//        this.getBodyworksEmployeeQtty().setText(String.valueOf(bodyworkInitial));
-//        this.getBodyworksEmployeeQtty1().setText(String.valueOf(bodyworkInitial));
-//        
-//        this.getChasisEmployeeQtty().setText(String.valueOf(chasisInitial));
-//        this.getChasisEmployeeQtty1().setText(String.valueOf(chasisInitial));
-//        
-//        this.getMotorsEmployeeQtty().setText(String.valueOf(motorInitial));
-//        this.getMotorsEmployeeQtty1().setText(String.valueOf(motorInitial));
-//        
-//        this.getWheelsEmployeeQtty().setText(String.valueOf(wheelsInitial));
-//        this.getWheelsEmployeeQtty1().setText(String.valueOf(wheelsInitial));
-//        
-//        this.getAssemblerEmployeeQtty().setText(String.valueOf(assemblerInitial));
-//        this.getAssemblerEmployeeQtty1().setText(String.valueOf(assemblerInitial));
+        this.getAccessoriesEmployeeQtty2().setText(String.valueOf(accessoryInitial));
+        this.getAccessoriesEmployeeQtty1().setText(String.valueOf(accessoryInitial));
+        
+        this.getBodyworksEmployeeQtty2().setText(String.valueOf(bodyworkInitial));
+        this.getBodyworksEmployeeQtty1().setText(String.valueOf(bodyworkInitial));
+        
+        this.getChasisEmployeeQtty2().setText(String.valueOf(chasisInitial));
+        this.getChasisEmployeeQtty1().setText(String.valueOf(chasisInitial));
+        
+        this.getMotorsEmployeeQtty2().setText(String.valueOf(motorInitial));
+        this.getMotorsEmployeeQtty1().setText(String.valueOf(motorInitial));
+        
+        this.getWheelsEmployeeQtty2().setText(String.valueOf(wheelsInitial));
+        this.getWheelsEmployeeQtty1().setText(String.valueOf(wheelsInitial));
+        
+        this.getAssemblerEmployeeQtty2().setText(String.valueOf(assemblerInitial));
+        this.getAssemblerEmployeeQtty1().setText(String.valueOf(assemblerInitial));
+        
+        int totalEmployeesRN = chasisInitial + assemblerInitial 
+                + bodyworkInitial + wheelsInitial + accessoryInitial + motorInitial;
+        int employeeQtty2 = Integer.parseInt(EmployeeQtty2.getText());
+        System.out.println(employeeQtty2);
+        int employeeQtty1 = Integer.parseInt(EmployeeQtty1.getText());
+        this.getEmployeeQtty2().setText(String.valueOf(employeeQtty2 - totalEmployeesRN));
+        this.getEmployeeQtty1().setText(String.valueOf(employeeQtty1 - totalEmployeesRN));
         
     }
     
@@ -1365,7 +1373,7 @@ public class GUI extends javax.swing.JFrame {
 
         EmployeeQtty2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EmployeeQtty2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EmployeeQtty2.setText(String.valueOf(this.maserati.getMaxEmployees()-6));
+        EmployeeQtty2.setText(String.valueOf(this.bugatti.getMaxEmployees()));
         Bugatti.add(EmployeeQtty2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 170, 50, 30));
 
         ChasisEmployeeQttyLess2.setText("-");
@@ -1616,27 +1624,27 @@ public class GUI extends javax.swing.JFrame {
 
         MaxChasisQtty2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxChasisQtty2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MaxChasisQtty2.setText(Integer.toString(this.maserati.getPartsWarehouse().getLimitChasis()));
+        MaxChasisQtty2.setText(Integer.toString(this.bugatti.getPartsWarehouse().getLimitChasis()));
         Bugatti.add(MaxChasisQtty2, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 151, 50, 30));
 
         MaxBodyworksQtty2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxBodyworksQtty2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MaxBodyworksQtty2.setText(Integer.toString(this.maserati.getPartsWarehouse().getLimitBodyworks()));
+        MaxBodyworksQtty2.setText(Integer.toString(this.bugatti.getPartsWarehouse().getLimitBodyworks()));
         Bugatti.add(MaxBodyworksQtty2, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 201, 50, 30));
 
         MaxMotorsQtty2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxMotorsQtty2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MaxMotorsQtty2.setText(Integer.toString(this.maserati.getPartsWarehouse().getLimitMotors()));
+        MaxMotorsQtty2.setText(Integer.toString(this.bugatti.getPartsWarehouse().getLimitMotors()));
         Bugatti.add(MaxMotorsQtty2, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 251, 50, 30));
 
         MaxWheelsQtty2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxWheelsQtty2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MaxWheelsQtty2.setText(Integer.toString(this.maserati.getPartsWarehouse().getLimitWheels()));
+        MaxWheelsQtty2.setText(Integer.toString(this.bugatti.getPartsWarehouse().getLimitWheels()));
         Bugatti.add(MaxWheelsQtty2, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 301, 50, 30));
 
         MaxAccessoriesQtty2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxAccessoriesQtty2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MaxAccessoriesQtty2.setText(Integer.toString(this.maserati.getPartsWarehouse().getLimitAccessories()));
+        MaxAccessoriesQtty2.setText(Integer.toString(this.bugatti.getPartsWarehouse().getLimitAccessories()));
         Bugatti.add(MaxAccessoriesQtty2, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 351, 50, 30));
 
         DaysLeft2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -1691,7 +1699,7 @@ public class GUI extends javax.swing.JFrame {
 
         OpManagerFaults2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerFaults2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        OpManagerFaults2.setText(String.valueOf(this.maserati.getManager().getFaults()));
+        OpManagerFaults2.setText(String.valueOf(this.bugatti.getManager().getFaults()));
         Bugatti.add(OpManagerFaults2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 40, 30));
 
         OpManagerFaultsTitle2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1701,7 +1709,7 @@ public class GUI extends javax.swing.JFrame {
 
         OpManagerMoneyTaken2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerMoneyTaken2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        OpManagerMoneyTaken2.setText(String.valueOf(this.maserati.getManager().getFaults()*50));
+        OpManagerMoneyTaken2.setText(String.valueOf(this.bugatti.getManager().getFaults()*50));
         Bugatti.add(OpManagerMoneyTaken2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 40, 30));
 
         OpManagerMoneyTakenTitle2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1808,7 +1816,7 @@ public class GUI extends javax.swing.JFrame {
 
         EmployeeQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EmployeeQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        EmployeeQtty1.setText(String.valueOf(this.maserati.getMaxEmployees()-6));
+        EmployeeQtty1.setText(String.valueOf(this.maserati.getMaxEmployees()));
         Maserati.add(EmployeeQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 170, 50, 30));
 
         ChasisEmployeeQttyLess1.setText("-");
@@ -2417,7 +2425,6 @@ public class GUI extends javax.swing.JFrame {
 
     private void RunSim1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunSim1ActionPerformed
         this.maserati.run();
-        this.bugatti.run();
     }//GEN-LAST:event_RunSim1ActionPerformed
 
     private void StopSim1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopSim1ActionPerformed
@@ -2425,59 +2432,156 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_StopSim1ActionPerformed
 
     private void ChasisEmployeeQttyLess2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChasisEmployeeQttyLess2ActionPerformed
-        // TODO add your handling code here:
+        String originalString = ChasisEmployeeQtty2.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty2.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (newNumber > 1) {
+            newNumber--;
+            employeeQtty++;
+        }
+        EmployeeQtty2.setText(String.valueOf(employeeQtty));
+        ChasisEmployeeQtty2.setText(String.valueOf(newNumber));
+        
     }//GEN-LAST:event_ChasisEmployeeQttyLess2ActionPerformed
 
     private void ChasisEmployeeQttyPlus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChasisEmployeeQttyPlus2ActionPerformed
-        // TODO add your handling code here:
+        String originalString = ChasisEmployeeQtty2.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty2.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (employeeQtty > 0) {
+            newNumber++;
+            employeeQtty--;
+        }
+        EmployeeQtty2.setText(String.valueOf(employeeQtty));
+        ChasisEmployeeQtty2.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_ChasisEmployeeQttyPlus2ActionPerformed
 
     private void BodyworksEmployeeQttyLess2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BodyworksEmployeeQttyLess2ActionPerformed
-        // TODO add your handling code here:
+        String originalString = BodyworksEmployeeQtty2.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty2.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (newNumber > 1) {
+            newNumber--;
+            employeeQtty++;
+        }
+        EmployeeQtty2.setText(String.valueOf(employeeQtty));
+        BodyworksEmployeeQtty2.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_BodyworksEmployeeQttyLess2ActionPerformed
 
     private void BodyworksEmployeeQttyPlus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BodyworksEmployeeQttyPlus2ActionPerformed
-        // TODO add your handling code here:
+        String originalString = BodyworksEmployeeQtty2.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty2.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (employeeQtty > 0) {
+            newNumber++;
+            employeeQtty--;
+        }
+        EmployeeQtty2.setText(String.valueOf(employeeQtty));
+        BodyworksEmployeeQtty2.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_BodyworksEmployeeQttyPlus2ActionPerformed
 
     private void MotorsEmployeeQttyLess2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MotorsEmployeeQttyLess2ActionPerformed
-        // TODO add your handling code here:
+        String originalString = MotorsEmployeeQtty2.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty2.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (newNumber > 1) {
+            newNumber--;
+            employeeQtty++;
+        }
+        EmployeeQtty2.setText(String.valueOf(employeeQtty));
+        MotorsEmployeeQtty2.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_MotorsEmployeeQttyLess2ActionPerformed
 
     private void MotorsEmployeeQttyPlus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MotorsEmployeeQttyPlus2ActionPerformed
-        // TODO add your handling code here:
+        String originalString = MotorsEmployeeQtty2.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty2.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (employeeQtty > 0) {
+            newNumber++;
+            employeeQtty--;
+        }
+        EmployeeQtty2.setText(String.valueOf(employeeQtty));
+        MotorsEmployeeQtty2.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_MotorsEmployeeQttyPlus2ActionPerformed
 
     private void WheelsEmployeeQttyLess2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WheelsEmployeeQttyLess2ActionPerformed
-        // TODO add your handling code here:
+        String originalString = WheelsEmployeeQtty2.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty2.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (newNumber > 1) {
+            newNumber--;
+            employeeQtty++;
+        }
+        EmployeeQtty2.setText(String.valueOf(employeeQtty));
+        WheelsEmployeeQtty2.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_WheelsEmployeeQttyLess2ActionPerformed
 
     private void WheelsEmployeeQttyPlus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WheelsEmployeeQttyPlus2ActionPerformed
-        // TODO add your handling code here:
+        String originalString = WheelsEmployeeQtty2.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty2.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (employeeQtty > 0) {
+            newNumber++;
+            employeeQtty--;
+        }
+        EmployeeQtty2.setText(String.valueOf(employeeQtty));
+        WheelsEmployeeQtty2.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_WheelsEmployeeQttyPlus2ActionPerformed
 
     private void AccessoriesEmployeeQttyLess2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccessoriesEmployeeQttyLess2ActionPerformed
-        // TODO add your handling code here:
+        String originalString = AccessoriesEmployeeQtty2.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty2.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (newNumber > 1) {
+            newNumber--;
+            employeeQtty++;
+        }
+        EmployeeQtty2.setText(String.valueOf(employeeQtty));
+        AccessoriesEmployeeQtty2.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_AccessoriesEmployeeQttyLess2ActionPerformed
 
     private void AccessoriesEmployeeQttyPlus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccessoriesEmployeeQttyPlus2ActionPerformed
-        // TODO add your handling code here:
+        String originalString = AccessoriesEmployeeQtty2.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty2.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (employeeQtty > 0) {
+            newNumber++;
+            employeeQtty--;
+        }
+        EmployeeQtty2.setText(String.valueOf(employeeQtty));
+        AccessoriesEmployeeQtty2.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_AccessoriesEmployeeQttyPlus2ActionPerformed
 
     private void AssemblerEmployeeQttyLess2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssemblerEmployeeQttyLess2ActionPerformed
-        // TODO add your handling code here:
+        String originalString = AssemblerEmployeeQtty2.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty2.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (newNumber > 1) {
+            newNumber--;
+            employeeQtty++;
+        }
+        EmployeeQtty2.setText(String.valueOf(employeeQtty));
+        AssemblerEmployeeQtty2.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_AssemblerEmployeeQttyLess2ActionPerformed
 
     private void AssemblerEmployeeQttyPlus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssemblerEmployeeQttyPlus2ActionPerformed
-        // TODO add your handling code here:
+        String originalString = AssemblerEmployeeQtty2.getText();
+        int employeeQtty = Integer.parseInt(EmployeeQtty2.getText());
+        int newNumber = Integer.parseInt(originalString);
+        if (employeeQtty > 0) {
+            newNumber++;
+            employeeQtty--;
+        }
+        EmployeeQtty2.setText(String.valueOf(employeeQtty));
+        AssemblerEmployeeQtty2.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_AssemblerEmployeeQttyPlus2ActionPerformed
 
     private void RunSim2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunSim2ActionPerformed
-        // TODO add your handling code here:
+        this.bugatti.run();
     }//GEN-LAST:event_RunSim2ActionPerformed
 
     private void StopSim2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopSim2ActionPerformed
-        // TODO add your handling code here:
+        this.bugatti.stop();
     }//GEN-LAST:event_StopSim2ActionPerformed
 
     /**

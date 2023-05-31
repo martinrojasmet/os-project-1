@@ -533,7 +533,7 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="String.valueOf(this.maserati.getMaxEmployees()-6)" type="code"/>
+                      <Connection code="String.valueOf(this.bugatti.getMaxEmployees())" type="code"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1139,7 +1139,7 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getLimitChasis())" type="code"/>
+                      <Connection code="Integer.toString(this.bugatti.getPartsWarehouse().getLimitChasis())" type="code"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1155,7 +1155,7 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getLimitBodyworks())" type="code"/>
+                      <Connection code="Integer.toString(this.bugatti.getPartsWarehouse().getLimitBodyworks())" type="code"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1171,7 +1171,7 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getLimitMotors())" type="code"/>
+                      <Connection code="Integer.toString(this.bugatti.getPartsWarehouse().getLimitMotors())" type="code"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1187,7 +1187,7 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getLimitWheels())" type="code"/>
+                      <Connection code="Integer.toString(this.bugatti.getPartsWarehouse().getLimitWheels())" type="code"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1203,7 +1203,7 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="Integer.toString(this.maserati.getPartsWarehouse().getLimitAccessories())" type="code"/>
+                      <Connection code="Integer.toString(this.bugatti.getPartsWarehouse().getLimitAccessories())" type="code"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1361,7 +1361,7 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="String.valueOf(this.maserati.getManager().getFaults())" type="code"/>
+                      <Connection code="String.valueOf(this.bugatti.getManager().getFaults())" type="code"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1391,7 +1391,7 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="String.valueOf(this.maserati.getManager().getFaults()*50)" type="code"/>
+                      <Connection code="String.valueOf(this.bugatti.getManager().getFaults()*50)" type="code"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1690,7 +1690,7 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="String.valueOf(this.maserati.getMaxEmployees()-6)" type="code"/>
+                      <Connection code="String.valueOf(this.maserati.getMaxEmployees())" type="code"/>
                     </Property>
                   </Properties>
                   <Constraints>

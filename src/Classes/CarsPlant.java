@@ -76,6 +76,8 @@ public class CarsPlant {
         for (int i = 0; i < this.EmpList.length; i++) {
             if (this.EmpList[i] instanceof Employee) {
                 this.EmpList[i].stopRunning(); //No se si esto sea concurrente
+                this.director.stopRunning();
+                this.manager.stopRunning();
             }
         }
     }
