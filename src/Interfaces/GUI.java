@@ -30,6 +30,7 @@ public class GUI extends javax.swing.JFrame {
     private CarsPlant bugatti;
     private int dayDuration;
     private int dayCounter;
+    private FunctionsGUI functions;
     /**
      * Creates new form GUI
      */
@@ -39,7 +40,7 @@ public class GUI extends javax.swing.JFrame {
         this.loadSetDaysJson();
         
         StandardVehicle standard = new StandardVehicle(3, 4, 2, 3, 500000);
-        AccessoryVehicle accessory = new AccessoryVehicle(3, 4, 2, 3, 2, 500000);
+        AccessoryVehicle accessory = new AccessoryVehicle(3, 4, 2, 3, 2, 600000);
         
         this.bugatti = new CarsPlant(2, 19, 10, 5, standard, accessory, this, true);
         this.maserati = new CarsPlant(1, 19, 10, 5, standard, accessory, this, false);
@@ -48,6 +49,7 @@ public class GUI extends javax.swing.JFrame {
         
         initComponents();
         this.loadSetEmployeesJson();
+        this.functions.start();
     }
     
     public void loadSetDaysJson() {

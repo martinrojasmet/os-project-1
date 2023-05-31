@@ -74,12 +74,6 @@ public class Employee extends Thread {
     }
     
     public void assembleCar() {
-        try {
-            sleep(7000);
-
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
-        }
         boolean carWithAccessories = false;
         boolean hasAccessoriesAvailable = true;
         boolean carDone = false;
