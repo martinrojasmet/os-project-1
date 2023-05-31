@@ -15,22 +15,26 @@ public class CarsWarehouse {
     
     private int standardCarsDone;
     private int accessoryCarsDone;
+    private int standardCarsAvailable;
+    private int accessoryCarsAvailable;
     private Semaphore semaphore;
 
     public CarsWarehouse() {
         this.standardCarsDone = 0;
         this.accessoryCarsDone = 0;
+        this.standardCarsAvailable = 0;
+        this.accessoryCarsAvailable = 0;
         this.semaphore = new Semaphore(1);
     }
-
-    
-    
+  
     public void updateStandardStorage(int number) {
         this.standardCarsDone += number;
+        this.standardCarsAvailable += number;
     }
     
     public void updateAccessoryStorage(int number) {
-        this.standardCarsDone += number;
+        this.accessoryCarsDone += number;
+        this.accessoryCarsAvailable += number;
     }
     
     // Getters and setters
@@ -57,6 +61,22 @@ public class CarsWarehouse {
 
     public void setSemaphore(Semaphore semaphore) {
         this.semaphore = semaphore;
+    }
+
+    public int getStandardCarsAvailable() {
+        return standardCarsAvailable;
+    }
+
+    public void setStandardCarsAvailable(int standardCarsAvailable) {
+        this.standardCarsAvailable = standardCarsAvailable;
+    }
+
+    public int getAccessoryCarsAvailable() {
+        return accessoryCarsAvailable;
+    }
+
+    public void setAccessoryCarsAvailable(int accessoryCarsAvailable) {
+        this.accessoryCarsAvailable = accessoryCarsAvailable;
     }
     
 }

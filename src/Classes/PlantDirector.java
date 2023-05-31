@@ -33,21 +33,22 @@ public class PlantDirector extends Thread {
             try {
                 
                 if (this.plant.getDaysToDeliver() == 0) {
-                    deliverCars();
-                    sleep((long) this.plant.getDayDurationInMs());
+                    deliverCars();                   
                 } else {
                     randomHour = this.getRandomHourInMs();
                     sleep(randomHour);
                     
                     //Aqui se corre el checkManager() cada min de los 25min para (No se si al ponerlo en la funcion checkManager falle asiq ue lo deje aca)
+                     
+//                    long startTime = System.currentTimeMillis();
+//                    while (System.currentTimeMillis() - startTime < twentyFiveMinutes) {
+//                        checkManager();
+//                        sleep(twentyFiveMinutes/25);
+//                    }
+//                    this.setCheckingManager(false);
+
                     this.setCheckingManager(true);
-                    long startTime = System.currentTimeMillis();
-                    while (System.currentTimeMillis() - startTime < twentyFiveMinutes) {
-                        checkManager();
-                        sleep(twentyFiveMinutes/25);
-                    }
-                    this.setCheckingManager(false);
-                    
+                    checkManager();
                     long remainingDay = (long) (this.plant.getDayDurationInMs() - (randomHour + twentyFiveMinutes));
                     sleep(remainingDay);
                 }
@@ -66,17 +67,51 @@ public class PlantDirector extends Thread {
     }
     
     public void checkManager() {
+        long twentyFiveMinutes = getTwentyFiveMinutesInMs();
         if (checkingManager) {
             if (!this.manager.isIsWorking()) {
-                this.setCheckingManager(false);
-                this.manager.setAccSalary(this.manager.getAccSalary() - 50);
-                this.manager.setFaults(this.manager.getFaults() + 1);
+                try {
+                    sleep(twentyFiveMinutes);
+                    this.setCheckingManager(false);
+                    this.manager.setAccSalary(this.manager.getAccSalary() - 50);
+                    this.manager.setDiscountedSalary(this.manager.getDiscountedSalary() + 50);
+                    this.manager.setFaults(this.manager.getFaults() + 1);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(PlantDirector.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                try {                   
+                    sleep(twentyFiveMinutes);
+                    this.setCheckingManager(false);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(PlantDirector.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
+            
         }
     }
     
     public void deliverCars() {
-        this.plant.setDaysToDeliver(this.plant.getDayCounter());
+        int standardIncome;
+        int accessoryIncome;
+        try {
+            // Resetea contador
+            this.plant.getCounterMutex().acquire();
+            this.plant.setDaysToDeliver(this.plant.getDayCounter());
+            this.plant.getCounterMutex().release();
+            
+            // Accede al almacen de carros y registra las ganancias
+            this.plant.getCarsWarehouse().getSemaphore().acquire();
+            sleep((long) this.plant.getDayDurationInMs());
+            standardIncome = (int) (this.plant.getCarsWarehouse().getStandardCarsAvailable() * this.plant.getStandardVehicle().getPrice());
+            accessoryIncome = (int) (this.plant.getCarsWarehouse().getAccessoryCarsAvailable() * this.plant.getAccessoryVehicle().getPrice());
+            this.plant.setGrossIncome(this.plant.getGrossIncome() + standardIncome + accessoryIncome);
+            this.plant.getCarsWarehouse().setStandardCarsAvailable(0);
+            this.plant.getCarsWarehouse().setAccessoryCarsAvailable(0);
+            this.plant.getCarsWarehouse().getSemaphore().release();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PlantDirector.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public long getRandomHourInMs() {

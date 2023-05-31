@@ -35,15 +35,15 @@ public class Employee extends Thread {
         this.salary = salary;
         this.keepGoing = true;
         this.plant = plant;
-        this.durationDay = plant.getDayDuration();
+        this.durationDay = (int) plant.getDayDurationInMs();
     }
 
     @Override
     public void run() {
         while(this.keepGoing) {
             try {
-                System.out.println(this.type + " corriendo");
-                if (this.type.equals(EmployeeInformation.accesoryEmployee)) {
+                
+                if (this.type.equals(EmployeeInformation.assemblerEmployee)) {
                     assembleCar();
                 } else {
                     sleep(this.durationDay);
@@ -88,10 +88,7 @@ public class Employee extends Thread {
             carWithAccessories = true;
         }
         
-        if ((this.partsWarehouse.getBodyworksDone() >= this.plant.getStandardVehicle().getQtyBodyworkToProduce())
-             && (this.partsWarehouse.getChasisDone() >= this.plant.getStandardVehicle().getQtyChasisToProduce())
-             && (this.partsWarehouse.getMotorsDone() >= this.plant.getStandardVehicle().getQtyMotorToProduce())
-             && (this.partsWarehouse.getWheelsDone() >= this.plant.getStandardVehicle().getQtyWheelToProduce())) {
+        if (availableStandardParts()) {
             
             if (this.partsWarehouse.getAccessoriesDone() < this.plant.getAccessoryVehicle().getQtyAccessoryToProduce()) {
                 hasAccessoriesAvailable = false;
@@ -100,14 +97,14 @@ public class Employee extends Thread {
             try {
                 // Se accede al almacen para tomar las partes necesarias para ensamblar un carro
                 this.partsWarehouse.getSemaphore().acquire();
-                if (!carWithAccessories) {
+                if (!carWithAccessories && availableStandardParts()) {
                     this.partsWarehouse.setBodyworksDone((this.partsWarehouse.getBodyworksDone() - this.plant.getStandardVehicle().getQtyBodyworkToProduce()));
                     this.partsWarehouse.setChasisDone((this.partsWarehouse.getChasisDone() - this.plant.getStandardVehicle().getQtyChasisToProduce()));
                     this.partsWarehouse.setMotorsDone((this.partsWarehouse.getMotorsDone() - this.plant.getStandardVehicle().getQtyMotorToProduce()));
                     this.partsWarehouse.setWheelsDone((this.partsWarehouse.getWheelsDone() - this.plant.getStandardVehicle().getQtyWheelToProduce()));
                     this.partsWarehouse.setCarsUntilAccessories(this.partsWarehouse.getCarsUntilAccessories() - 1);
                     carDone = true;
-                } else if (carWithAccessories && hasAccessoriesAvailable) {
+                } else if (carWithAccessories && hasAccessoriesAvailable && availableStandardParts()) {
                     this.partsWarehouse.setBodyworksDone((this.partsWarehouse.getBodyworksDone() - this.plant.getStandardVehicle().getQtyBodyworkToProduce()));
                     this.partsWarehouse.setChasisDone((this.partsWarehouse.getChasisDone() - this.plant.getStandardVehicle().getQtyChasisToProduce()));
                     this.partsWarehouse.setMotorsDone((this.partsWarehouse.getMotorsDone() - this.plant.getStandardVehicle().getQtyMotorToProduce()));
@@ -137,6 +134,13 @@ public class Employee extends Thread {
                 Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    public boolean availableStandardParts() {
+        return (this.partsWarehouse.getBodyworksDone() >= this.plant.getStandardVehicle().getQtyBodyworkToProduce())
+                && (this.partsWarehouse.getChasisDone() >= this.plant.getStandardVehicle().getQtyChasisToProduce())
+                && (this.partsWarehouse.getMotorsDone() >= this.plant.getStandardVehicle().getQtyMotorToProduce())
+                && (this.partsWarehouse.getWheelsDone() >= this.plant.getStandardVehicle().getQtyWheelToProduce());
     }
     
     public void getPayment() {
