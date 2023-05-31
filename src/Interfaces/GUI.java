@@ -9,6 +9,8 @@ package Interfaces;
 import Classes.AccessoryVehicle;
 import Classes.CarsPlant;
 import Classes.StandardVehicle;
+import Classes.EmployeeInformation;
+import Classes.FunctionsGUI;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,6 +23,7 @@ public class GUI extends javax.swing.JFrame {
     
     private CarsPlant maserati;
     private CarsPlant bugatti;
+    private FunctionsGUI functions;
     /**
      * Creates new form GUI
      */
@@ -28,11 +31,15 @@ public class GUI extends javax.swing.JFrame {
         StandardVehicle standard = new StandardVehicle(3, 4, 2, 3, 500000);
         AccessoryVehicle accessory = new AccessoryVehicle(3, 4, 2, 3, 2, 500000);
         
-        this.bugatti = new CarsPlant(2000, 19, 10, 5, standard, accessory, this, true);
-        this.maserati = new CarsPlant(2000, 19, 10, 5, standard, accessory, this, false);
+        this.bugatti = new CarsPlant(2, 19, 10, 5, standard, accessory, this, true);
+        this.maserati = new CarsPlant(1, 19, 10, 5, standard, accessory, this, false);
+        
+        this.functions = new FunctionsGUI(this.maserati, this);
+        
         initComponents();
+        this.functions.start();
     }
-
+    
     public CarsPlant getMaserati() {
         return maserati;
     }
@@ -49,6 +56,38 @@ public class GUI extends javax.swing.JFrame {
         this.bugatti = bugatti;
     }
 
+    public JLabel getTotalDaysQtty1() {
+        return TotalDaysQtty1;
+    }
+
+    public void setTotalDaysQtty1(JLabel TotalDaysQtty1) {
+        this.TotalDaysQtty1 = TotalDaysQtty1;
+    }
+
+    public JLabel getOperativeCostsValue1() {
+        return OperativeCostsValue1;
+    }
+
+    public void setOperativeCostsValue1(JLabel OperativeCostsValue1) {
+        this.OperativeCostsValue1 = OperativeCostsValue1;
+    }
+    
+    public JLabel getGrossIncomeValue1() {
+        return GrossIncomeValue1;
+    }
+
+    public void setGrossIncomeValue1(JLabel GrossIncomeValue1) {
+        this.GrossIncomeValue1 = GrossIncomeValue1;
+    }
+
+    public JLabel getStandardCarsDone1() {
+        return StandardCarsQtty1;
+    }
+
+    public void setStandardCarsDone1(JLabel StandardCarsDone1) {
+        this.StandardCarsQtty1 = StandardCarsDone1;
+    }
+    
     public JLabel getAccessoriesCarsQtty() {
         return AccessoriesCarsQtty;
     }
@@ -1363,6 +1402,12 @@ public class GUI extends javax.swing.JFrame {
         WarehouseTitle2 = new javax.swing.JLabel();
         RunSim1 = new javax.swing.JButton();
         StopSim1 = new javax.swing.JButton();
+        TotalDays1 = new javax.swing.JLabel();
+        TotalDaysQtty1 = new javax.swing.JLabel();
+        GrossIncomeValue1 = new javax.swing.JLabel();
+        OperativeCosts1 = new javax.swing.JLabel();
+        GrossIncomeTittle1 = new javax.swing.JLabel();
+        OperativeCostsValue1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1852,17 +1897,22 @@ public class GUI extends javax.swing.JFrame {
 
         TabbedPane.addTab("tab2", Bugatti);
 
+        Maserati.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         ChasisEmployeeQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ChasisEmployeeQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ChasisEmployeeQtty1.setText("1");
+        Maserati.add(ChasisEmployeeQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 221, 50, 30));
 
         AssemblerEmployeeQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AssemblerEmployeeQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AssemblerEmployeeQttyTitle1.setText("Empleados en ens.");
+        Maserati.add(AssemblerEmployeeQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(675, 471, 160, 30));
 
         EmployeeQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EmployeeQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EmployeeQtty1.setText(String.valueOf(this.maserati.getMaxEmployees()-6));
+        Maserati.add(EmployeeQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(901, 151, 50, 30));
 
         ChasisEmployeeQttyLess1.setText("-");
         ChasisEmployeeQttyLess1.addActionListener(new java.awt.event.ActionListener() {
@@ -1870,6 +1920,7 @@ public class GUI extends javax.swing.JFrame {
                 ChasisEmployeeQttyLess1ActionPerformed(evt);
             }
         });
+        Maserati.add(ChasisEmployeeQttyLess1, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 221, 50, 30));
 
         ChasisEmployeeQttyPlus1.setText("+");
         ChasisEmployeeQttyPlus1.addActionListener(new java.awt.event.ActionListener() {
@@ -1877,10 +1928,12 @@ public class GUI extends javax.swing.JFrame {
                 ChasisEmployeeQttyPlus1ActionPerformed(evt);
             }
         });
+        Maserati.add(ChasisEmployeeQttyPlus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(945, 221, 50, 30));
 
         BodyworksEmployeeQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BodyworksEmployeeQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BodyworksEmployeeQtty1.setText("1");
+        Maserati.add(BodyworksEmployeeQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 271, 50, 30));
 
         BodyworksEmployeeQttyLess1.setText("-");
         BodyworksEmployeeQttyLess1.addActionListener(new java.awt.event.ActionListener() {
@@ -1888,6 +1941,7 @@ public class GUI extends javax.swing.JFrame {
                 BodyworksEmployeeQttyLess1ActionPerformed(evt);
             }
         });
+        Maserati.add(BodyworksEmployeeQttyLess1, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 271, 50, 30));
 
         BodyworksEmployeeQttyPlus1.setText("+");
         BodyworksEmployeeQttyPlus1.addActionListener(new java.awt.event.ActionListener() {
@@ -1895,10 +1949,12 @@ public class GUI extends javax.swing.JFrame {
                 BodyworksEmployeeQttyPlus1ActionPerformed(evt);
             }
         });
+        Maserati.add(BodyworksEmployeeQttyPlus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(945, 271, 50, 30));
 
         MotorsEmployeeQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MotorsEmployeeQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MotorsEmployeeQtty1.setText("1");
+        Maserati.add(MotorsEmployeeQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 321, 50, 30));
 
         MotorsEmployeeQttyLess1.setText("-");
         MotorsEmployeeQttyLess1.addActionListener(new java.awt.event.ActionListener() {
@@ -1906,6 +1962,7 @@ public class GUI extends javax.swing.JFrame {
                 MotorsEmployeeQttyLess1ActionPerformed(evt);
             }
         });
+        Maserati.add(MotorsEmployeeQttyLess1, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 321, 50, 30));
 
         MotorsEmployeeQttyPlus1.setText("+");
         MotorsEmployeeQttyPlus1.addActionListener(new java.awt.event.ActionListener() {
@@ -1913,10 +1970,12 @@ public class GUI extends javax.swing.JFrame {
                 MotorsEmployeeQttyPlus1ActionPerformed(evt);
             }
         });
+        Maserati.add(MotorsEmployeeQttyPlus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(945, 321, 50, 30));
 
         WheelsEmployeeQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         WheelsEmployeeQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         WheelsEmployeeQtty1.setText("1");
+        Maserati.add(WheelsEmployeeQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 371, 50, 30));
 
         WheelsEmployeeQttyLess1.setText("-");
         WheelsEmployeeQttyLess1.addActionListener(new java.awt.event.ActionListener() {
@@ -1924,6 +1983,7 @@ public class GUI extends javax.swing.JFrame {
                 WheelsEmployeeQttyLess1ActionPerformed(evt);
             }
         });
+        Maserati.add(WheelsEmployeeQttyLess1, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 371, 50, 30));
 
         WheelsEmployeeQttyPlus1.setText("+");
         WheelsEmployeeQttyPlus1.addActionListener(new java.awt.event.ActionListener() {
@@ -1931,10 +1991,12 @@ public class GUI extends javax.swing.JFrame {
                 WheelsEmployeeQttyPlus1ActionPerformed(evt);
             }
         });
+        Maserati.add(WheelsEmployeeQttyPlus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(945, 371, 50, 30));
 
         AccessoriesEmployeeQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AccessoriesEmployeeQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AccessoriesEmployeeQtty1.setText("1");
+        Maserati.add(AccessoriesEmployeeQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 421, 50, 30));
 
         AccessoriesEmployeeQttyLess1.setText("-");
         AccessoriesEmployeeQttyLess1.addActionListener(new java.awt.event.ActionListener() {
@@ -1942,6 +2004,7 @@ public class GUI extends javax.swing.JFrame {
                 AccessoriesEmployeeQttyLess1ActionPerformed(evt);
             }
         });
+        Maserati.add(AccessoriesEmployeeQttyLess1, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 421, 50, 30));
 
         AccessoriesEmployeeQttyPlus1.setText("+");
         AccessoriesEmployeeQttyPlus1.addActionListener(new java.awt.event.ActionListener() {
@@ -1949,10 +2012,12 @@ public class GUI extends javax.swing.JFrame {
                 AccessoriesEmployeeQttyPlus1ActionPerformed(evt);
             }
         });
+        Maserati.add(AccessoriesEmployeeQttyPlus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(945, 421, 50, 30));
 
         AssemblerEmployeeQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AssemblerEmployeeQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AssemblerEmployeeQtty1.setText("1");
+        Maserati.add(AssemblerEmployeeQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 471, 50, 30));
 
         AssemblerEmployeeQttyLess1.setText("-");
         AssemblerEmployeeQttyLess1.addActionListener(new java.awt.event.ActionListener() {
@@ -1960,6 +2025,7 @@ public class GUI extends javax.swing.JFrame {
                 AssemblerEmployeeQttyLess1ActionPerformed(evt);
             }
         });
+        Maserati.add(AssemblerEmployeeQttyLess1, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 471, 50, 30));
 
         AssemblerEmployeeQttyPlus1.setText("+");
         AssemblerEmployeeQttyPlus1.addActionListener(new java.awt.event.ActionListener() {
@@ -1967,186 +2033,232 @@ public class GUI extends javax.swing.JFrame {
                 AssemblerEmployeeQttyPlus1ActionPerformed(evt);
             }
         });
+        Maserati.add(AssemblerEmployeeQttyPlus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(945, 471, 50, 30));
 
         EmployeeQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EmployeeQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         EmployeeQttyTitle1.setText("Cantidad de empleados:");
+        Maserati.add(EmployeeQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 151, 170, 30));
 
         BodyworksEmployeeQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BodyworksEmployeeQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BodyworksEmployeeQttyTitle1.setText("Empleados en carrocería");
+        Maserati.add(BodyworksEmployeeQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(675, 271, 160, 30));
 
         MotorsEmployeeQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MotorsEmployeeQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MotorsEmployeeQttyTitle1.setText("Empleados en motor");
+        Maserati.add(MotorsEmployeeQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(675, 321, 160, 30));
 
         WheelsEmployeeQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         WheelsEmployeeQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         WheelsEmployeeQttyTitle1.setText("Empleados en ruedas");
+        Maserati.add(WheelsEmployeeQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(675, 371, 160, 30));
 
         AccessoriesEmployeeQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AccessoriesEmployeeQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AccessoriesEmployeeQttyTitle1.setText("Empleados en accesorios");
+        Maserati.add(AccessoriesEmployeeQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(675, 421, 160, 30));
 
         PlantDirectorJob1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         PlantDirectorJob1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PlantDirectorJob1.setText("Nada");
+        Maserati.add(PlantDirectorJob1, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 191, 240, 30));
 
         ChasisQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ChasisQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ChasisQtty1.setText(Integer.toString(this.maserati.getPartsWarehouse().getChasisDone()));
+        Maserati.add(ChasisQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 151, 50, 30));
 
         StandardCarsQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         StandardCarsQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        StandardCarsQttyTitle1.setText("Carros estándar:");
+        StandardCarsQttyTitle1.setText("Carros estándar hechos:");
+        Maserati.add(StandardCarsQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 180, 30));
 
         BodyworksQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BodyworksQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BodyworksQtty1.setText(Integer.toString(this.maserati.getPartsWarehouse().getBodyworksDone()));
+        Maserati.add(BodyworksQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 201, 50, 30));
 
         MotorsQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MotorsQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MotorsQtty1.setText(Integer.toString(this.maserati.getPartsWarehouse().getMotorsDone()));
+        Maserati.add(MotorsQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 251, 50, 30));
 
         WheelsQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         WheelsQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         WheelsQtty1.setText(Integer.toString(this.maserati.getPartsWarehouse().getWheelsDone()));
+        Maserati.add(WheelsQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 301, 50, 30));
 
         AccessoriesQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AccessoriesQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AccessoriesQtty1.setText(Integer.toString(this.maserati.getPartsWarehouse().getAccessoriesDone()));
+        Maserati.add(AccessoriesQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 351, 50, 30));
 
         StandardCarsQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         StandardCarsQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         StandardCarsQtty1.setText(Integer.toString(this.maserati.getCarsWarehouse().getStandardCarsDone()));
+        Maserati.add(StandardCarsQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 50, 30));
 
         BodyworksQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BodyworksQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         BodyworksQttyTitle1.setText("Carrocerías:");
+        Maserati.add(BodyworksQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 201, 80, 30));
 
         MotorsQttyTitles1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MotorsQttyTitles1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         MotorsQttyTitles1.setText("Motores:");
+        Maserati.add(MotorsQttyTitles1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 251, 80, 30));
 
         WheelsQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         WheelsQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         WheelsQttyTitle1.setText("Ruedas:");
+        Maserati.add(WheelsQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 301, 80, 30));
 
         AccessoriesQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AccessoriesQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         AccessoriesQttyTitle1.setText("Accesorios:");
+        Maserati.add(AccessoriesQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 351, 80, 30));
 
         MaxAccessoriesQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxAccessoriesQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         MaxAccessoriesQttyTitle1.setText("Máx.");
+        Maserati.add(MaxAccessoriesQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 351, 40, 30));
 
         AccessoriesCarsQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AccessoriesCarsQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        AccessoriesCarsQttyTitle1.setText("Carros con accesorios:");
+        AccessoriesCarsQttyTitle1.setText("Carros con accesorios hechos:");
+        Maserati.add(AccessoriesCarsQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 190, 30));
 
         AccessoriesCarsQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AccessoriesCarsQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AccessoriesCarsQtty1.setText(Integer.toString(this.maserati.getCarsWarehouse().getAccessoryCarsDone()));
+        Maserati.add(AccessoriesCarsQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, 50, 30));
 
         ChasisQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ChasisQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         ChasisQttyTitle1.setText("Chasis:");
+        Maserati.add(ChasisQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 151, 80, 30));
 
         MaxChasisQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxChasisQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         MaxChasisQttyTitle1.setText("Máx.");
+        Maserati.add(MaxChasisQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 151, 40, 30));
 
         MaxBodyworksQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxBodyworksQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         MaxBodyworksQttyTitle1.setText("Máx.");
+        Maserati.add(MaxBodyworksQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 201, 40, 30));
 
         MaxMotorsQttyTitles1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxMotorsQttyTitles1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         MaxMotorsQttyTitles1.setText("Máx.");
+        Maserati.add(MaxMotorsQttyTitles1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 251, 40, 30));
 
         MaxWheelsQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxWheelsQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         MaxWheelsQttyTitle1.setText("Máx.");
+        Maserati.add(MaxWheelsQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 301, 40, 30));
 
         MaxChasisQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxChasisQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MaxChasisQtty1.setText(Integer.toString(this.maserati.getPartsWarehouse().getLimitChasis()));
+        Maserati.add(MaxChasisQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 151, 50, 30));
 
         MaxBodyworksQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxBodyworksQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MaxBodyworksQtty1.setText(Integer.toString(this.maserati.getPartsWarehouse().getLimitBodyworks()));
+        Maserati.add(MaxBodyworksQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 201, 50, 30));
 
         MaxMotorsQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxMotorsQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MaxMotorsQtty1.setText(Integer.toString(this.maserati.getPartsWarehouse().getLimitMotors()));
+        Maserati.add(MaxMotorsQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 251, 50, 30));
 
         MaxWheelsQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxWheelsQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MaxWheelsQtty1.setText(Integer.toString(this.maserati.getPartsWarehouse().getLimitWheels()));
+        Maserati.add(MaxWheelsQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 301, 50, 30));
 
         MaxAccessoriesQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         MaxAccessoriesQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MaxAccessoriesQtty1.setText(Integer.toString(this.maserati.getPartsWarehouse().getLimitAccessories()));
+        Maserati.add(MaxAccessoriesQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 351, 50, 30));
 
         DaysLeft1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DaysLeft1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        DaysLeft1.setText(String.valueOf(this.maserati.getDayCounter()));
+        DaysLeft1.setText(Integer.toString(this.maserati.getDaysToDeliver()));
+        Maserati.add(DaysLeft1, new org.netbeans.lib.awtextra.AbsoluteConstraints(965, 19, 60, 50));
 
-        PlantTitle1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        PlantTitle1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         PlantTitle1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         PlantTitle1.setText("Maserati");
+        Maserati.add(PlantTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 6, 280, -1));
 
         DaysLeftTitle1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DaysLeftTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         DaysLeftTitle1.setText("Días para la entrega:");
+        Maserati.add(DaysLeftTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 19, 200, 50));
 
         OpManagerTitle1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         OpManagerTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OpManagerTitle1.setText("Gerente de operaciones");
+        Maserati.add(OpManagerTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 251, 350, 50));
 
         EmployeeTitle1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         EmployeeTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EmployeeTitle1.setText("Empleados");
+        Maserati.add(EmployeeTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(674, 108, 350, 50));
 
         PlantDirectorTitle1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         PlantDirectorTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PlantDirectorTitle1.setText("Director de la planta");
+        Maserati.add(PlantDirectorTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 91, 350, 50));
 
         ChasisEmployeeQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ChasisEmployeeQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ChasisEmployeeQttyTitle1.setText("Empleados en chasis");
+        Maserati.add(ChasisEmployeeQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(675, 221, 160, 30));
 
         PlantDirectorJobTitle1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         PlantDirectorJobTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PlantDirectorJobTitle1.setText("¿Qué está haciendo?");
+        Maserati.add(PlantDirectorJobTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 151, 240, 30));
 
         OpManagerJob1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerJob1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OpManagerJob1.setText("Nada");
+        Maserati.add(OpManagerJob1, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 351, 240, 30));
 
         OpManagerJobTitle1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         OpManagerJobTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OpManagerJobTitle1.setText("¿Qué está haciendo?");
+        Maserati.add(OpManagerJobTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 311, 240, 30));
 
         OpManagerFaults1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerFaults1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OpManagerFaults1.setText(String.valueOf(this.maserati.getManager().getFaults()));
+        Maserati.add(OpManagerFaults1, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 411, 40, 30));
 
         OpManagerFaultsTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerFaultsTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         OpManagerFaultsTitle1.setText("Faltas:");
+        Maserati.add(OpManagerFaultsTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 411, 150, 30));
 
         OpManagerMoneyTaken1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerMoneyTaken1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OpManagerMoneyTaken1.setText(String.valueOf(this.maserati.getManager().getFaults()*50));
+        Maserati.add(OpManagerMoneyTaken1, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 451, 40, 30));
 
         OpManagerMoneyTakenTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerMoneyTakenTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         OpManagerMoneyTakenTitle1.setText("Dinero descontado:");
+        Maserati.add(OpManagerMoneyTakenTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 451, 150, 30));
 
         WarehouseTitle2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         WarehouseTitle2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         WarehouseTitle2.setText("Almacén");
+        Maserati.add(WarehouseTitle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 91, 280, 50));
 
         RunSim1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         RunSim1.setText("Correr simulación");
@@ -2155,6 +2267,7 @@ public class GUI extends javax.swing.JFrame {
                 RunSim1ActionPerformed(evt);
             }
         });
+        Maserati.add(RunSim1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 140, 30));
 
         StopSim1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         StopSim1.setText("Parar simulación");
@@ -2163,294 +2276,37 @@ public class GUI extends javax.swing.JFrame {
                 StopSim1ActionPerformed(evt);
             }
         });
+        Maserati.add(StopSim1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, 30));
 
-        javax.swing.GroupLayout MaseratiLayout = new javax.swing.GroupLayout(Maserati);
-        Maserati.setLayout(MaseratiLayout);
-        MaseratiLayout.setHorizontalGroup(
-            MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MaseratiLayout.createSequentialGroup()
-                .addGap(325, 325, 325)
-                .addComponent(RunSim1)
-                .addGap(37, 37, 37)
-                .addComponent(StopSim1)
-                .addContainerGap(423, Short.MAX_VALUE))
-            .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(MaseratiLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(PlantTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(450, 450, 450)
-                            .addComponent(DaysLeftTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(DaysLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addComponent(WarehouseTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(PlantDirectorTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(30, 30, 30)
-                            .addComponent(EmployeeTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(ChasisQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(ChasisQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(MaxChasisQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(MaxChasisQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(80, 80, 80)
-                            .addComponent(PlantDirectorJobTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(130, 130, 130)
-                            .addComponent(EmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(EmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(BodyworksQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(BodyworksQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(MaxBodyworksQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(MaxBodyworksQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(80, 80, 80)
-                            .addComponent(PlantDirectorJob1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(80, 80, 80)
-                            .addComponent(ChasisEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(ChasisEmployeeQttyLess1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(ChasisEmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(ChasisEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(MotorsQttyTitles1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(MotorsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(MaxMotorsQttyTitles1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(MaxMotorsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(20, 20, 20)
-                            .addComponent(OpManagerTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(30, 30, 30)
-                            .addComponent(BodyworksEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(BodyworksEmployeeQttyLess1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(BodyworksEmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(BodyworksEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(WheelsQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(WheelsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(MaxWheelsQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(MaxWheelsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(80, 80, 80)
-                            .addComponent(OpManagerJobTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(80, 80, 80)
-                            .addComponent(MotorsEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(MotorsEmployeeQttyLess1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(MotorsEmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(MotorsEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(AccessoriesQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(AccessoriesQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(MaxAccessoriesQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(MaxAccessoriesQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(80, 80, 80)
-                            .addComponent(OpManagerJob1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(80, 80, 80)
-                            .addComponent(WheelsEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(WheelsEmployeeQttyLess1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(WheelsEmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(WheelsEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(MaseratiLayout.createSequentialGroup()
-                                    .addComponent(StandardCarsQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(StandardCarsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(90, 90, 90)
-                                    .addComponent(OpManagerFaultsTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(OpManagerFaults1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(140, 140, 140))
-                                .addGroup(MaseratiLayout.createSequentialGroup()
-                                    .addComponent(AccessoriesCarsQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(AccessoriesCarsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(90, 90, 90)
-                                    .addComponent(OpManagerMoneyTakenTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(OpManagerMoneyTaken1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(80, 80, 80)))
-                            .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(MaseratiLayout.createSequentialGroup()
-                                    .addComponent(AccessoriesEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(AccessoriesEmployeeQttyLess1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(AccessoriesEmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(AccessoriesEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MaseratiLayout.createSequentialGroup()
-                                    .addComponent(AssemblerEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(AssemblerEmployeeQttyLess1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(AssemblerEmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(AssemblerEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        MaseratiLayout.setVerticalGroup(
-            MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MaseratiLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RunSim1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(StopSim1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(460, Short.MAX_VALUE))
-            .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(MaseratiLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(PlantTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(DaysLeftTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(DaysLeft1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(20, 20, 20)
-                    .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(WarehouseTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(PlantDirectorTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(EmployeeTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(10, 10, 10)
-                    .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(ChasisQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ChasisQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MaxChasisQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MaxChasisQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(PlantDirectorJobTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(EmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(EmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(10, 10, 10)
-                    .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(BodyworksQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(BodyworksQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(MaxBodyworksQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(MaxBodyworksQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(PlantDirectorJob1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(ChasisEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(ChasisEmployeeQttyLess1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(ChasisEmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(ChasisEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(MotorsQttyTitles1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MotorsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MaxMotorsQttyTitles1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MaxMotorsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(OpManagerTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(BodyworksEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BodyworksEmployeeQttyLess1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BodyworksEmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BodyworksEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(WheelsQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(WheelsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MaxWheelsQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MaxWheelsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(OpManagerJobTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(MotorsEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(MotorsEmployeeQttyLess1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(MotorsEmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(MotorsEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(AccessoriesQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(AccessoriesQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MaxAccessoriesQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MaxAccessoriesQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(OpManagerJob1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(WheelsEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(WheelsEmployeeQttyLess1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(WheelsEmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(WheelsEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGap(10, 10, 10)
-                    .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(OpManagerFaultsTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(OpManagerFaults1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(StandardCarsQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(StandardCarsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(AccessoriesEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(AccessoriesEmployeeQttyLess1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(AccessoriesEmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(AccessoriesEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(OpManagerMoneyTakenTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(OpManagerMoneyTaken1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(MaseratiLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addGroup(MaseratiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(AccessoriesCarsQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(AccessoriesCarsQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(AssemblerEmployeeQttyTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(AssemblerEmployeeQttyLess1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(AssemblerEmployeeQtty1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(AssemblerEmployeeQttyPlus1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        TotalDays1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TotalDays1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        TotalDays1.setText("Días totales:");
+        Maserati.add(TotalDays1, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 52, 198, 50));
+
+        TotalDaysQtty1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TotalDaysQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TotalDaysQtty1.setText(Integer.toString(this.maserati.getTotalDays()));
+        Maserati.add(TotalDaysQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(966, 52, 60, 50));
+
+        GrossIncomeValue1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        GrossIncomeValue1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        GrossIncomeValue1.setText("$" + Float.toString(this.maserati.getGrossIncome()));
+        Maserati.add(GrossIncomeValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 170, 35));
+
+        OperativeCosts1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        OperativeCosts1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        OperativeCosts1.setText("Costos operativos:");
+        Maserati.add(OperativeCosts1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 179, 35));
+
+        GrossIncomeTittle1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        GrossIncomeTittle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        GrossIncomeTittle1.setText("Ganancias brutas:");
+        Maserati.add(GrossIncomeTittle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 179, 35));
+
+        OperativeCostsValue1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        OperativeCostsValue1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        OperativeCostsValue1.setText("$" + Float.toString(this.maserati.getCosts()));
+        Maserati.add(OperativeCostsValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 50, 170, 35));
 
         TabbedPane.addTab("tab3", Maserati);
 
@@ -2783,6 +2639,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel EmployeeQttyTitle1;
     private javax.swing.JLabel EmployeeTitle;
     private javax.swing.JLabel EmployeeTitle1;
+    private javax.swing.JLabel GrossIncomeTittle1;
+    private javax.swing.JLabel GrossIncomeValue1;
     private javax.swing.JPanel Maserati;
     private javax.swing.JLabel MaxAccessoriesQtty;
     private javax.swing.JLabel MaxAccessoriesQtty1;
@@ -2832,6 +2690,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel OpManagerMoneyTakenTitle1;
     private javax.swing.JLabel OpManagerTitle;
     private javax.swing.JLabel OpManagerTitle1;
+    private javax.swing.JLabel OperativeCosts1;
+    private javax.swing.JLabel OperativeCostsValue1;
     private javax.swing.JPanel Panel;
     private javax.swing.JLabel PlantDirectorJob;
     private javax.swing.JLabel PlantDirectorJob1;
@@ -2849,6 +2709,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton StopSim1;
     private javax.swing.JTabbedPane TabbedPane;
     private javax.swing.JPanel TitleProject;
+    private javax.swing.JLabel TotalDays1;
+    private javax.swing.JLabel TotalDaysQtty1;
     private javax.swing.JLabel WarehouseTitle1;
     private javax.swing.JLabel WarehouseTitle2;
     private javax.swing.JLabel WheelsEmployeeQtty;

@@ -30,7 +30,7 @@ public class CarsWarehouse {
     }
     
     public void updateAccessoryStorage(int number) {
-        this.standardCarsDone += number;
+        this.accessoryCarsDone += number;
     }
     
     // Getters and setters

@@ -7,6 +7,7 @@ package Classes;
 
 import Interfaces.GUI;
 import static java.lang.Thread.sleep;
+import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,6 +36,7 @@ public class CarsPlant {
     private boolean keepGoing;
     private GUI gui;
     private boolean isFirst;
+    private Semaphore counterMutex;
 
     public CarsPlant(int dayDuration, int maxEmployees, int dayCounter, int carsUntilAccessories, StandardVehicle standardVehicle, AccessoryVehicle accessoryVehicle, GUI gui, boolean isFirst) {
         this.grossIncome = 0;
@@ -47,6 +49,8 @@ public class CarsPlant {
         this.dayCounter = dayCounter;
         this.daysToDeliver = dayCounter;
         this.carsUntilAccessories = carsUntilAccessories;
+        this.standardVehicle = standardVehicle;
+        this.accessoryVehicle = accessoryVehicle;
         
         this.EmpList = new Employee[maxEmployees];
         this.carsWarehouse = new CarsWarehouse();
@@ -55,10 +59,17 @@ public class CarsPlant {
         this.director = new PlantDirector(30f, this.manager, this);
         this.keepGoing = true;
         this.isFirst = isFirst;
+        this.gui = gui;
+        this.counterMutex = new Semaphore(1);
     }
     
     public void run() {
+        this.manager.start();
+        System.out.println("Manager iniciado");
+        this.director.start();
+        System.out.println("Director iniciado");
         this.initializeWorkers();
+        System.out.println("Workers iniciados");
     }
     
     public void stop() {
@@ -72,6 +83,15 @@ public class CarsPlant {
     
     public void initializeWorkers() {
         int counter = 0;
+        
+//        for (int i=0; i<1; i++) {
+//            Employee emp = new Employee(EmployeeInformation.chasisEmployeeSalary,
+//            EmployeeInformation.chasisEmployee, EmployeeInformation.chasisEmployeeProduction, this);
+//            this.EmpList[i] = emp;
+//            System.out.println(emp.getSalary());
+//            emp.start();           
+//        }
+        
         if (this.isFirst) {
             for (int i = 0; i < Integer.parseInt(gui.getAccessoriesEmployeeQtty().getText()); i++) {
                 Employee emp = new Employee(EmployeeInformation.accesoryEmployeeSalary,
@@ -129,7 +149,7 @@ public class CarsPlant {
                 counter++;
             }
 
-            for (int i = 0; i < Integer.parseInt(gui.getChasisEmployeeQtty1().getText()); i++) {
+            for (int i = 0; i < Integer.parseInt(gui.getChasisEmployeeQtty1().getText()) + 3; i++) {
                 Employee emp = new Employee(EmployeeInformation.chasisEmployeeSalary,
                         EmployeeInformation.chasisEmployee, EmployeeInformation.chasisEmployeeProduction, this);
                 this.EmpList[counter] = emp;
@@ -159,17 +179,17 @@ public class CarsPlant {
         }
         
         //espera para que no haya un null pointer exception
-        try {
-
-            sleep(3000);
-
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//
+//            sleep(3000);
+//
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
         for (int i = 0; i < this.EmpList.length; i++) {
             if (this.EmpList[i] instanceof Employee) {
-                this.EmpList[i].start(); //No se si esto sea concurrente
+                this.EmpList[i].start();
             }
         }
     }
@@ -307,6 +327,14 @@ public class CarsPlant {
 
     public void setDirector(PlantDirector director) {
         this.director = director;
+    }
+
+    public Semaphore getCounterMutex() {
+        return counterMutex;
+    }
+
+    public void setCounterMutex(Semaphore counterMutex) {
+        this.counterMutex = counterMutex;
     }
     
 }

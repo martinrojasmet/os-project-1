@@ -35,7 +35,7 @@ public class Employee extends Thread {
         this.salary = salary;
         this.keepGoing = true;
         this.plant = plant;
-        this.durationDay = plant.getDayDuration();
+        this.durationDay = (int) plant.getDayDurationInMs();
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Employee extends Thread {
         while(this.keepGoing) {
             try {
                 
-                if (this.type.equals(EmployeeInformation.accesoryEmployee)) {
+                if (this.type.equals(EmployeeInformation.assemblerEmployee)) {
                     assembleCar();
                 } else {
                     sleep(this.durationDay);

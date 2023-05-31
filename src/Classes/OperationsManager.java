@@ -14,6 +14,7 @@ public class OperationsManager extends Thread {
     private int faults;
     private CarsPlant plant;
     private boolean keepGoing;
+    private int discountedSalary;
     
     public OperationsManager(float salary, CarsPlant plant) {
         this.salary = salary;
@@ -22,6 +23,7 @@ public class OperationsManager extends Thread {
         this.isWorking = true;
         this.plant = plant;
         this.keepGoing = true;
+        this.discountedSalary = 0;
     }
     
     @Override
@@ -72,7 +74,14 @@ public class OperationsManager extends Thread {
     }
     
     public void changeCounter() {
-        this.plant.setDaysToDeliver(this.plant.getDaysToDeliver()- 1);
+        try {
+            this.plant.getCounterMutex().acquire();
+            this.plant.setDaysToDeliver(this.plant.getDaysToDeliver() - 1);
+            this.plant.setTotalDays(this.plant.getTotalDays() + 1);
+            this.plant.getCounterMutex().release();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(OperationsManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void getPayment() {
@@ -132,6 +141,14 @@ public class OperationsManager extends Thread {
 
     public void setKeepGoing(boolean keepGoing) {
         this.keepGoing = keepGoing;
+    }
+
+    public int getDiscountedSalary() {
+        return discountedSalary;
+    }
+
+    public void setDiscountedSalary(int discountedSalary) {
+        this.discountedSalary = discountedSalary;
     }
     
 }
