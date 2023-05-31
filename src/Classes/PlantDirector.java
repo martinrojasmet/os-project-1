@@ -74,6 +74,7 @@ public class PlantDirector extends Thread {
                     sleep(twentyFiveMinutes);
                     this.setCheckingManager(false);
                     this.manager.setAccSalary(this.manager.getAccSalary() - 50);
+                    this.manager.setDiscountedSalary(this.manager.getDiscountedSalary() + 50);
                     this.manager.setFaults(this.manager.getFaults() + 1);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(PlantDirector.class.getName()).log(Level.SEVERE, null, ex);
@@ -102,11 +103,11 @@ public class PlantDirector extends Thread {
             // Accede al almacen de carros y registra las ganancias
             this.plant.getCarsWarehouse().getSemaphore().acquire();
             sleep((long) this.plant.getDayDurationInMs());
-            standardIncome = (int) (this.plant.getCarsWarehouse().getStandardCarsDone() * this.plant.getStandardVehicle().getPrice());
-            accessoryIncome = (int) (this.plant.getCarsWarehouse().getAccessoryCarsDone()* this.plant.getAccessoryVehicle().getPrice());
+            standardIncome = (int) (this.plant.getCarsWarehouse().getStandardCarsAvailable() * this.plant.getStandardVehicle().getPrice());
+            accessoryIncome = (int) (this.plant.getCarsWarehouse().getAccessoryCarsAvailable() * this.plant.getAccessoryVehicle().getPrice());
             this.plant.setGrossIncome(this.plant.getGrossIncome() + standardIncome + accessoryIncome);
-            this.plant.getCarsWarehouse().setStandardCarsDone(0);
-            this.plant.getCarsWarehouse().setAccessoryCarsDone(0);
+            this.plant.getCarsWarehouse().setStandardCarsAvailable(0);
+            this.plant.getCarsWarehouse().setAccessoryCarsAvailable(0);
             this.plant.getCarsWarehouse().getSemaphore().release();
         } catch (InterruptedException ex) {
             Logger.getLogger(PlantDirector.class.getName()).log(Level.SEVERE, null, ex);

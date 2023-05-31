@@ -27,6 +27,7 @@ public class FunctionsGUI extends Thread {
                 updateCarsDone();
                 updateManager();
                 updateDirector();
+                this.plant.calculateNetIncome();
             } catch (InterruptedException ex) {
                 Logger.getLogger(FunctionsGUI.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -49,10 +50,13 @@ public class FunctionsGUI extends Thread {
     public void updateCarsDone() {
         this.gui.getStandardCarsQtty1().setText(Integer.toString(this.plant.getCarsWarehouse().getStandardCarsDone()));
         this.gui.getAccessoriesCarsQtty1().setText(Integer.toString(this.plant.getCarsWarehouse().getAccessoryCarsDone()));
+        this.gui.getStandardCarsAvailable1().setText(Integer.toString(this.plant.getCarsWarehouse().getStandardCarsAvailable()));
+        this.gui.getAccessoryCarsAvailable1().setText(Integer.toString(this.plant.getCarsWarehouse().getAccessoryCarsAvailable()));
     }
     
     public void updateManager() {
         this.gui.getOpManagerFaults1().setText(Integer.toString(this.plant.getManager().getFaults()));
+        this.gui.getOpManagerMoneyTaken1().setText("$" + Integer.toString(this.plant.getManager().getDiscountedSalary()));
         if (this.plant.getManager().isIsWorking()) {
             this.gui.getOpManagerJob1().setText("Trabajando");
         } else {
@@ -71,5 +75,6 @@ public class FunctionsGUI extends Thread {
     public void updatePlantValues() {
         this.gui.getOperativeCostsValue1().setText("$" + Integer.toString(((int) this.plant.getCosts())));
         this.gui.getGrossIncomeValue1().setText("$" + Integer.toString(this.plant.getGrossIncome()));
+        this.gui.getNetIncomeValue1().setText("$" + Integer.toString(this.plant.getNetIncome()));
     }
 }

@@ -28,8 +28,8 @@ public class GUI extends javax.swing.JFrame {
      * Creates new form GUI
      */
     public GUI() {
-        StandardVehicle standard = new StandardVehicle(3, 4, 2, 3, 500000);
-        AccessoryVehicle accessory = new AccessoryVehicle(3, 4, 2, 3, 2, 500000);
+        StandardVehicle standard = new StandardVehicle(3, 4, 2, 3, 550000);
+        AccessoryVehicle accessory = new AccessoryVehicle(3, 4, 2, 3, 2, 600000);
         
         this.bugatti = new CarsPlant(2, 19, 10, 5, standard, accessory, this, true);
         this.maserati = new CarsPlant(1, 19, 10, 5, standard, accessory, this, false);
@@ -80,12 +80,28 @@ public class GUI extends javax.swing.JFrame {
         this.GrossIncomeValue1 = GrossIncomeValue1;
     }
 
-    public JLabel getStandardCarsDone1() {
-        return StandardCarsQtty1;
+    public JLabel getNetIncomeValue1() {
+        return NetIncomeValue1;
     }
 
-    public void setStandardCarsDone1(JLabel StandardCarsDone1) {
-        this.StandardCarsQtty1 = StandardCarsDone1;
+    public void setNetIncomeValue1(JLabel NetIncomeValue1) {
+        this.NetIncomeValue1 = NetIncomeValue1;
+    }
+    
+    public JLabel getAccessoryCarsAvailable1() {
+        return AccessoryCarsAvailable1;
+    }
+
+    public void setAccessoryCarsAvailable1(JLabel AccessoryCarsAvailable1) {
+        this.AccessoryCarsAvailable1 = AccessoryCarsAvailable1;
+    }
+
+    public JLabel getStandardCarsAvailable1() {
+        return StandardCarsAvailable1;
+    }
+
+    public void setStandardCarsAvailable1(JLabel StandardCarsAvailable1) {
+        this.StandardCarsAvailable1 = StandardCarsAvailable1;
     }
     
     public JLabel getAccessoriesCarsQtty() {
@@ -1035,7 +1051,7 @@ public class GUI extends javax.swing.JFrame {
     public void setStandardCarsQtty1(JLabel StandardCarsQtty1) {
         this.StandardCarsQtty1 = StandardCarsQtty1;
     }
-
+    
     public JLabel getStandardCarsQttyTitle() {
         return StandardCarsQttyTitle;
     }
@@ -1045,11 +1061,11 @@ public class GUI extends javax.swing.JFrame {
     }
 
     public JLabel getStandardCarsQttyTitle1() {
-        return StandardCarsQttyTitle1;
+        return AccessoryCarsAvailableTitle1;
     }
 
     public void setStandardCarsQttyTitle1(JLabel StandardCarsQttyTitle1) {
-        this.StandardCarsQttyTitle1 = StandardCarsQttyTitle1;
+        this.AccessoryCarsAvailableTitle1 = StandardCarsQttyTitle1;
     }
 
     public JButton getStopSim1() {
@@ -1362,12 +1378,12 @@ public class GUI extends javax.swing.JFrame {
         AccessoriesEmployeeQttyTitle1 = new javax.swing.JLabel();
         PlantDirectorJob1 = new javax.swing.JLabel();
         ChasisQtty1 = new javax.swing.JLabel();
-        StandardCarsQttyTitle1 = new javax.swing.JLabel();
+        AccessoryCarsAvailableTitle1 = new javax.swing.JLabel();
         BodyworksQtty1 = new javax.swing.JLabel();
         MotorsQtty1 = new javax.swing.JLabel();
         WheelsQtty1 = new javax.swing.JLabel();
         AccessoriesQtty1 = new javax.swing.JLabel();
-        StandardCarsQtty1 = new javax.swing.JLabel();
+        AccessoryCarsAvailable1 = new javax.swing.JLabel();
         BodyworksQttyTitle1 = new javax.swing.JLabel();
         MotorsQttyTitles1 = new javax.swing.JLabel();
         WheelsQttyTitle1 = new javax.swing.JLabel();
@@ -1404,10 +1420,16 @@ public class GUI extends javax.swing.JFrame {
         StopSim1 = new javax.swing.JButton();
         TotalDays1 = new javax.swing.JLabel();
         TotalDaysQtty1 = new javax.swing.JLabel();
-        GrossIncomeValue1 = new javax.swing.JLabel();
+        NetIncomeValue1 = new javax.swing.JLabel();
         OperativeCosts1 = new javax.swing.JLabel();
-        GrossIncomeTittle1 = new javax.swing.JLabel();
+        NetIncomeTittle1 = new javax.swing.JLabel();
         OperativeCostsValue1 = new javax.swing.JLabel();
+        StandardCarsQttyTitle1 = new javax.swing.JLabel();
+        StandardCarsAvailableTitle1 = new javax.swing.JLabel();
+        StandardCarsQtty1 = new javax.swing.JLabel();
+        StandardCarsAvailable1 = new javax.swing.JLabel();
+        GrossIncomeTittle1 = new javax.swing.JLabel();
+        GrossIncomeValue1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1912,7 +1934,7 @@ public class GUI extends javax.swing.JFrame {
         EmployeeQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EmployeeQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EmployeeQtty1.setText(String.valueOf(this.maserati.getMaxEmployees()-6));
-        Maserati.add(EmployeeQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(901, 151, 50, 30));
+        Maserati.add(EmployeeQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 170, 50, 30));
 
         ChasisEmployeeQttyLess1.setText("-");
         ChasisEmployeeQttyLess1.addActionListener(new java.awt.event.ActionListener() {
@@ -2038,7 +2060,7 @@ public class GUI extends javax.swing.JFrame {
         EmployeeQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EmployeeQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         EmployeeQttyTitle1.setText("Cantidad de empleados:");
-        Maserati.add(EmployeeQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 151, 170, 30));
+        Maserati.add(EmployeeQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 170, 170, 30));
 
         BodyworksEmployeeQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BodyworksEmployeeQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2063,17 +2085,17 @@ public class GUI extends javax.swing.JFrame {
         PlantDirectorJob1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         PlantDirectorJob1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PlantDirectorJob1.setText("Nada");
-        Maserati.add(PlantDirectorJob1, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 191, 240, 30));
+        Maserati.add(PlantDirectorJob1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 240, 30));
 
         ChasisQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ChasisQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ChasisQtty1.setText(Integer.toString(this.maserati.getPartsWarehouse().getChasisDone()));
         Maserati.add(ChasisQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 151, 50, 30));
 
-        StandardCarsQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        StandardCarsQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        StandardCarsQttyTitle1.setText("Carros estándar hechos:");
-        Maserati.add(StandardCarsQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 180, 30));
+        AccessoryCarsAvailableTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AccessoryCarsAvailableTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        AccessoryCarsAvailableTitle1.setText("Carros con accesorios disponibles:");
+        Maserati.add(AccessoryCarsAvailableTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 210, 30));
 
         BodyworksQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BodyworksQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2095,10 +2117,10 @@ public class GUI extends javax.swing.JFrame {
         AccessoriesQtty1.setText(Integer.toString(this.maserati.getPartsWarehouse().getAccessoriesDone()));
         Maserati.add(AccessoriesQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 351, 50, 30));
 
-        StandardCarsQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        StandardCarsQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        StandardCarsQtty1.setText(Integer.toString(this.maserati.getCarsWarehouse().getStandardCarsDone()));
-        Maserati.add(StandardCarsQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 50, 30));
+        AccessoryCarsAvailable1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AccessoryCarsAvailable1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AccessoryCarsAvailable1.setText(Integer.toString(this.maserati.getCarsWarehouse().getAccessoryCarsDone()));
+        Maserati.add(AccessoryCarsAvailable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, 50, 30));
 
         BodyworksQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BodyworksQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -2128,12 +2150,12 @@ public class GUI extends javax.swing.JFrame {
         AccessoriesCarsQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AccessoriesCarsQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         AccessoriesCarsQttyTitle1.setText("Carros con accesorios hechos:");
-        Maserati.add(AccessoriesCarsQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 190, 30));
+        Maserati.add(AccessoriesCarsQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 190, 30));
 
         AccessoriesCarsQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AccessoriesCarsQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AccessoriesCarsQtty1.setText(Integer.toString(this.maserati.getCarsWarehouse().getAccessoryCarsDone()));
-        Maserati.add(AccessoriesCarsQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, 50, 30));
+        Maserati.add(AccessoriesCarsQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 50, 30));
 
         ChasisQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ChasisQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -2188,7 +2210,7 @@ public class GUI extends javax.swing.JFrame {
         DaysLeft1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DaysLeft1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DaysLeft1.setText(Integer.toString(this.maserati.getDaysToDeliver()));
-        Maserati.add(DaysLeft1, new org.netbeans.lib.awtextra.AbsoluteConstraints(965, 19, 60, 50));
+        Maserati.add(DaysLeft1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, 60, 50));
 
         PlantTitle1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         PlantTitle1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -2203,17 +2225,17 @@ public class GUI extends javax.swing.JFrame {
         OpManagerTitle1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         OpManagerTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OpManagerTitle1.setText("Gerente de operaciones");
-        Maserati.add(OpManagerTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 251, 350, 50));
+        Maserati.add(OpManagerTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, 350, 50));
 
         EmployeeTitle1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         EmployeeTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EmployeeTitle1.setText("Empleados");
-        Maserati.add(EmployeeTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(674, 108, 350, 50));
+        Maserati.add(EmployeeTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 120, 350, 50));
 
         PlantDirectorTitle1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         PlantDirectorTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PlantDirectorTitle1.setText("Director de la planta");
-        Maserati.add(PlantDirectorTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 91, 350, 50));
+        Maserati.add(PlantDirectorTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 350, 50));
 
         ChasisEmployeeQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ChasisEmployeeQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2223,37 +2245,37 @@ public class GUI extends javax.swing.JFrame {
         PlantDirectorJobTitle1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         PlantDirectorJobTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PlantDirectorJobTitle1.setText("¿Qué está haciendo?");
-        Maserati.add(PlantDirectorJobTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 151, 240, 30));
+        Maserati.add(PlantDirectorJobTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 240, 30));
 
         OpManagerJob1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerJob1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OpManagerJob1.setText("Nada");
-        Maserati.add(OpManagerJob1, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 351, 240, 30));
+        Maserati.add(OpManagerJob1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 240, 30));
 
         OpManagerJobTitle1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         OpManagerJobTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OpManagerJobTitle1.setText("¿Qué está haciendo?");
-        Maserati.add(OpManagerJobTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 311, 240, 30));
+        Maserati.add(OpManagerJobTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 240, 30));
 
         OpManagerFaults1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerFaults1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OpManagerFaults1.setText(String.valueOf(this.maserati.getManager().getFaults()));
-        Maserati.add(OpManagerFaults1, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 411, 40, 30));
+        Maserati.add(OpManagerFaults1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 40, 30));
 
         OpManagerFaultsTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerFaultsTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         OpManagerFaultsTitle1.setText("Faltas:");
-        Maserati.add(OpManagerFaultsTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 411, 150, 30));
+        Maserati.add(OpManagerFaultsTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 150, 30));
 
         OpManagerMoneyTaken1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerMoneyTaken1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OpManagerMoneyTaken1.setText(String.valueOf(this.maserati.getManager().getFaults()*50));
-        Maserati.add(OpManagerMoneyTaken1, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 451, 40, 30));
+        Maserati.add(OpManagerMoneyTaken1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 40, 30));
 
         OpManagerMoneyTakenTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OpManagerMoneyTakenTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         OpManagerMoneyTakenTitle1.setText("Dinero descontado:");
-        Maserati.add(OpManagerMoneyTakenTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 451, 150, 30));
+        Maserati.add(OpManagerMoneyTakenTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, 150, 30));
 
         WarehouseTitle2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         WarehouseTitle2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2286,27 +2308,57 @@ public class GUI extends javax.swing.JFrame {
         TotalDaysQtty1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         TotalDaysQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TotalDaysQtty1.setText(Integer.toString(this.maserati.getTotalDays()));
-        Maserati.add(TotalDaysQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(966, 52, 60, 50));
+        Maserati.add(TotalDaysQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 50, 60, 50));
 
-        GrossIncomeValue1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        GrossIncomeValue1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        GrossIncomeValue1.setText("$" + Float.toString(this.maserati.getGrossIncome()));
-        Maserati.add(GrossIncomeValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 170, 35));
+        NetIncomeValue1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        NetIncomeValue1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        NetIncomeValue1.setText("$" + Float.toString(this.maserati.getGrossIncome()));
+        Maserati.add(NetIncomeValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 170, 35));
 
         OperativeCosts1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         OperativeCosts1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         OperativeCosts1.setText("Costos operativos:");
         Maserati.add(OperativeCosts1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 179, 35));
 
-        GrossIncomeTittle1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        GrossIncomeTittle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        GrossIncomeTittle1.setText("Ganancias brutas:");
-        Maserati.add(GrossIncomeTittle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 179, 35));
+        NetIncomeTittle1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        NetIncomeTittle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        NetIncomeTittle1.setText("Ganancias netas:");
+        Maserati.add(NetIncomeTittle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 179, 35));
 
         OperativeCostsValue1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         OperativeCostsValue1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         OperativeCostsValue1.setText("$" + Float.toString(this.maserati.getCosts()));
         Maserati.add(OperativeCostsValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 50, 170, 35));
+
+        StandardCarsQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        StandardCarsQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        StandardCarsQttyTitle1.setText("Carros estándar hechos:");
+        Maserati.add(StandardCarsQttyTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 180, 30));
+
+        StandardCarsAvailableTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        StandardCarsAvailableTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        StandardCarsAvailableTitle1.setText("Carros estándar disponibles:");
+        Maserati.add(StandardCarsAvailableTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 180, 30));
+
+        StandardCarsQtty1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        StandardCarsQtty1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        StandardCarsQtty1.setText(Integer.toString(this.maserati.getCarsWarehouse().getStandardCarsDone()));
+        Maserati.add(StandardCarsQtty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 50, 30));
+
+        StandardCarsAvailable1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        StandardCarsAvailable1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        StandardCarsAvailable1.setText(Integer.toString(this.maserati.getCarsWarehouse().getStandardCarsDone()));
+        Maserati.add(StandardCarsAvailable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 50, 30));
+
+        GrossIncomeTittle1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        GrossIncomeTittle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        GrossIncomeTittle1.setText("Ganancias brutas:");
+        Maserati.add(GrossIncomeTittle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 179, 35));
+
+        GrossIncomeValue1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        GrossIncomeValue1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        GrossIncomeValue1.setText("$" + Float.toString(this.maserati.getGrossIncome()));
+        Maserati.add(GrossIncomeValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 170, 35));
 
         TabbedPane.addTab("tab3", Maserati);
 
@@ -2596,6 +2648,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel AccessoriesQtty1;
     private javax.swing.JLabel AccessoriesQttyTitle;
     private javax.swing.JLabel AccessoriesQttyTitle1;
+    private javax.swing.JLabel AccessoryCarsAvailable1;
+    private javax.swing.JLabel AccessoryCarsAvailableTitle1;
     private javax.swing.JLabel AssemblerEmployeeQtty;
     private javax.swing.JLabel AssemblerEmployeeQtty1;
     private javax.swing.JButton AssemblerEmployeeQttyLess;
@@ -2676,6 +2730,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel MotorsQtty1;
     private javax.swing.JLabel MotorsQttyTitles;
     private javax.swing.JLabel MotorsQttyTitles1;
+    private javax.swing.JLabel NetIncomeTittle1;
+    private javax.swing.JLabel NetIncomeValue1;
     private javax.swing.JLabel OpManagerFaults;
     private javax.swing.JLabel OpManagerFaults1;
     private javax.swing.JLabel OpManagerFaultsTitle;
@@ -2702,6 +2758,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel PlantTitle;
     private javax.swing.JLabel PlantTitle1;
     private javax.swing.JButton RunSim1;
+    private javax.swing.JLabel StandardCarsAvailable1;
+    private javax.swing.JLabel StandardCarsAvailableTitle1;
     private javax.swing.JLabel StandardCarsQtty;
     private javax.swing.JLabel StandardCarsQtty1;
     private javax.swing.JLabel StandardCarsQttyTitle;

@@ -149,7 +149,7 @@ public class CarsPlant {
                 counter++;
             }
 
-            for (int i = 0; i < Integer.parseInt(gui.getChasisEmployeeQtty1().getText()) + 3; i++) {
+            for (int i = 0; i < Integer.parseInt(gui.getChasisEmployeeQtty1().getText()); i++) {
                 Employee emp = new Employee(EmployeeInformation.chasisEmployeeSalary,
                         EmployeeInformation.chasisEmployee, EmployeeInformation.chasisEmployeeProduction, this);
                 this.EmpList[counter] = emp;
@@ -197,6 +197,10 @@ public class CarsPlant {
     public float getDayDurationInMs() {
         float dayDurationInMs = this.dayDuration * 1000;
         return dayDurationInMs;
+    }
+    
+    public void calculateNetIncome() {
+        this.setNetIncome((int) (this.getGrossIncome() - this.getCosts()));
     }
 
     // Getters and setters
