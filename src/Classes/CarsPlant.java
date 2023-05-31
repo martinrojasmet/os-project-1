@@ -17,6 +17,7 @@ import java.util.logging.Logger;
  */
 public class CarsPlant {
     
+    private String displayName;
     private int dayDuration;
     private int daysToDeliver;
     private int totalDays;    
@@ -38,12 +39,13 @@ public class CarsPlant {
     private boolean isFirst;
     private Semaphore counterMutex;
 
-    public CarsPlant(int dayDuration, int maxEmployees, int dayCounter, int carsUntilAccessories, StandardVehicle standardVehicle, AccessoryVehicle accessoryVehicle, GUI gui, boolean isFirst) {
+    public CarsPlant(String displayName, int dayDuration, int maxEmployees, int dayCounter, int carsUntilAccessories, StandardVehicle standardVehicle, AccessoryVehicle accessoryVehicle, GUI gui, boolean isFirst) {
         this.grossIncome = 0;
         this.costs = 0;
         this.netIncome = 0;
         this.totalDays = 0;
         
+        this.displayName = displayName;
         this.dayDuration = dayDuration;
         this.maxEmployees = maxEmployees;       
         this.dayCounter = dayCounter;
@@ -65,11 +67,8 @@ public class CarsPlant {
     
     public void run() {
         this.manager.start();
-        System.out.println("Manager iniciado");
         this.director.start();
-        System.out.println("Director iniciado");
         this.initializeWorkers();
-        System.out.println("Workers iniciados");
     }
     
     public void stop() {
@@ -93,42 +92,42 @@ public class CarsPlant {
 //        }
         
         if (this.isFirst) {
-            for (int i = 0; i < Integer.parseInt(gui.getAccessoriesEmployeeQtty().getText()); i++) {
+            for (int i = 0; i < Integer.parseInt(gui.getAccessoriesEmployeeQtty2().getText()); i++) {
                 Employee emp = new Employee(EmployeeInformation.accesoryEmployeeSalary,
                         EmployeeInformation.accesoryEmployee, EmployeeInformation.accesoryProduction, this);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
-            for (int i = 0; i < Integer.parseInt(gui.getBodyworksEmployeeQtty().getText()); i++) {
+            for (int i = 0; i < Integer.parseInt(gui.getBodyworksEmployeeQtty2().getText()); i++) {
                 Employee emp = new Employee(EmployeeInformation.bodyworkEmployeeSalary,
                         EmployeeInformation.bodyworkEmployee, EmployeeInformation.accesoryProduction, this);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
-            for (int i = 0; i < Integer.parseInt(gui.getChasisEmployeeQtty().getText()); i++) {
+            for (int i = 0; i < Integer.parseInt(gui.getChasisEmployeeQtty2().getText()); i++) {
                 Employee emp = new Employee(EmployeeInformation.chasisEmployeeSalary,
                         EmployeeInformation.chasisEmployee, EmployeeInformation.chasisEmployeeProduction, this);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
-            for (int i = 0; i < Integer.parseInt(gui.getMotorsEmployeeQtty().getText()); i++) {
+            for (int i = 0; i < Integer.parseInt(gui.getMotorsEmployeeQtty2().getText()); i++) {
                 Employee emp = new Employee(EmployeeInformation.motorEmployeeSalary,
                         EmployeeInformation.motorEmployee, EmployeeInformation.motorEmployeeProduction, this);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
-            for (int i = 0; i < Integer.parseInt(gui.getWheelsEmployeeQtty().getText()); i++) {
+            for (int i = 0; i < Integer.parseInt(gui.getWheelsEmployeeQtty2().getText()); i++) {
                 Employee emp = new Employee(EmployeeInformation.wheelEmployeeSalary,
                         EmployeeInformation.wheelEmployee, EmployeeInformation.wheelEmployeeProduction, this);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
-            for (int i = 0; i < Integer.parseInt(gui.getAssemblerEmployeeQtty().getText()); i++) {
+            for (int i = 0; i < Integer.parseInt(gui.getAssemblerEmployeeQtty2().getText()); i++) {
                 Employee emp = new Employee(EmployeeInformation.assemblerEmployeeSalary,
                         EmployeeInformation.assemblerEmployee, EmployeeInformation.assemblerProduction, this);
                 this.EmpList[counter] = emp;
@@ -202,9 +201,17 @@ public class CarsPlant {
     public void calculateNetIncome() {
         this.setNetIncome((int) (this.getGrossIncome() - this.getCosts()));
     }
-
-    // Getters and setters
     
+    
+     // Getters and setters
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {    
+        this.displayName = displayName;
+    }
+
     public int getDayDuration() {
         return dayDuration;
     }

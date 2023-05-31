@@ -71,6 +71,7 @@ public class OperationsManager extends Thread {
                 Logger.getLogger(OperationsManager.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        this.setIsWorking(true);
     }
     
     public void changeCounter() {
