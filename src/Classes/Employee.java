@@ -42,7 +42,6 @@ public class Employee extends Thread {
     public void run() {
         while(this.keepGoing) {
             try {
-                System.out.println("sdds");
                 if (this.type.equals(EmployeeInformation.assemblerEmployee)) {
                     assembleCar();
                 } else {
@@ -83,14 +82,17 @@ public class Employee extends Thread {
         }
         
         if (availableStandardParts()) {
-            
-            if (this.partsWarehouse.getAccessoriesDone() < this.plant.getAccessoryVehicle().getQtyAccessoryToProduce()) {
-                hasAccessoriesAvailable = false;
-            }
-            
             try {
                 // Se accede al almacen para tomar las partes necesarias para ensamblar un carro
                 this.partsWarehouse.getSemaphore().acquire();
+                
+                if (this.partsWarehouse.getCarsUntilAccessories() == 0) {
+                    carWithAccessories = true;
+                }
+                if (this.partsWarehouse.getAccessoriesDone() < this.plant.getAccessoryVehicle().getQtyAccessoryToProduce()) {
+                    hasAccessoriesAvailable = false;
+                }
+                
                 if (!carWithAccessories && availableStandardParts()) {
                     this.partsWarehouse.setBodyworksDone((this.partsWarehouse.getBodyworksDone() - this.plant.getStandardVehicle().getQtyBodyworkToProduce()));
                     this.partsWarehouse.setChasisDone((this.partsWarehouse.getChasisDone() - this.plant.getStandardVehicle().getQtyChasisToProduce()));

@@ -93,87 +93,75 @@ public class CarsPlant {
     
     public void initializeWorkers() {
         int counter = 0; 
-        if (this.isFirst) {
+        if (this.displayName.equals("bugatti")) {
             for (int i = 0; i < Integer.parseInt(gui.getAccessoriesEmployeeQtty2().getText()); i++) {
-                Employee emp = new Employee(EmployeeInformation.accesoryEmployeeSalary,
-                        EmployeeInformation.accesoryEmployee, EmployeeInformation.accesoryProduction, this);
+                Employee emp = createEmployee(EmployeeInformation.accesoryEmployee);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
             for (int i = 0; i < Integer.parseInt(gui.getBodyworksEmployeeQtty2().getText()); i++) {
-                Employee emp = new Employee(EmployeeInformation.bodyworkEmployeeSalary,
-                        EmployeeInformation.bodyworkEmployee, EmployeeInformation.accesoryProduction, this);
+                Employee emp = createEmployee(EmployeeInformation.bodyworkEmployee);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
             for (int i = 0; i < Integer.parseInt(gui.getChasisEmployeeQtty2().getText()); i++) {
-                Employee emp = new Employee(EmployeeInformation.chasisEmployeeSalary,
-                        EmployeeInformation.chasisEmployee, EmployeeInformation.chasisEmployeeProduction, this);
+                Employee emp = createEmployee(EmployeeInformation.chasisEmployee);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
             for (int i = 0; i < Integer.parseInt(gui.getMotorsEmployeeQtty2().getText()); i++) {
-                Employee emp = new Employee(EmployeeInformation.motorEmployeeSalary,
-                        EmployeeInformation.motorEmployee, EmployeeInformation.motorEmployeeProduction, this);
+                Employee emp = createEmployee(EmployeeInformation.motorEmployee);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
             for (int i = 0; i < Integer.parseInt(gui.getWheelsEmployeeQtty2().getText()); i++) {
-                Employee emp = new Employee(EmployeeInformation.wheelEmployeeSalary,
-                        EmployeeInformation.wheelEmployee, EmployeeInformation.wheelEmployeeProduction, this);
+                Employee emp = createEmployee(EmployeeInformation.wheelEmployee);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
             for (int i = 0; i < Integer.parseInt(gui.getAssemblerEmployeeQtty2().getText()); i++) {
-                Employee emp = new Employee(EmployeeInformation.assemblerEmployeeSalary,
-                        EmployeeInformation.assemblerEmployee, EmployeeInformation.assemblerProduction, this);
+                Employee emp = createEmployee(EmployeeInformation.assemblerEmployee);
                 this.EmpList[counter] = emp;
                 counter++;
             }
-        } else {
+        } else if (this.displayName.equals("maserati")) {
             for (int i = 0; i < Integer.parseInt(gui.getAccessoriesEmployeeQtty1().getText()); i++) {
-                Employee emp = new Employee(EmployeeInformation.accesoryEmployeeSalary,
-                        EmployeeInformation.accesoryEmployee, EmployeeInformation.accesoryProduction, this);
+                Employee emp = createEmployee(EmployeeInformation.accesoryEmployee);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
             for (int i = 0; i < Integer.parseInt(gui.getBodyworksEmployeeQtty1().getText()); i++) {
-                Employee emp = new Employee(EmployeeInformation.bodyworkEmployeeSalary,
-                        EmployeeInformation.bodyworkEmployee, EmployeeInformation.accesoryProduction, this);
+                Employee emp = createEmployee(EmployeeInformation.bodyworkEmployee);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
             for (int i = 0; i < Integer.parseInt(gui.getChasisEmployeeQtty1().getText()); i++) {
-                Employee emp = new Employee(EmployeeInformation.chasisEmployeeSalary,
-                        EmployeeInformation.chasisEmployee, EmployeeInformation.chasisEmployeeProduction, this);
+                Employee emp = createEmployee(EmployeeInformation.chasisEmployee);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
             for (int i = 0; i < Integer.parseInt(gui.getMotorsEmployeeQtty1().getText()); i++) {
-                Employee emp = new Employee(EmployeeInformation.motorEmployeeSalary,
-                        EmployeeInformation.motorEmployee, EmployeeInformation.motorEmployeeProduction, this);
+                Employee emp = createEmployee(EmployeeInformation.motorEmployee);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
             for (int i = 0; i < Integer.parseInt(gui.getWheelsEmployeeQtty1().getText()); i++) {
-                Employee emp = new Employee(EmployeeInformation.wheelEmployeeSalary,
-                        EmployeeInformation.wheelEmployee, EmployeeInformation.wheelEmployeeProduction, this);
+                Employee emp = createEmployee(EmployeeInformation.wheelEmployee);
                 this.EmpList[counter] = emp;
                 counter++;
             }
 
             for (int i = 0; i < Integer.parseInt(gui.getAssemblerEmployeeQtty1().getText()); i++) {
-                Employee emp = new Employee(EmployeeInformation.assemblerEmployeeSalary,
-                        EmployeeInformation.assemblerEmployee, EmployeeInformation.assemblerProduction, this);
+                Employee emp = createEmployee(EmployeeInformation.assemblerEmployee);
                 this.EmpList[counter] = emp;
                 counter++;
             }
@@ -182,6 +170,57 @@ public class CarsPlant {
         for (int i = 0; i < this.EmpList.length; i++) {
             if (this.EmpList[i] instanceof Employee) {
                 this.EmpList[i].start();
+            }
+        }
+    }
+    
+    public Employee createEmployee(String type) {
+        if (type.equals(EmployeeInformation.chasisEmployee)) {
+            Employee emp = new Employee(EmployeeInformation.chasisEmployeeSalary, 
+                    EmployeeInformation.chasisEmployee, EmployeeInformation.chasisEmployeeProduction, this);
+            return emp;
+        } else if (type.equals(EmployeeInformation.motorEmployee)) {
+            Employee emp = new Employee(EmployeeInformation.motorEmployeeSalary, 
+                    EmployeeInformation.motorEmployee, EmployeeInformation.motorEmployeeProduction, this);
+            return emp;
+        } else if (type.equals(EmployeeInformation.bodyworkEmployee)) {
+            Employee emp = new Employee(EmployeeInformation.bodyworkEmployeeSalary, 
+                    EmployeeInformation.bodyworkEmployee, EmployeeInformation.bodyworkProduction, this);
+            return emp;
+        } else if (type.equals(EmployeeInformation.wheelEmployee)) {
+            Employee emp = new Employee(EmployeeInformation.wheelEmployeeSalary, 
+                    EmployeeInformation.wheelEmployee, EmployeeInformation.wheelEmployeeProduction, this);
+            return emp;
+        } else if (type.equals(EmployeeInformation.accesoryEmployee)) {
+            Employee emp = new Employee(EmployeeInformation.accesoryEmployeeSalary, 
+                    EmployeeInformation.accesoryEmployee, EmployeeInformation.accesoryProduction, this);
+            return emp;
+        } else if (type.equals(EmployeeInformation.assemblerEmployee)) {
+            Employee emp = new Employee(EmployeeInformation.assemblerEmployeeSalary, 
+                    EmployeeInformation.assemblerEmployee, EmployeeInformation.assemblerProduction, this);
+            return emp;
+        }
+        return null;
+    }
+    
+    public void addEmployee(Employee employee) {
+        boolean added = false;
+        for (int i=0; i < this.EmpList.length; i++) {
+            if (this.EmpList[i] == null && !added) {
+                this.EmpList[i] = employee;
+                this.EmpList[i].start();
+                added = true;
+            }
+        } 
+    }
+    
+    public void removeEmployee(String type) {
+        boolean deleted = false;
+        for (int i=0; i < this.EmpList.length; i++) {
+            if (this.EmpList[i] != null && this.EmpList[i].getType().equals(type) && !deleted) {
+                this.EmpList[i].stopRunning();
+                this.EmpList[i] = null;
+                deleted = true;
             }
         }
     }

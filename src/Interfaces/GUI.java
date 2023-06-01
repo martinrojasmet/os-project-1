@@ -8,6 +8,8 @@ package Interfaces;
 
 import Classes.AccessoryVehicle;
 import Classes.CarsPlant;
+import Classes.Employee;
+import Classes.EmployeeInformation;
 import Classes.StandardVehicle;
 import Classes.FunctionsGUI;
 import javax.swing.JButton;
@@ -34,15 +36,18 @@ public class GUI extends javax.swing.JFrame {
      * Creates new form GUI
      */
     public GUI() {
-        this.dayDuration = 3000;
-        this.dayCounter = 3;
+        this.dayCounter = 1;
         this.loadSetDaysJson();
         
-        StandardVehicle standard = new StandardVehicle(3, 4, 2, 3, 500000);
-        AccessoryVehicle accessory = new AccessoryVehicle(3, 4, 2, 3, 2, 600000);
+        // Especificaciones de bugatti
+        StandardVehicle standardBugatti = new StandardVehicle(1, 4, 4, 2, 550000);
+        AccessoryVehicle accessoryBugatti = new AccessoryVehicle(1, 4, 4, 2, 2, 600000);
+        // Especificaciones de maserati
+        StandardVehicle standardMaserati = new StandardVehicle(1, 2, 4, 1, 350000);
+        AccessoryVehicle accessoryMaserati = new AccessoryVehicle(1, 2, 4, 1, 3, 700000);
         
-        this.bugatti = new CarsPlant("bugatti", this.dayDuration, 17, this.dayCounter, 3, standard, accessory, this, true);
-        this.maserati = new CarsPlant("maserati", this.dayDuration, 19, this.dayCounter, 5, standard, accessory, this, false);
+        this.bugatti = new CarsPlant("bugatti", this.dayDuration, 17, this.dayCounter, 3, standardBugatti, accessoryBugatti, this, true);
+        this.maserati = new CarsPlant("maserati", this.dayDuration, 19, this.dayCounter, 5, standardMaserati, accessoryMaserati, this, false);
         
         this.maseratiFunctions = new FunctionsGUI(this.maserati, this);
         this.bugattiFunctions = new FunctionsGUI(this.bugatti, this);
@@ -233,38 +238,6 @@ public class GUI extends javax.swing.JFrame {
         this.bugatti = bugatti;
     }
 
-    public JButton getRunSim1() {
-        return RunSim1;
-    }
-
-    public void setRunSim1(JButton RunSim1) {
-        this.RunSim1 = RunSim1;
-    }
-
-    public JButton getRunSim2() {
-        return RunSim2;
-    }
-
-    public void setRunSim2(JButton RunSim2) {
-        this.RunSim2 = RunSim2;
-    }
-
-    public JButton getStopSim1() {
-        return StopSim1;
-    }
-
-    public void setStopSim1(JButton StopSim1) {
-        this.StopSim1 = StopSim1;
-    }
-
-    public JButton getStopSim2() {
-        return StopSim2;
-    }
-
-    public void setStopSim2(JButton StopSim2) {
-        this.StopSim2 = StopSim2;
-    }
-    
     public JLabel getCostsBugattiDashboardValue() {
         return CostsBugattiDashboardValue;
     }
@@ -1084,8 +1057,6 @@ public class GUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         TabbedPane = new javax.swing.JTabbedPane();
         Dashboard = new javax.swing.JPanel();
-        MaseratiTitle = new javax.swing.JLabel();
-        BugattiTitleDashboard = new javax.swing.JLabel();
         NetIncomeMaseratiDashboardTittle = new javax.swing.JLabel();
         CostsMaseratiDashboardTittle = new javax.swing.JLabel();
         GrossIncomeMaseratiDashboardTittle = new javax.swing.JLabel();
@@ -1100,6 +1071,11 @@ public class GUI extends javax.swing.JFrame {
         GrossIncomeMaseratiDashboardValue = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        RunSim = new javax.swing.JButton();
+        StopSim = new javax.swing.JButton();
+        PlantTitle3 = new javax.swing.JLabel();
+        PlantTitle4 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         Bugatti = new javax.swing.JPanel();
         ChasisEmployeeQtty2 = new javax.swing.JLabel();
         AssemblerEmployeeQttyTitle2 = new javax.swing.JLabel();
@@ -1152,7 +1128,6 @@ public class GUI extends javax.swing.JFrame {
         MaxWheelsQtty2 = new javax.swing.JLabel();
         MaxAccessoriesQtty2 = new javax.swing.JLabel();
         DaysLeft2 = new javax.swing.JLabel();
-        PlantTitle2 = new javax.swing.JLabel();
         DaysLeftTitle2 = new javax.swing.JLabel();
         OpManagerTitle2 = new javax.swing.JLabel();
         EmployeeTitle2 = new javax.swing.JLabel();
@@ -1166,12 +1141,11 @@ public class GUI extends javax.swing.JFrame {
         OpManagerMoneyTaken2 = new javax.swing.JLabel();
         OpManagerMoneyTakenTitle2 = new javax.swing.JLabel();
         WarehouseTitle3 = new javax.swing.JLabel();
-        RunSim2 = new javax.swing.JButton();
-        StopSim2 = new javax.swing.JButton();
         TotalDays2 = new javax.swing.JLabel();
         TotalDaysQtty2 = new javax.swing.JLabel();
         NetIncomeValue2 = new javax.swing.JLabel();
         OperativeCosts2 = new javax.swing.JLabel();
+        PlantTitle5 = new javax.swing.JLabel();
         NetIncomeTittle2 = new javax.swing.JLabel();
         OperativeCostsValue2 = new javax.swing.JLabel();
         StandardCarsQttyTitle2 = new javax.swing.JLabel();
@@ -1180,6 +1154,7 @@ public class GUI extends javax.swing.JFrame {
         StandardCarsAvailable2 = new javax.swing.JLabel();
         GrossIncomeTittle2 = new javax.swing.JLabel();
         GrossIncomeValue2 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         Maserati = new javax.swing.JPanel();
         ChasisEmployeeQtty1 = new javax.swing.JLabel();
         AssemblerEmployeeQttyTitle1 = new javax.swing.JLabel();
@@ -1246,8 +1221,6 @@ public class GUI extends javax.swing.JFrame {
         OpManagerMoneyTaken1 = new javax.swing.JLabel();
         OpManagerMoneyTakenTitle1 = new javax.swing.JLabel();
         WarehouseTitle2 = new javax.swing.JLabel();
-        RunSim1 = new javax.swing.JButton();
-        StopSim1 = new javax.swing.JButton();
         TotalDays1 = new javax.swing.JLabel();
         TotalDaysQtty1 = new javax.swing.JLabel();
         NetIncomeValue1 = new javax.swing.JLabel();
@@ -1260,6 +1233,7 @@ public class GUI extends javax.swing.JFrame {
         StandardCarsAvailable1 = new javax.swing.JLabel();
         GrossIncomeTittle1 = new javax.swing.JLabel();
         GrossIncomeValue1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         Days = new javax.swing.JPanel();
         SecondsForDay = new javax.swing.JLabel();
         LessSecondsForDay = new javax.swing.JButton();
@@ -1270,7 +1244,7 @@ public class GUI extends javax.swing.JFrame {
         DaysTitle1 = new javax.swing.JLabel();
         ChasisEmployeeQttyTitle4 = new javax.swing.JLabel();
         DaysForDeliveryTitle1 = new javax.swing.JLabel();
-        imageCarDays = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1411,16 +1385,6 @@ public class GUI extends javax.swing.JFrame {
 
         Dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        MaseratiTitle.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
-        MaseratiTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MaseratiTitle.setText("Maserati");
-        Dashboard.add(MaseratiTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 280, 90));
-
-        BugattiTitleDashboard.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
-        BugattiTitleDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BugattiTitleDashboard.setText("Bugatti");
-        Dashboard.add(BugattiTitleDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 280, 90));
-
         NetIncomeMaseratiDashboardTittle.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         NetIncomeMaseratiDashboardTittle.setText("Ganancias netas");
         Dashboard.add(NetIncomeMaseratiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 410, -1, -1));
@@ -1482,6 +1446,39 @@ public class GUI extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setText("Martin Rojas");
         Dashboard.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
+
+        RunSim.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        RunSim.setText("Correr simulación");
+        RunSim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RunSimActionPerformed(evt);
+            }
+        });
+        Dashboard.add(RunSim, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 140, 30));
+
+        StopSim.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        StopSim.setText("Parar simulación");
+        StopSim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StopSimActionPerformed(evt);
+            }
+        });
+        Dashboard.add(StopSim, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, 30));
+
+        PlantTitle3.setFont(new java.awt.Font("Tahoma", 1, 54)); // NOI18N
+        PlantTitle3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PlantTitle3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/MaseratiLogo.png"))); // NOI18N
+        Dashboard.add(PlantTitle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, 210, 100));
+
+        PlantTitle4.setFont(new java.awt.Font("Tahoma", 1, 54)); // NOI18N
+        PlantTitle4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PlantTitle4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/BugattiLogo.png"))); // NOI18N
+        Dashboard.add(PlantTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 210, 100));
+
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/DashboardBackground.png"))); // NOI18N
+        jLabel10.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Dashboard.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 560));
 
         TabbedPane.addTab("tab1", Dashboard);
 
@@ -1778,11 +1775,6 @@ public class GUI extends javax.swing.JFrame {
         DaysLeft2.setText(Integer.toString(this.bugatti.getDaysToDeliver()));
         Bugatti.add(DaysLeft2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, 60, 50));
 
-        PlantTitle2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        PlantTitle2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        PlantTitle2.setText("Bugatti");
-        Bugatti.add(PlantTitle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 6, 280, -1));
-
         DaysLeftTitle2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DaysLeftTitle2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         DaysLeftTitle2.setText("Días para la entrega:");
@@ -1848,24 +1840,6 @@ public class GUI extends javax.swing.JFrame {
         WarehouseTitle3.setText("Almacén");
         Bugatti.add(WarehouseTitle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 91, 280, 50));
 
-        RunSim2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        RunSim2.setText("Correr simulación");
-        RunSim2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RunSim2ActionPerformed(evt);
-            }
-        });
-        Bugatti.add(RunSim2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 140, 30));
-
-        StopSim2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        StopSim2.setText("Parar simulación");
-        StopSim2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StopSim2ActionPerformed(evt);
-            }
-        });
-        Bugatti.add(StopSim2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, 30));
-
         TotalDays2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         TotalDays2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         TotalDays2.setText("Días totales:");
@@ -1884,7 +1858,12 @@ public class GUI extends javax.swing.JFrame {
         OperativeCosts2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         OperativeCosts2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         OperativeCosts2.setText("Costos operativos:");
-        Bugatti.add(OperativeCosts2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 179, 35));
+        Bugatti.add(OperativeCosts2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 179, 35));
+
+        PlantTitle5.setFont(new java.awt.Font("Tahoma", 1, 54)); // NOI18N
+        PlantTitle5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        PlantTitle5.setText("Bugatti");
+        Bugatti.add(PlantTitle5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 280, -1));
 
         NetIncomeTittle2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         NetIncomeTittle2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -1894,7 +1873,7 @@ public class GUI extends javax.swing.JFrame {
         OperativeCostsValue2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         OperativeCostsValue2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         OperativeCostsValue2.setText("$" + Float.toString(this.maserati.getCosts()));
-        Bugatti.add(OperativeCostsValue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 50, 170, 35));
+        Bugatti.add(OperativeCostsValue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 170, 35));
 
         StandardCarsQttyTitle2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         StandardCarsQttyTitle2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -1925,6 +1904,9 @@ public class GUI extends javax.swing.JFrame {
         GrossIncomeValue2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         GrossIncomeValue2.setText("$" + Float.toString(this.maserati.getGrossIncome()));
         Bugatti.add(GrossIncomeValue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 170, 35));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/BugattiBackground.png"))); // NOI18N
+        Bugatti.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 560));
 
         TabbedPane.addTab("tab2", Bugatti);
 
@@ -2221,10 +2203,10 @@ public class GUI extends javax.swing.JFrame {
         DaysLeft1.setText(Integer.toString(this.maserati.getDaysToDeliver()));
         Maserati.add(DaysLeft1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, 60, 50));
 
-        PlantTitle1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        PlantTitle1.setFont(new java.awt.Font("Tahoma", 1, 54)); // NOI18N
         PlantTitle1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         PlantTitle1.setText("Maserati");
-        Maserati.add(PlantTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 6, 280, -1));
+        Maserati.add(PlantTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 280, -1));
 
         DaysLeftTitle1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         DaysLeftTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -2291,24 +2273,6 @@ public class GUI extends javax.swing.JFrame {
         WarehouseTitle2.setText("Almacén");
         Maserati.add(WarehouseTitle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 91, 280, 50));
 
-        RunSim1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        RunSim1.setText("Correr simulación");
-        RunSim1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RunSim1ActionPerformed(evt);
-            }
-        });
-        Maserati.add(RunSim1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 140, 30));
-
-        StopSim1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        StopSim1.setText("Parar simulación");
-        StopSim1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StopSim1ActionPerformed(evt);
-            }
-        });
-        Maserati.add(StopSim1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, 30));
-
         TotalDays1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         TotalDays1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         TotalDays1.setText("Días totales:");
@@ -2327,7 +2291,7 @@ public class GUI extends javax.swing.JFrame {
         OperativeCosts1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         OperativeCosts1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         OperativeCosts1.setText("Costos operativos:");
-        Maserati.add(OperativeCosts1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 179, 35));
+        Maserati.add(OperativeCosts1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 179, 35));
 
         NetIncomeTittle1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         NetIncomeTittle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -2337,7 +2301,7 @@ public class GUI extends javax.swing.JFrame {
         OperativeCostsValue1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         OperativeCostsValue1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         OperativeCostsValue1.setText("$" + Float.toString(this.maserati.getCosts()));
-        Maserati.add(OperativeCostsValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 50, 170, 35));
+        Maserati.add(OperativeCostsValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 170, 35));
 
         StandardCarsQttyTitle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         StandardCarsQttyTitle1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -2369,6 +2333,9 @@ public class GUI extends javax.swing.JFrame {
         GrossIncomeValue1.setText("$" + Float.toString(this.maserati.getGrossIncome()));
         Maserati.add(GrossIncomeValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 170, 35));
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/MaseratiBackground.png"))); // NOI18N
+        Maserati.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 600));
+
         TabbedPane.addTab("tab3", Maserati);
 
         Days.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2376,7 +2343,7 @@ public class GUI extends javax.swing.JFrame {
         SecondsForDay.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         SecondsForDay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         SecondsForDay.setText(String.valueOf(this.dayDuration));
-        Days.add(SecondsForDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 60, 40));
+        Days.add(SecondsForDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 60, 40));
 
         LessSecondsForDay.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LessSecondsForDay.setText("-");
@@ -2385,7 +2352,7 @@ public class GUI extends javax.swing.JFrame {
                 LessSecondsForDayActionPerformed(evt);
             }
         });
-        Days.add(LessSecondsForDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 60, 40));
+        Days.add(LessSecondsForDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 60, 40));
 
         PlusSecondsForDay.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         PlusSecondsForDay.setText("+");
@@ -2394,12 +2361,12 @@ public class GUI extends javax.swing.JFrame {
                 PlusSecondsForDayActionPerformed(evt);
             }
         });
-        Days.add(PlusSecondsForDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 60, 40));
+        Days.add(PlusSecondsForDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 60, 40));
 
         DaysForDelivery.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         DaysForDelivery.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DaysForDelivery.setText(String.valueOf(this.dayCounter));
-        Days.add(DaysForDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 60, 30));
+        Days.add(DaysForDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 60, 30));
 
         DaysForDeliveryLess.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         DaysForDeliveryLess.setText("-");
@@ -2408,7 +2375,7 @@ public class GUI extends javax.swing.JFrame {
                 DaysForDeliveryLessActionPerformed(evt);
             }
         });
-        Days.add(DaysForDeliveryLess, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 60, 40));
+        Days.add(DaysForDeliveryLess, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 60, 40));
 
         DaysForDeliveryPlus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         DaysForDeliveryPlus.setText("+");
@@ -2417,30 +2384,29 @@ public class GUI extends javax.swing.JFrame {
                 DaysForDeliveryPlusActionPerformed(evt);
             }
         });
-        Days.add(DaysForDeliveryPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 60, 40));
+        Days.add(DaysForDeliveryPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 60, 40));
 
         DaysTitle1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        DaysTitle1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        DaysTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DaysTitle1.setText("Días");
-        Days.add(DaysTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 6, 280, -1));
+        Days.add(DaysTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 280, -1));
 
         ChasisEmployeeQttyTitle4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         ChasisEmployeeQttyTitle4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ChasisEmployeeQttyTitle4.setText("Segundos por día");
-        Days.add(ChasisEmployeeQttyTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 260, 30));
+        Days.add(ChasisEmployeeQttyTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 260, 30));
 
         DaysForDeliveryTitle1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         DaysForDeliveryTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DaysForDeliveryTitle1.setText("Días para la entrega");
-        Days.add(DaysForDeliveryTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 260, 30));
+        Days.add(DaysForDeliveryTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 260, 30));
 
-        imageCarDays.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/BugattiBackground.jpg"))); // NOI18N
-        imageCarDays.setText("imageCarDays");
-        Days.add(imageCarDays, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 630, 440));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/DaysBackground.jpg"))); // NOI18N
+        Days.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 570));
 
         TabbedPane.addTab("tab4", Days);
 
-        Panel.add(TabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 1030, 570));
+        Panel.add(TabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 1030, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2450,9 +2416,7 @@ public class GUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -2481,6 +2445,7 @@ public class GUI extends javax.swing.JFrame {
         if (newNumber > 1) {
             newNumber--;
             employeeQtty++;
+            this.maserati.removeEmployee(EmployeeInformation.chasisEmployee);
         }
         EmployeeQtty1.setText(String.valueOf(employeeQtty));
         ChasisEmployeeQtty1.setText(String.valueOf(newNumber));
@@ -2493,6 +2458,8 @@ public class GUI extends javax.swing.JFrame {
         if (employeeQtty > 0) {
             newNumber++;
             employeeQtty--;
+            Employee emp = this.maserati.createEmployee(EmployeeInformation.chasisEmployee);
+            this.maserati.addEmployee(emp);
         }
         EmployeeQtty1.setText(String.valueOf(employeeQtty));
         ChasisEmployeeQtty1.setText(String.valueOf(newNumber));
@@ -2505,6 +2472,7 @@ public class GUI extends javax.swing.JFrame {
         if (newNumber > 1) {
             newNumber--;
             employeeQtty++;
+            this.maserati.removeEmployee(EmployeeInformation.bodyworkEmployee);
         }
         EmployeeQtty1.setText(String.valueOf(employeeQtty));
         BodyworksEmployeeQtty1.setText(String.valueOf(newNumber));
@@ -2517,6 +2485,8 @@ public class GUI extends javax.swing.JFrame {
         if (employeeQtty > 0) {
             newNumber++;
             employeeQtty--;
+            Employee emp = this.maserati.createEmployee(EmployeeInformation.bodyworkEmployee);
+            this.maserati.addEmployee(emp);
         }
         EmployeeQtty1.setText(String.valueOf(employeeQtty));
         BodyworksEmployeeQtty1.setText(String.valueOf(newNumber));
@@ -2529,6 +2499,7 @@ public class GUI extends javax.swing.JFrame {
         if (newNumber > 1) {
             newNumber--;
             employeeQtty++;
+            this.maserati.removeEmployee(EmployeeInformation.motorEmployee);
         }
         EmployeeQtty1.setText(String.valueOf(employeeQtty));
         MotorsEmployeeQtty1.setText(String.valueOf(newNumber));
@@ -2541,6 +2512,8 @@ public class GUI extends javax.swing.JFrame {
         if (employeeQtty > 0) {
             newNumber++;
             employeeQtty--;
+            Employee emp = this.maserati.createEmployee(EmployeeInformation.motorEmployee);
+            this.maserati.addEmployee(emp);
         }
         EmployeeQtty1.setText(String.valueOf(employeeQtty));
         MotorsEmployeeQtty1.setText(String.valueOf(newNumber));
@@ -2553,6 +2526,7 @@ public class GUI extends javax.swing.JFrame {
         if (newNumber > 1) {
             newNumber--;
             employeeQtty++;
+            this.maserati.removeEmployee(EmployeeInformation.wheelEmployee);
         }
         EmployeeQtty1.setText(String.valueOf(employeeQtty));
         WheelsEmployeeQtty1.setText(String.valueOf(newNumber));
@@ -2565,6 +2539,8 @@ public class GUI extends javax.swing.JFrame {
         if (employeeQtty > 0) {
             newNumber++;
             employeeQtty--;
+            Employee emp = this.maserati.createEmployee(EmployeeInformation.wheelEmployee);
+            this.maserati.addEmployee(emp);
         }
         EmployeeQtty1.setText(String.valueOf(employeeQtty));
         WheelsEmployeeQtty1.setText(String.valueOf(newNumber));
@@ -2577,6 +2553,7 @@ public class GUI extends javax.swing.JFrame {
         if (newNumber > 1) {
             newNumber--;
             employeeQtty++;
+            this.maserati.removeEmployee(EmployeeInformation.accesoryEmployee);
         }
         EmployeeQtty1.setText(String.valueOf(employeeQtty));
         AccessoriesEmployeeQtty1.setText(String.valueOf(newNumber));
@@ -2589,6 +2566,8 @@ public class GUI extends javax.swing.JFrame {
         if (employeeQtty > 0) {
             newNumber++;
             employeeQtty--;
+            Employee emp = this.maserati.createEmployee(EmployeeInformation.accesoryEmployee);
+            this.maserati.addEmployee(emp);
         }
         EmployeeQtty1.setText(String.valueOf(employeeQtty));
         AccessoriesEmployeeQtty1.setText(String.valueOf(newNumber));
@@ -2601,6 +2580,7 @@ public class GUI extends javax.swing.JFrame {
         if (newNumber > 1) {
             newNumber--;
             employeeQtty++;
+            this.maserati.removeEmployee(EmployeeInformation.assemblerEmployee);
         }
         EmployeeQtty1.setText(String.valueOf(employeeQtty));
         AssemblerEmployeeQtty1.setText(String.valueOf(newNumber));
@@ -2613,18 +2593,12 @@ public class GUI extends javax.swing.JFrame {
         if (employeeQtty > 0) {
             newNumber++;
             employeeQtty--;
+            Employee emp = this.maserati.createEmployee(EmployeeInformation.assemblerEmployee);
+            this.maserati.addEmployee(emp);
         }
         EmployeeQtty1.setText(String.valueOf(employeeQtty));
         AssemblerEmployeeQtty1.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_AssemblerEmployeeQttyPlus1ActionPerformed
-
-    private void RunSim1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunSim1ActionPerformed
-        this.maserati.run();
-    }//GEN-LAST:event_RunSim1ActionPerformed
-
-    private void StopSim1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopSim1ActionPerformed
-        this.maserati.stop();
-    }//GEN-LAST:event_StopSim1ActionPerformed
 
     private void ChasisEmployeeQttyLess2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChasisEmployeeQttyLess2ActionPerformed
         String originalString = ChasisEmployeeQtty2.getText();
@@ -2633,6 +2607,7 @@ public class GUI extends javax.swing.JFrame {
         if (newNumber > 1) {
             newNumber--;
             employeeQtty++;
+            this.bugatti.removeEmployee(EmployeeInformation.chasisEmployee);
         }
         EmployeeQtty2.setText(String.valueOf(employeeQtty));
         ChasisEmployeeQtty2.setText(String.valueOf(newNumber));
@@ -2646,6 +2621,8 @@ public class GUI extends javax.swing.JFrame {
         if (employeeQtty > 0) {
             newNumber++;
             employeeQtty--;
+            Employee emp = this.bugatti.createEmployee(EmployeeInformation.chasisEmployee);
+            this.bugatti.addEmployee(emp);
         }
         EmployeeQtty2.setText(String.valueOf(employeeQtty));
         ChasisEmployeeQtty2.setText(String.valueOf(newNumber));
@@ -2658,6 +2635,7 @@ public class GUI extends javax.swing.JFrame {
         if (newNumber > 1) {
             newNumber--;
             employeeQtty++;
+            this.bugatti.removeEmployee(EmployeeInformation.bodyworkEmployee);
         }
         EmployeeQtty2.setText(String.valueOf(employeeQtty));
         BodyworksEmployeeQtty2.setText(String.valueOf(newNumber));
@@ -2670,6 +2648,8 @@ public class GUI extends javax.swing.JFrame {
         if (employeeQtty > 0) {
             newNumber++;
             employeeQtty--;
+            Employee emp = this.bugatti.createEmployee(EmployeeInformation.bodyworkEmployee);
+            this.bugatti.addEmployee(emp);
         }
         EmployeeQtty2.setText(String.valueOf(employeeQtty));
         BodyworksEmployeeQtty2.setText(String.valueOf(newNumber));
@@ -2682,6 +2662,7 @@ public class GUI extends javax.swing.JFrame {
         if (newNumber > 1) {
             newNumber--;
             employeeQtty++;
+            this.bugatti.removeEmployee(EmployeeInformation.motorEmployee);
         }
         EmployeeQtty2.setText(String.valueOf(employeeQtty));
         MotorsEmployeeQtty2.setText(String.valueOf(newNumber));
@@ -2694,6 +2675,8 @@ public class GUI extends javax.swing.JFrame {
         if (employeeQtty > 0) {
             newNumber++;
             employeeQtty--;
+            Employee emp = this.bugatti.createEmployee(EmployeeInformation.motorEmployee);
+            this.bugatti.addEmployee(emp);
         }
         EmployeeQtty2.setText(String.valueOf(employeeQtty));
         MotorsEmployeeQtty2.setText(String.valueOf(newNumber));
@@ -2706,6 +2689,7 @@ public class GUI extends javax.swing.JFrame {
         if (newNumber > 1) {
             newNumber--;
             employeeQtty++;
+            this.bugatti.removeEmployee(EmployeeInformation.wheelEmployee);
         }
         EmployeeQtty2.setText(String.valueOf(employeeQtty));
         WheelsEmployeeQtty2.setText(String.valueOf(newNumber));
@@ -2718,6 +2702,8 @@ public class GUI extends javax.swing.JFrame {
         if (employeeQtty > 0) {
             newNumber++;
             employeeQtty--;
+            Employee emp = this.bugatti.createEmployee(EmployeeInformation.wheelEmployee);
+            this.bugatti.addEmployee(emp);
         }
         EmployeeQtty2.setText(String.valueOf(employeeQtty));
         WheelsEmployeeQtty2.setText(String.valueOf(newNumber));
@@ -2730,6 +2716,7 @@ public class GUI extends javax.swing.JFrame {
         if (newNumber > 1) {
             newNumber--;
             employeeQtty++;
+            this.bugatti.removeEmployee(EmployeeInformation.accesoryEmployee);
         }
         EmployeeQtty2.setText(String.valueOf(employeeQtty));
         AccessoriesEmployeeQtty2.setText(String.valueOf(newNumber));
@@ -2742,6 +2729,8 @@ public class GUI extends javax.swing.JFrame {
         if (employeeQtty > 0) {
             newNumber++;
             employeeQtty--;
+            Employee emp = this.bugatti.createEmployee(EmployeeInformation.accesoryEmployee);
+            this.bugatti.addEmployee(emp);
         }
         EmployeeQtty2.setText(String.valueOf(employeeQtty));
         AccessoriesEmployeeQtty2.setText(String.valueOf(newNumber));
@@ -2754,6 +2743,7 @@ public class GUI extends javax.swing.JFrame {
         if (newNumber > 1) {
             newNumber--;
             employeeQtty++;
+            this.bugatti.removeEmployee(EmployeeInformation.assemblerEmployee);
         }
         EmployeeQtty2.setText(String.valueOf(employeeQtty));
         AssemblerEmployeeQtty2.setText(String.valueOf(newNumber));
@@ -2766,18 +2756,12 @@ public class GUI extends javax.swing.JFrame {
         if (employeeQtty > 0) {
             newNumber++;
             employeeQtty--;
+            Employee emp = this.bugatti.createEmployee(EmployeeInformation.assemblerEmployee);
+            this.bugatti.addEmployee(emp);
         }
         EmployeeQtty2.setText(String.valueOf(employeeQtty));
         AssemblerEmployeeQtty2.setText(String.valueOf(newNumber));
     }//GEN-LAST:event_AssemblerEmployeeQttyPlus2ActionPerformed
-
-    private void RunSim2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunSim2ActionPerformed
-        this.bugatti.run();
-    }//GEN-LAST:event_RunSim2ActionPerformed
-
-    private void StopSim2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopSim2ActionPerformed
-        this.bugatti.stop();
-    }//GEN-LAST:event_StopSim2ActionPerformed
 
     private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
         TabbedPane.setSelectedIndex(2);
@@ -2810,6 +2794,18 @@ public class GUI extends javax.swing.JFrame {
         number++;
         DaysForDelivery.setText(String.valueOf(number));
     }//GEN-LAST:event_DaysForDeliveryPlusActionPerformed
+
+    private void RunSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunSimActionPerformed
+        // TODO add your handling code here:
+        this.maserati.run();
+        this.bugatti.run();
+    }//GEN-LAST:event_RunSimActionPerformed
+
+    private void StopSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopSimActionPerformed
+        // TODO add your handling code here:
+        this.maserati.stop();
+        this.bugatti.stop();
+    }//GEN-LAST:event_StopSimActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2888,7 +2884,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel BodyworksQttyTitle1;
     private javax.swing.JLabel BodyworksQttyTitle2;
     private javax.swing.JPanel Bugatti;
-    private javax.swing.JLabel BugattiTitleDashboard;
     private javax.swing.JLabel ChasisEmployeeQtty1;
     private javax.swing.JLabel ChasisEmployeeQtty2;
     private javax.swing.JButton ChasisEmployeeQttyLess1;
@@ -2934,7 +2929,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel GrossIncomeValue2;
     private javax.swing.JButton LessSecondsForDay;
     private javax.swing.JPanel Maserati;
-    private javax.swing.JLabel MaseratiTitle;
     private javax.swing.JLabel MaxAccessoriesQtty1;
     private javax.swing.JLabel MaxAccessoriesQtty2;
     private javax.swing.JLabel MaxAccessoriesQttyTitle1;
@@ -3002,10 +2996,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel PlantDirectorTitle1;
     private javax.swing.JLabel PlantDirectorTitle2;
     private javax.swing.JLabel PlantTitle1;
-    private javax.swing.JLabel PlantTitle2;
+    private javax.swing.JLabel PlantTitle3;
+    private javax.swing.JLabel PlantTitle4;
+    private javax.swing.JLabel PlantTitle5;
     private javax.swing.JButton PlusSecondsForDay;
-    private javax.swing.JButton RunSim1;
-    private javax.swing.JButton RunSim2;
+    private javax.swing.JButton RunSim;
     private javax.swing.JLabel SecondsForDay;
     private javax.swing.JLabel StandardCarsAvailable1;
     private javax.swing.JLabel StandardCarsAvailable2;
@@ -3015,8 +3010,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel StandardCarsQtty2;
     private javax.swing.JLabel StandardCarsQttyTitle1;
     private javax.swing.JLabel StandardCarsQttyTitle2;
-    private javax.swing.JButton StopSim1;
-    private javax.swing.JButton StopSim2;
+    private javax.swing.JButton StopSim;
     private javax.swing.JTabbedPane TabbedPane;
     private javax.swing.JPanel TitleProject;
     private javax.swing.JLabel TotalDays1;
@@ -3037,14 +3031,17 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel WheelsQtty2;
     private javax.swing.JLabel WheelsQttyTitle1;
     private javax.swing.JLabel WheelsQttyTitle2;
-    private javax.swing.JLabel imageCarDays;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel8;
