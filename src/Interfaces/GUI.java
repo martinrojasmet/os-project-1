@@ -9,18 +9,15 @@ package Interfaces;
 import Classes.AccessoryVehicle;
 import Classes.CarsPlant;
 import Classes.StandardVehicle;
-import Classes.EmployeeInformation;
 import Classes.FunctionsGUI;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import javax.swing.JOptionPane;
 /**
  *
  * @author marti
@@ -121,7 +118,59 @@ public class GUI extends javax.swing.JFrame {
     }
     
     public void writeJson() {
-        //falta
+        int dayDuration = Integer.parseInt(this.getSecondsForDay().getText());
+        int daysForDelivery = Integer.parseInt(this.getDaysForDelivery().getText());
+        
+        //Bugatti
+       int chasisQtty2 = Integer.parseInt(this.getChasisEmployeeQtty2().getText());
+       int assemblerQtty2 = Integer.parseInt(this.getAssemblerEmployeeQtty2().getText());
+       int bodyworkQtty2 = Integer.parseInt(this.getBodyworksEmployeeQtty2().getText());
+       int wheelsQtty2 = Integer.parseInt(this.getWheelsEmployeeQtty2().getText());
+       int accesoryQtty2 = Integer.parseInt(this.getAccessoriesEmployeeQtty2().getText());
+       int motorQtty2 = Integer.parseInt(this.getMotorsEmployeeQtty2().getText());
+       
+       //Maserati
+       int chasisQtty = Integer.parseInt(this.getChasisEmployeeQtty1().getText());
+       int assemblerQtty = Integer.parseInt(this.getAssemblerEmployeeQtty1().getText());
+       int bodyworkQtty = Integer.parseInt(this.getBodyworksEmployeeQtty1().getText());
+       int wheelsQtty = Integer.parseInt(this.getWheelsEmployeeQtty1().getText());
+       int accesoryQtty = Integer.parseInt(this.getAccessoriesEmployeeQtty1().getText());
+       int motorQtty = Integer.parseInt(this.getMotorsEmployeeQtty1().getText());
+       
+        JSONParser parser = new JSONParser();
+        try (FileReader fileReader = new FileReader("src/Assets/Data.json")) {
+            Object obj = parser.parse(fileReader);
+            JSONObject existingJsonObject = (JSONObject) obj;
+
+            existingJsonObject.put("simulationDurationInSeconds", dayDuration);
+            existingJsonObject.put("vehicleDeliveryIntervalInDays", daysForDelivery );
+
+            JSONObject initialEmployeeCount1 = (JSONObject) existingJsonObject.get("initialEmployeeCount1");
+            initialEmployeeCount1.put("chasis", chasisQtty);
+            initialEmployeeCount1.put("assembler", assemblerQtty);
+            initialEmployeeCount1.put("bodywork", bodyworkQtty);
+            initialEmployeeCount1.put("wheels", wheelsQtty);
+            initialEmployeeCount1.put("accessory", accesoryQtty);
+            initialEmployeeCount1.put("motor", motorQtty);
+
+            JSONObject initialEmployeeCount2 = (JSONObject) existingJsonObject.get("initialEmployeeCount2");
+            initialEmployeeCount2.put("chasis", chasisQtty2);
+            initialEmployeeCount2.put("assembler", assemblerQtty2);
+            initialEmployeeCount2.put("bodywork", bodyworkQtty2);
+            initialEmployeeCount2.put("wheels", wheelsQtty2);
+            initialEmployeeCount2.put("accessory", accesoryQtty2);
+            initialEmployeeCount2.put("motor", motorQtty2);
+
+            String jsonString = existingJsonObject.toJSONString();
+
+            try (FileWriter fileWriter = new FileWriter("src/Assets/Data.json")) {
+                fileWriter.write(jsonString);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
     }
     
     public void setValuesFromJson(int chasisInitial, 
@@ -158,6 +207,14 @@ public class GUI extends javax.swing.JFrame {
         this.getEmployeeQtty2().setText(String.valueOf(employeeQtty2 - totalEmployeesRN2));
         this.getEmployeeQtty1().setText(String.valueOf(employeeQtty1 - totalEmployeesRN));
         
+    }
+
+    public JLabel getDaysForDelivery() {
+        return DaysForDelivery;
+    }
+
+    public JLabel getSecondsForDay() {
+        return SecondsForDay;
     }
     
     public CarsPlant getMaserati() {
