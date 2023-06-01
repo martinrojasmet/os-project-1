@@ -28,19 +28,10 @@ public class OperationsManager extends Thread {
     
     @Override
     public void run() {
-        long sixteenHours = this.getSixteenHoursInMs();
-        long eightHours = (long) (this.plant.getDayDurationInMs() - sixteenHours);
         while(this.keepGoing) {
-            try {
-              
-                workForSixteenHours();
-                sleep(eightHours);
-                changeCounter();
-                getPayment();
-            
-            } catch (InterruptedException ex) {
-                Logger.getLogger(OperationsManager.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            workForSixteenHours();
+            changeCounter();
+            getPayment();
         }
     }
     
@@ -75,11 +66,14 @@ public class OperationsManager extends Thread {
     }
     
     public void changeCounter() {
+        long sixteenHours = this.getSixteenHoursInMs();
+        long eightHours = (long) (this.plant.getDayDurationInMs() - sixteenHours);
         try {
             this.plant.getCounterMutex().acquire();
+            sleep(eightHours);
             this.plant.setDaysToDeliver(this.plant.getDaysToDeliver() - 1);
-            this.plant.setTotalDays(this.plant.getTotalDays() + 1);
             this.plant.getCounterMutex().release();
+            this.plant.setTotalDays(this.plant.getTotalDays() + 1);
         } catch (InterruptedException ex) {
             Logger.getLogger(OperationsManager.class.getName()).log(Level.SEVERE, null, ex);
         }

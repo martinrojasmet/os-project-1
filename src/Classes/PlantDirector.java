@@ -37,16 +37,6 @@ public class PlantDirector extends Thread {
                 } else {
                     randomHour = this.getRandomHourInMs();
                     sleep(randomHour);
-                    
-                    //Aqui se corre el checkManager() cada min de los 25min para (No se si al ponerlo en la funcion checkManager falle asiq ue lo deje aca)
-                     
-//                    long startTime = System.currentTimeMillis();
-//                    while (System.currentTimeMillis() - startTime < twentyFiveMinutes) {
-//                        checkManager();
-//                        sleep(twentyFiveMinutes/25);
-//                    }
-//                    this.setCheckingManager(false);
-
                     this.setCheckingManager(true);
                     checkManager();
                     long remainingDay = (long) (this.plant.getDayDurationInMs() - (randomHour + twentyFiveMinutes));
