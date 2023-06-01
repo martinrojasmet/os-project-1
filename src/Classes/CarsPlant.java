@@ -6,10 +6,8 @@
 package Classes;
 
 import Interfaces.GUI;
-import static java.lang.Thread.sleep;
 import java.util.concurrent.Semaphore;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,10 +32,11 @@ public class CarsPlant {
     private int carsUntilAccessories;
     private OperationsManager manager;
     private PlantDirector director;
-    private boolean keepGoing;
     private GUI gui;
     private boolean isFirst;
     private Semaphore counterMutex;
+    private boolean isRunning;
+    private boolean alreadyStarted;
 
     public CarsPlant(String displayName, int dayDuration, int maxEmployees, int dayCounter, int carsUntilAccessories, StandardVehicle standardVehicle, AccessoryVehicle accessoryVehicle, GUI gui, boolean isFirst) {
         this.grossIncome = 0;
@@ -59,40 +58,41 @@ public class CarsPlant {
         this.partsWarehouse = new PartsWarehouse(this.carsUntilAccessories);
         this.manager = new OperationsManager(20f, this);
         this.director = new PlantDirector(30f, this.manager, this);
-        this.keepGoing = true;
         this.isFirst = isFirst;
         this.gui = gui;
         this.counterMutex = new Semaphore(1);
+        this.isRunning = false;
     }
     
     public void run() {
-        this.manager.start();
-        this.director.start();
-        this.initializeWorkers();
+        if (!this.isRunning && !this.alreadyStarted) {
+            this.manager.start();
+            this.director.start();
+            this.initializeWorkers();
+            this.isRunning = true;
+            this.alreadyStarted = true;
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede correr la simulación");
+        }
     }
     
     public void stop() {
-        this.keepGoing = false;
-        for (int i = 0; i < this.EmpList.length; i++) {
-            if (this.EmpList[i] instanceof Employee) {
-                this.EmpList[i].stopRunning(); //No se si esto sea concurrente
-                this.director.stopRunning();
-                this.manager.stopRunning();
-            }
+        if (isRunning && this.alreadyStarted) {
+            for (int i = 0; i < this.EmpList.length; i++) {
+               if (this.EmpList[i] instanceof Employee) {
+                   this.EmpList[i].stopRunning();
+               }
+           }
+           this.director.stopRunning();
+           this.manager.stopRunning();
+           this.isRunning = false;
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede parar la simulación");
         }
     }
     
     public void initializeWorkers() {
-        int counter = 0;
-        
-//        for (int i=0; i<1; i++) {
-//            Employee emp = new Employee(EmployeeInformation.chasisEmployeeSalary,
-//            EmployeeInformation.chasisEmployee, EmployeeInformation.chasisEmployeeProduction, this);
-//            this.EmpList[i] = emp;
-//            System.out.println(emp.getSalary());
-//            emp.start();           
-//        }
-        
+        int counter = 0; 
         if (this.isFirst) {
             for (int i = 0; i < Integer.parseInt(gui.getAccessoriesEmployeeQtty2().getText()); i++) {
                 Employee emp = new Employee(EmployeeInformation.accesoryEmployeeSalary,
@@ -178,15 +178,6 @@ public class CarsPlant {
                 counter++;
             }
         }
-        
-        //espera para que no haya un null pointer exception
-//        try {
-//
-//            sleep(3000);
-//
-//        } catch (InterruptedException ex) {
-//            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         
         for (int i = 0; i < this.EmpList.length; i++) {
             if (this.EmpList[i] instanceof Employee) {

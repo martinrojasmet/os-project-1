@@ -1,12 +1,20 @@
 {
   "simulationDurationInSeconds": 3,
   "vehicleDeliveryIntervalInDays": 7,
-  "initialEmployeeCount": {
-    "chasis": 1,
-    "assembler": 1,
-    "bodywork": 1,
-    "wheels": 6,
-    "accessory": 5,
+  "initialEmployeeCount1": {
+    "chasis": 2,
+    "assembler": 2,
+    "bodywork": 4,
+    "wheels": 2,
+    "accessory": 1,
+    "motor": 1
+  },
+    "initialEmployeeCount2": {
+    "chasis": 2,
+    "assembler": 2,
+    "bodywork": 4,
+    "wheels": 2,
+    "accessory": 1,
     "motor": 1
   }
 }

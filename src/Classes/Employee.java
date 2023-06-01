@@ -42,7 +42,7 @@ public class Employee extends Thread {
     public void run() {
         while(this.keepGoing) {
             try {
-                
+                System.out.println("sdds");
                 if (this.type.equals(EmployeeInformation.assemblerEmployee)) {
                     assembleCar();
                 } else {

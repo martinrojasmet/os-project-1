@@ -20,6 +20,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 /**
  *
  * @author marti
@@ -53,7 +54,17 @@ public class GUI extends javax.swing.JFrame {
         this.loadSetEmployeesJson();
         this.maseratiFunctions.start();
         this.bugattiFunctions.start();
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                writeJson();
+                e.getWindow().dispose();
+                System.exit(0);
+            }
+        });
     }
+    
+    
     
     public void loadSetDaysJson() {
         JSONParser parser = new JSONParser();
@@ -82,7 +93,7 @@ public class GUI extends javax.swing.JFrame {
             Object obj = parser.parse(reader);
             JSONObject jsonObject = (JSONObject) obj;
 
-            JSONObject initialEmployeeCount = (JSONObject) jsonObject.get("initialEmployeeCount");
+            JSONObject initialEmployeeCount = (JSONObject) jsonObject.get("initialEmployeeCount1");
             int chasisInitial = ((Long) initialEmployeeCount.get("chasis")).intValue();
             int assemblerInitial = ((Long) initialEmployeeCount.get("assembler")).intValue();
             int bodyworkInitial = ((Long) initialEmployeeCount.get("bodywork")).intValue();
@@ -90,43 +101,61 @@ public class GUI extends javax.swing.JFrame {
             int accessoryInitial = ((Long) initialEmployeeCount.get("accessory")).intValue();
             int motorInitial = ((Long) initialEmployeeCount.get("motor")).intValue();
             
-            this.setValuesFromJson(dayDuration, dayCounter, chasisInitial, 
-            assemblerInitial, bodyworkInitial,wheelsInitial, 
-            accessoryInitial, motorInitial);
+            JSONObject initialEmployeeCount2 = (JSONObject) jsonObject.get("initialEmployeeCount2");
+            int chasisInitial2 = ((Long) initialEmployeeCount2.get("chasis")).intValue();
+            int assemblerInitial2 = ((Long) initialEmployeeCount2.get("assembler")).intValue();
+            int bodyworkInitial2 = ((Long) initialEmployeeCount2.get("bodywork")).intValue();
+            int wheelsInitial2 = ((Long) initialEmployeeCount2.get("wheels")).intValue();
+            int accessoryInitial2 = ((Long) initialEmployeeCount2.get("accessory")).intValue();
+            int motorInitial2 = ((Long) initialEmployeeCount2.get("motor")).intValue();
+            
+            this.setValuesFromJson(chasisInitial, 
+            assemblerInitial, bodyworkInitial, wheelsInitial, 
+            accessoryInitial, motorInitial, chasisInitial2, 
+            assemblerInitial2, bodyworkInitial2, wheelsInitial2, 
+            accessoryInitial2, motorInitial2);
 
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }
     
-    public void setValuesFromJson(int dayDuration, int dayCounter, int chasisInitial, 
+    public void writeJson() {
+        //falta
+    }
+    
+    public void setValuesFromJson(int chasisInitial, 
             int assemblerInitial, int bodyworkInitial, int wheelsInitial, 
-            int accessoryInitial, int motorInitial) {
+            int accessoryInitial, int motorInitial, int chasisInitial2, 
+            int assemblerInitial2, int bodyworkInitial2, int wheelsInitial2, 
+            int accessoryInitial2, int motorInitial2) {
         
-        this.getAccessoriesEmployeeQtty2().setText(String.valueOf(accessoryInitial));
+        this.getAccessoriesEmployeeQtty2().setText(String.valueOf(accessoryInitial2));
         this.getAccessoriesEmployeeQtty1().setText(String.valueOf(accessoryInitial));
         
-        this.getBodyworksEmployeeQtty2().setText(String.valueOf(bodyworkInitial));
+        this.getBodyworksEmployeeQtty2().setText(String.valueOf(bodyworkInitial2));
         this.getBodyworksEmployeeQtty1().setText(String.valueOf(bodyworkInitial));
         
-        this.getChasisEmployeeQtty2().setText(String.valueOf(chasisInitial));
+        this.getChasisEmployeeQtty2().setText(String.valueOf(chasisInitial2));
         this.getChasisEmployeeQtty1().setText(String.valueOf(chasisInitial));
         
-        this.getMotorsEmployeeQtty2().setText(String.valueOf(motorInitial));
+        this.getMotorsEmployeeQtty2().setText(String.valueOf(motorInitial2));
         this.getMotorsEmployeeQtty1().setText(String.valueOf(motorInitial));
         
-        this.getWheelsEmployeeQtty2().setText(String.valueOf(wheelsInitial));
+        this.getWheelsEmployeeQtty2().setText(String.valueOf(wheelsInitial2));
         this.getWheelsEmployeeQtty1().setText(String.valueOf(wheelsInitial));
         
-        this.getAssemblerEmployeeQtty2().setText(String.valueOf(assemblerInitial));
+        this.getAssemblerEmployeeQtty2().setText(String.valueOf(assemblerInitial2));
         this.getAssemblerEmployeeQtty1().setText(String.valueOf(assemblerInitial));
         
         int totalEmployeesRN = chasisInitial + assemblerInitial 
                 + bodyworkInitial + wheelsInitial + accessoryInitial + motorInitial;
+        int totalEmployeesRN2 = chasisInitial2 + assemblerInitial2
+                + bodyworkInitial2 + wheelsInitial2 + accessoryInitial2 + motorInitial2;
+        
         int employeeQtty2 = Integer.parseInt(EmployeeQtty2.getText());
-        System.out.println(employeeQtty2);
         int employeeQtty1 = Integer.parseInt(EmployeeQtty1.getText());
-        this.getEmployeeQtty2().setText(String.valueOf(employeeQtty2 - totalEmployeesRN));
+        this.getEmployeeQtty2().setText(String.valueOf(employeeQtty2 - totalEmployeesRN2));
         this.getEmployeeQtty1().setText(String.valueOf(employeeQtty1 - totalEmployeesRN));
         
     }
@@ -992,7 +1021,9 @@ public class GUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        DaysMenu = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         TabbedPane = new javax.swing.JTabbedPane();
         Dashboard = new javax.swing.JPanel();
@@ -1172,6 +1203,17 @@ public class GUI extends javax.swing.JFrame {
         StandardCarsAvailable1 = new javax.swing.JLabel();
         GrossIncomeTittle1 = new javax.swing.JLabel();
         GrossIncomeValue1 = new javax.swing.JLabel();
+        Days = new javax.swing.JPanel();
+        SecondsForDay = new javax.swing.JLabel();
+        LessSecondsForDay = new javax.swing.JButton();
+        PlusSecondsForDay = new javax.swing.JButton();
+        DaysForDelivery = new javax.swing.JLabel();
+        DaysForDeliveryLess = new javax.swing.JButton();
+        DaysForDeliveryPlus = new javax.swing.JButton();
+        DaysTitle1 = new javax.swing.JLabel();
+        ChasisEmployeeQttyTitle4 = new javax.swing.JLabel();
+        DaysForDeliveryTitle1 = new javax.swing.JLabel();
+        imageCarDays = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1186,7 +1228,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel1.setText("Proyecto 1 Sistemas Operativos");
         TitleProject.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 280, 40));
 
-        Panel.add(TitleProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 40));
+        Panel.add(TitleProject, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, -1));
 
         MenuBar.setBackground(new java.awt.Color(153, 153, 153));
         MenuBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1254,32 +1296,59 @@ public class GUI extends javax.swing.JFrame {
 
         MenuBar.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 110, -1));
 
-        jPanel7.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel8.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel7MouseClicked(evt);
+                jPanel8MouseClicked(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Planta Maserati");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        MenuBar.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, -1, -1));
+
+        DaysMenu.setBackground(new java.awt.Color(204, 204, 204));
+        DaysMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DaysMenuMouseClicked(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Planta Maserati");
+        jLabel4.setText("Días");
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout DaysMenuLayout = new javax.swing.GroupLayout(DaysMenu);
+        DaysMenu.setLayout(DaysMenuLayout);
+        DaysMenuLayout.setHorizontalGroup(
+            DaysMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        DaysMenuLayout.setVerticalGroup(
+            DaysMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DaysMenuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        MenuBar.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, -1, -1));
+        MenuBar.add(DaysMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, -1));
 
         Panel.add(MenuBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 110, 540));
 
@@ -2245,6 +2314,75 @@ public class GUI extends javax.swing.JFrame {
 
         TabbedPane.addTab("tab3", Maserati);
 
+        Days.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SecondsForDay.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        SecondsForDay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SecondsForDay.setText(String.valueOf(this.dayDuration));
+        Days.add(SecondsForDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 60, 40));
+
+        LessSecondsForDay.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LessSecondsForDay.setText("-");
+        LessSecondsForDay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LessSecondsForDayActionPerformed(evt);
+            }
+        });
+        Days.add(LessSecondsForDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 60, 40));
+
+        PlusSecondsForDay.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        PlusSecondsForDay.setText("+");
+        PlusSecondsForDay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlusSecondsForDayActionPerformed(evt);
+            }
+        });
+        Days.add(PlusSecondsForDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 60, 40));
+
+        DaysForDelivery.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DaysForDelivery.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DaysForDelivery.setText(String.valueOf(this.dayCounter));
+        Days.add(DaysForDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 60, 30));
+
+        DaysForDeliveryLess.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        DaysForDeliveryLess.setText("-");
+        DaysForDeliveryLess.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DaysForDeliveryLessActionPerformed(evt);
+            }
+        });
+        Days.add(DaysForDeliveryLess, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 60, 40));
+
+        DaysForDeliveryPlus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        DaysForDeliveryPlus.setText("+");
+        DaysForDeliveryPlus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DaysForDeliveryPlusActionPerformed(evt);
+            }
+        });
+        Days.add(DaysForDeliveryPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 60, 40));
+
+        DaysTitle1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        DaysTitle1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        DaysTitle1.setText("Días");
+        Days.add(DaysTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 6, 280, -1));
+
+        ChasisEmployeeQttyTitle4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        ChasisEmployeeQttyTitle4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ChasisEmployeeQttyTitle4.setText("Segundos por día");
+        Days.add(ChasisEmployeeQttyTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 260, 30));
+
+        DaysForDeliveryTitle1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        DaysForDeliveryTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DaysForDeliveryTitle1.setText("Días para la entrega");
+        Days.add(DaysForDeliveryTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 260, 30));
+
+        imageCarDays.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/BugattiBackground.jpg"))); // NOI18N
+        imageCarDays.setText("imageCarDays");
+        Days.add(imageCarDays, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 630, 440));
+
+        TabbedPane.addTab("tab4", Days);
+
         Panel.add(TabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 1030, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -2275,9 +2413,9 @@ public class GUI extends javax.swing.JFrame {
         TabbedPane.setSelectedIndex(0);
     }//GEN-LAST:event_jPanel2MouseClicked
 
-    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-        TabbedPane.setSelectedIndex(2);
-    }//GEN-LAST:event_jPanel7MouseClicked
+    private void DaysMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DaysMenuMouseClicked
+        TabbedPane.setSelectedIndex(3);
+    }//GEN-LAST:event_DaysMenuMouseClicked
 
     private void ChasisEmployeeQttyLess1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChasisEmployeeQttyLess1ActionPerformed
         String originalString = ChasisEmployeeQtty1.getText();
@@ -2584,6 +2722,38 @@ public class GUI extends javax.swing.JFrame {
         this.bugatti.stop();
     }//GEN-LAST:event_StopSim2ActionPerformed
 
+    private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
+        TabbedPane.setSelectedIndex(2);
+    }//GEN-LAST:event_jPanel8MouseClicked
+
+    private void LessSecondsForDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LessSecondsForDayActionPerformed
+        int number = Integer.parseInt(SecondsForDay.getText());
+        if (number > 1) {
+            number--;
+            SecondsForDay.setText(String.valueOf(number));
+        }
+    }//GEN-LAST:event_LessSecondsForDayActionPerformed
+
+    private void PlusSecondsForDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlusSecondsForDayActionPerformed
+        int number = Integer.parseInt(SecondsForDay.getText());
+        number++;
+        SecondsForDay.setText(String.valueOf(number));
+    }//GEN-LAST:event_PlusSecondsForDayActionPerformed
+
+    private void DaysForDeliveryLessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DaysForDeliveryLessActionPerformed
+        int number = Integer.parseInt(DaysForDelivery.getText());
+        if (number > 1) {
+            number--;
+            DaysForDelivery.setText(String.valueOf(number));
+        }
+    }//GEN-LAST:event_DaysForDeliveryLessActionPerformed
+
+    private void DaysForDeliveryPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DaysForDeliveryPlusActionPerformed
+        int number = Integer.parseInt(DaysForDelivery.getText());
+        number++;
+        DaysForDelivery.setText(String.valueOf(number));
+    }//GEN-LAST:event_DaysForDeliveryPlusActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2670,6 +2840,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton ChasisEmployeeQttyPlus2;
     private javax.swing.JLabel ChasisEmployeeQttyTitle1;
     private javax.swing.JLabel ChasisEmployeeQttyTitle2;
+    private javax.swing.JLabel ChasisEmployeeQttyTitle4;
     private javax.swing.JLabel ChasisQtty1;
     private javax.swing.JLabel ChasisQtty2;
     private javax.swing.JLabel ChasisQttyTitle1;
@@ -2679,10 +2850,17 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel CostsMaseratiDashboardTittle;
     private javax.swing.JLabel CostsMaseratiDashboardValue;
     private javax.swing.JPanel Dashboard;
+    private javax.swing.JPanel Days;
+    private javax.swing.JLabel DaysForDelivery;
+    private javax.swing.JButton DaysForDeliveryLess;
+    private javax.swing.JButton DaysForDeliveryPlus;
+    private javax.swing.JLabel DaysForDeliveryTitle1;
     private javax.swing.JLabel DaysLeft1;
     private javax.swing.JLabel DaysLeft2;
     private javax.swing.JLabel DaysLeftTitle1;
     private javax.swing.JLabel DaysLeftTitle2;
+    private javax.swing.JPanel DaysMenu;
+    private javax.swing.JLabel DaysTitle1;
     private javax.swing.JLabel EmployeeQtty1;
     private javax.swing.JLabel EmployeeQtty2;
     private javax.swing.JLabel EmployeeQttyTitle1;
@@ -2697,6 +2875,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel GrossIncomeTittle2;
     private javax.swing.JLabel GrossIncomeValue1;
     private javax.swing.JLabel GrossIncomeValue2;
+    private javax.swing.JButton LessSecondsForDay;
     private javax.swing.JPanel Maserati;
     private javax.swing.JLabel MaseratiTitle;
     private javax.swing.JLabel MaxAccessoriesQtty1;
@@ -2767,8 +2946,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel PlantDirectorTitle2;
     private javax.swing.JLabel PlantTitle1;
     private javax.swing.JLabel PlantTitle2;
+    private javax.swing.JButton PlusSecondsForDay;
     private javax.swing.JButton RunSim1;
     private javax.swing.JButton RunSim2;
+    private javax.swing.JLabel SecondsForDay;
     private javax.swing.JLabel StandardCarsAvailable1;
     private javax.swing.JLabel StandardCarsAvailable2;
     private javax.swing.JLabel StandardCarsAvailableTitle1;
@@ -2799,14 +2980,16 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel WheelsQtty2;
     private javax.swing.JLabel WheelsQttyTitle1;
     private javax.swing.JLabel WheelsQttyTitle2;
+    private javax.swing.JLabel imageCarDays;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     // End of variables declaration//GEN-END:variables
 }
