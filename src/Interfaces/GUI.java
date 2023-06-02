@@ -22,8 +22,11 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import static java.lang.Thread.sleep;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -45,6 +48,7 @@ public class GUI extends javax.swing.JFrame {
     private boolean isGraphRunning;
     private XYSeries series1;
     private XYSeries series2;
+    private boolean firstTimeRunning;
     /**
      * Creates new form GUI
      */
@@ -70,6 +74,7 @@ public class GUI extends javax.swing.JFrame {
         this.maseratiFunctions.start();
         this.bugattiFunctions.start();
         this.isGraphRunning = false;
+        this.firstTimeRunning = true;
         this.Graphic();
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
@@ -99,21 +104,28 @@ public class GUI extends javax.swing.JFrame {
         chartPanel.setPreferredSize(new Dimension(400, 430));
         this.GraphicPanel.setLayout(new BorderLayout());
         this.GraphicPanel.add(chartPanel, BorderLayout.SOUTH);
-        
-        Timer timer = new Timer();
-        double currentTime = System.currentTimeMillis();
-        
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                double x = (System.currentTimeMillis() - currentTime)/1000;
-                double y1 = Double.parseDouble(NetIncomeBugattiDashboardValue.getText().substring(1));
-                double y2 = Double.parseDouble(NetIncomeMaseratiDashboardValue.getText().substring(1));
-                series1.add(x, y1);
-                series2.add(x, y2);
-                repaint();
+    }
+    
+    public void GraphicRunning() {
+        Thread thread = new Thread(() -> {
+            int count = 1;
+            while (this.isGraphRunning) {
+                try {
+                    Thread.sleep(this.dayDuration * 1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            double x = count;
+            double y1 = Double.parseDouble(NetIncomeBugattiDashboardValue.getText().substring(1));
+            double y2 = Double.parseDouble(NetIncomeMaseratiDashboardValue.getText().substring(1));
+            series1.add(x, y1);
+            series2.add(x, y2);
+            repaint();
+            count++;
             }
-        }, 0, (this.dayDuration*1000));
+        });
+
+    thread.start();
     }
     
     public void loadSetDaysJson() {
@@ -2873,12 +2885,18 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.maserati.run();
         this.bugatti.run();
+        this.isGraphRunning = true;
+        if (firstTimeRunning) {
+            this.GraphicRunning();
+            firstTimeRunning = false;
+        }
     }//GEN-LAST:event_RunSimActionPerformed
 
     private void StopSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StopSimActionPerformed
         // TODO add your handling code here:
         this.maserati.stop();
         this.bugatti.stop();
+        this.isGraphRunning = false;
     }//GEN-LAST:event_StopSimActionPerformed
 
     /**
