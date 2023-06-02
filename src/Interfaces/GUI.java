@@ -12,6 +12,8 @@ import Classes.Employee;
 import Classes.EmployeeInformation;
 import Classes.StandardVehicle;
 import Classes.FunctionsGUI;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import org.json.simple.JSONObject;
@@ -20,6 +22,14 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.JPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 /**
  *
  * @author marti
@@ -32,6 +42,9 @@ public class GUI extends javax.swing.JFrame {
     private int dayCounter;
     private FunctionsGUI maseratiFunctions;
     private FunctionsGUI bugattiFunctions;
+    private boolean isGraphRunning;
+    private XYSeries series1;
+    private XYSeries series2;
     /**
      * Creates new form GUI
      */
@@ -56,6 +69,8 @@ public class GUI extends javax.swing.JFrame {
         this.loadSetEmployeesJson();
         this.maseratiFunctions.start();
         this.bugattiFunctions.start();
+        this.isGraphRunning = false;
+        this.Graphic();
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent e) {
@@ -66,7 +81,40 @@ public class GUI extends javax.swing.JFrame {
         });
     }
     
-    
+    public void Graphic() {
+        series1 = new XYSeries("Bugatti");
+        series2 = new XYSeries("Maserati");
+        
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        dataset.addSeries(series1);
+        dataset.addSeries(series2);
+        
+        JFreeChart chart = ChartFactory.createXYLineChart(
+                "Gráfico de Utilidad",
+                "Tiempo (Días)",
+                "Utilidad ($)",
+                dataset);
+        
+        ChartPanel chartPanel = new ChartPanel(chart);
+        chartPanel.setPreferredSize(new Dimension(400, 430));
+        this.GraphicPanel.setLayout(new BorderLayout());
+        this.GraphicPanel.add(chartPanel, BorderLayout.SOUTH);
+        
+        Timer timer = new Timer();
+        double currentTime = System.currentTimeMillis();
+        
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                double x = (System.currentTimeMillis() - currentTime)/1000;
+                double y1 = Double.parseDouble(NetIncomeBugattiDashboardValue.getText().substring(1));
+                double y2 = Double.parseDouble(NetIncomeMaseratiDashboardValue.getText().substring(1));
+                series1.add(x, y1);
+                series2.add(x, y2);
+                repaint();
+            }
+        }, 0, (this.dayDuration*1000));
+    }
     
     public void loadSetDaysJson() {
         JSONParser parser = new JSONParser();
@@ -212,6 +260,18 @@ public class GUI extends javax.swing.JFrame {
         this.getEmployeeQtty2().setText(String.valueOf(employeeQtty2 - totalEmployeesRN2));
         this.getEmployeeQtty1().setText(String.valueOf(employeeQtty1 - totalEmployeesRN));
         
+    }
+
+    public JPanel getGraphicPanel() {
+        return GraphicPanel;
+    }
+
+    public JLabel getNetIncomeBugattiDashboardTittle() {
+        return NetIncomeBugattiDashboardTittle;
+    }
+
+    public JLabel getNetIncomeMaseratiDashboardTittle() {
+        return NetIncomeMaseratiDashboardTittle;
     }
 
     public JLabel getDaysForDelivery() {
@@ -1057,6 +1117,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         TabbedPane = new javax.swing.JTabbedPane();
         Dashboard = new javax.swing.JPanel();
+        GraphicPanel = new javax.swing.JPanel();
         NetIncomeMaseratiDashboardTittle = new javax.swing.JLabel();
         CostsMaseratiDashboardTittle = new javax.swing.JLabel();
         GrossIncomeMaseratiDashboardTittle = new javax.swing.JLabel();
@@ -1384,6 +1445,19 @@ public class GUI extends javax.swing.JFrame {
         Panel.add(MenuBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 110, 540));
 
         Dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout GraphicPanelLayout = new javax.swing.GroupLayout(GraphicPanel);
+        GraphicPanel.setLayout(GraphicPanelLayout);
+        GraphicPanelLayout.setHorizontalGroup(
+            GraphicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 340, Short.MAX_VALUE)
+        );
+        GraphicPanelLayout.setVerticalGroup(
+            GraphicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 430, Short.MAX_VALUE)
+        );
+
+        Dashboard.add(GraphicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 340, 430));
 
         NetIncomeMaseratiDashboardTittle.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         NetIncomeMaseratiDashboardTittle.setText("Ganancias netas");
@@ -2919,6 +2993,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel EmployeeQttyTitle2;
     private javax.swing.JLabel EmployeeTitle1;
     private javax.swing.JLabel EmployeeTitle2;
+    private javax.swing.JPanel GraphicPanel;
     private javax.swing.JLabel GrossIncomeBugattiDashboardTittle;
     private javax.swing.JLabel GrossIncomeBugattiDashboardValue;
     private javax.swing.JLabel GrossIncomeMaseratiDashboardTittle;
