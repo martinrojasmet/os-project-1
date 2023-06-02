@@ -1,1 +1,1 @@
-{"initialEmployeeCount1":{"wheels":1,"motor":2,"chasis":4,"assembler":7,"accessory":1,"bodywork":4},"initialEmployeeCount2":{"wheels":2,"motor":3,"chasis":4,"assembler":2,"accessory":2,"bodywork":4},"simulationDurationInSeconds":1,"vehicleDeliveryIntervalInDays":10}
+{"initialEmployeeCount1":{"wheels":1,"motor":1,"chasis":3,"assembler":4,"accessory":1,"bodywork":2},"initialEmployeeCount2":{"wheels":2,"motor":3,"chasis":2,"assembler":2,"accessory":2,"bodywork":6},"simulationDurationInSeconds":1,"vehicleDeliveryIntervalInDays":6}

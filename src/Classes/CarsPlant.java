@@ -208,7 +208,9 @@ public class CarsPlant {
         for (int i=0; i < this.EmpList.length; i++) {
             if (this.EmpList[i] == null && !added) {
                 this.EmpList[i] = employee;
-                this.EmpList[i].start();
+                if (isRunning) {
+                    this.EmpList[i].start(); 
+                }
                 added = true;
             }
         } 
