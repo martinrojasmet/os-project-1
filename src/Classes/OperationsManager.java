@@ -69,11 +69,11 @@ public class OperationsManager extends Thread {
         long sixteenHours = this.getSixteenHoursInMs();
         long eightHours = (long) (this.plant.getDayDurationInMs() - sixteenHours);
         try {
-            this.plant.getCounterMutex().acquire();
-            sleep(eightHours);
+            this.plant.getCounterMutex().acquire();           
             this.plant.setDaysToDeliver(this.plant.getDaysToDeliver() - 1);
-            this.plant.getCounterMutex().release();
             this.plant.setTotalDays(this.plant.getTotalDays() + 1);
+            sleep(eightHours);
+            this.plant.getCounterMutex().release();
         } catch (InterruptedException ex) {
             Logger.getLogger(OperationsManager.class.getName()).log(Level.SEVERE, null, ex);
         }

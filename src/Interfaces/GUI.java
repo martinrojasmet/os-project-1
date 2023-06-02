@@ -63,8 +63,8 @@ public class GUI extends javax.swing.JFrame {
         StandardVehicle standardMaserati = new StandardVehicle(1, 2, 4, 1, 350000);
         AccessoryVehicle accessoryMaserati = new AccessoryVehicle(1, 2, 4, 1, 3, 700000);
         
-        this.bugatti = new CarsPlant("bugatti", this.dayDuration, 17, this.dayCounter, 3, standardBugatti, accessoryBugatti, this, true);
-        this.maserati = new CarsPlant("maserati", this.dayDuration, 19, this.dayCounter, 5, standardMaserati, accessoryMaserati, this, false);
+        this.bugatti = new CarsPlant("bugatti", this.dayDuration, 17, this.dayCounter, 5, standardBugatti, accessoryBugatti, this, true);
+        this.maserati = new CarsPlant("maserati", this.dayDuration, 19, this.dayCounter, 2, standardMaserati, accessoryMaserati, this, false);
         
         this.maseratiFunctions = new FunctionsGUI(this.maserati, this);
         this.bugattiFunctions = new FunctionsGUI(this.bugatti, this);
@@ -1473,65 +1473,65 @@ public class GUI extends javax.swing.JFrame {
 
         NetIncomeMaseratiDashboardTittle.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         NetIncomeMaseratiDashboardTittle.setText("Ganancias netas");
-        Dashboard.add(NetIncomeMaseratiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 410, -1, -1));
+        Dashboard.add(NetIncomeMaseratiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 410, -1, -1));
 
         CostsMaseratiDashboardTittle.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         CostsMaseratiDashboardTittle.setText("Costos operativos");
-        Dashboard.add(CostsMaseratiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 200, -1, -1));
+        Dashboard.add(CostsMaseratiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, -1, -1));
 
         GrossIncomeMaseratiDashboardTittle.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         GrossIncomeMaseratiDashboardTittle.setText("Ganancias brutas");
-        Dashboard.add(GrossIncomeMaseratiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 300, -1, -1));
+        Dashboard.add(GrossIncomeMaseratiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 300, -1, -1));
 
         CostsBugattiDashboardTittle.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         CostsBugattiDashboardTittle.setText("Costos operativos");
-        Dashboard.add(CostsBugattiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
+        Dashboard.add(CostsBugattiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
 
         GrossIncomeBugattiDashboardTittle.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         GrossIncomeBugattiDashboardTittle.setText("Ganancias brutas");
-        Dashboard.add(GrossIncomeBugattiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, -1, -1));
+        Dashboard.add(GrossIncomeBugattiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
 
         NetIncomeBugattiDashboardTittle.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         NetIncomeBugattiDashboardTittle.setText("Ganancias netas");
-        Dashboard.add(NetIncomeBugattiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, -1, -1));
+        Dashboard.add(NetIncomeBugattiDashboardTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, -1, -1));
 
         NetIncomeBugattiDashboardValue.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         NetIncomeBugattiDashboardValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NetIncomeBugattiDashboardValue.setText("0");
-        Dashboard.add(NetIncomeBugattiDashboardValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, 180, -1));
+        Dashboard.add(NetIncomeBugattiDashboardValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 180, -1));
 
         NetIncomeMaseratiDashboardValue.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         NetIncomeMaseratiDashboardValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NetIncomeMaseratiDashboardValue.setText("0");
-        Dashboard.add(NetIncomeMaseratiDashboardValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 460, 180, -1));
+        Dashboard.add(NetIncomeMaseratiDashboardValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 460, 180, -1));
 
         GrossIncomeBugattiDashboardValue.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         GrossIncomeBugattiDashboardValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         GrossIncomeBugattiDashboardValue.setText("0");
-        Dashboard.add(GrossIncomeBugattiDashboardValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 180, -1));
+        Dashboard.add(GrossIncomeBugattiDashboardValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 180, -1));
 
         CostsBugattiDashboardValue.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CostsBugattiDashboardValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CostsBugattiDashboardValue.setText("0");
-        Dashboard.add(CostsBugattiDashboardValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, -1));
+        Dashboard.add(CostsBugattiDashboardValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 180, -1));
 
         CostsMaseratiDashboardValue.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         CostsMaseratiDashboardValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CostsMaseratiDashboardValue.setText("0");
-        Dashboard.add(CostsMaseratiDashboardValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 220, -1));
+        Dashboard.add(CostsMaseratiDashboardValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 250, 220, -1));
 
         GrossIncomeMaseratiDashboardValue.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         GrossIncomeMaseratiDashboardValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         GrossIncomeMaseratiDashboardValue.setText("0");
-        Dashboard.add(GrossIncomeMaseratiDashboardValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 350, 200, -1));
+        Dashboard.add(GrossIncomeMaseratiDashboardValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 350, 200, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Samer Ghattas");
-        Dashboard.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 140, -1, -1));
+        Dashboard.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 140, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setText("Martin Rojas");
-        Dashboard.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
+        Dashboard.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
 
         RunSim.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         RunSim.setText("Correr simulación");
@@ -1554,12 +1554,12 @@ public class GUI extends javax.swing.JFrame {
         PlantTitle3.setFont(new java.awt.Font("Tahoma", 1, 54)); // NOI18N
         PlantTitle3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PlantTitle3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/MaseratiLogo.png"))); // NOI18N
-        Dashboard.add(PlantTitle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, 210, 100));
+        Dashboard.add(PlantTitle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 210, 100));
 
         PlantTitle4.setFont(new java.awt.Font("Tahoma", 1, 54)); // NOI18N
         PlantTitle4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PlantTitle4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/BugattiLogo.png"))); // NOI18N
-        Dashboard.add(PlantTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 210, 100));
+        Dashboard.add(PlantTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 210, 100));
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/DashboardBackground.png"))); // NOI18N
